@@ -1,7 +1,11 @@
 ﻿//ze strony http://wiki.unity3d.com/index.php?title=Headbobber
-  private var timer = 0.0; 
+
+
+// private var FPSControlScript : FPSControlsRigid; 
+// FPSControlScript = GetComponent("FPSControlsRigid"); 
+ private var timer = 0.0; 
  var bobbingSpeed = 0.18; 
- var bobbingAmount = 0.25; 
+ var bobbingAmount = 0.35; 
  var midpoint = 2.0; 
  
  function Update () { 
@@ -21,7 +25,7 @@
     if (waveslice != 0) { 
        translateChange = waveslice * bobbingAmount; 
        totalAxes = Mathf.Abs(horizontal) + Mathf.Abs(vertical); 
-       totalAxes = Mathf.Clamp (totalAxes, 0.0, 1.0); 
+       totalAxes = Mathf.Clamp (totalAxes, 0.0, 2.0); 
        translateChange = totalAxes * translateChange; 
        transform.localPosition.y = midpoint + translateChange; 
     } 

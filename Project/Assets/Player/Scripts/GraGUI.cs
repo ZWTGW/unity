@@ -4,6 +4,8 @@ using System.Collections;
 
 public class GraGUI : MonoBehaviour {
 
+	private BaseCharacter baseCharScript;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,11 +16,15 @@ public class GraGUI : MonoBehaviour {
 	
 	}
 
+	void Awake() {
+		baseCharScript = GetComponent<BaseCharacter>();
+	}
+
 	void OnGUI() {
 		// te rzeczy trzeba by pozniej pobrac z jakiegos obiektu player czy cos takiego
 		// na razie dla testu stale
-		int hp = 50;
-		int maxHp = 100;
+		int hp = baseCharScript.currHP;
+		int maxHp = baseCharScript.maxHP;
 		int ammo = 15;
 		int maxAmmo = 20;
 
