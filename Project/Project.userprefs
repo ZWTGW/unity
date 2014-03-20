@@ -1,12 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\FPSMouselook.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Player/Scripts/Minimap.cs">
     <Files>
-      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="16" Column="35" />
-      <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="21" Column="1" />
-      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="27" Column="1" />
-      <File FileName="Assets\Player\Scripts\Headbobber.js" Line="28" Column="50" />
-      <File FileName="Assets\Player\Scripts\FPSMouselook.cs" Line="28" Column="36" />
+      <File FileName="Assets/Player/Scripts/Minimap.cs" Line="1" Column="19" />
+      <File FileName="Assets/Player/Scripts/GraGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Player/Scripts/FPSMouselook.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
