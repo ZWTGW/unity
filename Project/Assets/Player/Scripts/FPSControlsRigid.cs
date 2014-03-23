@@ -7,46 +7,48 @@ using System.Collections;
 
 public class FPSControlsRigid : MonoBehaviour {
 
-	private float crchSpeed = 7.0f; //predkosc kucania
-	private float normalSpeed = 14.0f; //predkosc normalnego biegu
-	private float runSpeed = 21.0f; //predkosc sprintu
-	private float gravity = 10.0f; //grawitacja
-	private float maxVelocityChange = 12.0f; //zmiana predkosci
+	private float crchSpeed = 11.0f; //predkosc kucania
+	public float normalSpeed = 20.0f; //predkosc normalnego biegu
+	private float runSpeed = 32.0f; //predkosc sprintu
+	private float gravity = 97.0f; //grawitacja
+	public float maxVelocityChange = 15.0f; //zmiana predkosci
 	public bool canJump = true;
-	private float inAirControl = 0.25f; //poruszanie sie w locie
+	private float inAirControl = 0.3f; //poruszanie sie w locie
 	private float jumpHeight = 4.5f; //wysokosc skoku
 	public float speed; //szybkosc aktualna, moze sie przydac w headbobber
 
 	private bool grounded = false;
 //	private bool crouch;
-	private static float SpeedModifier = 0.1f; //wolniejszy strafe
-	private static float jumpSpeedModifier = 0.8f;	//wolniejsze poruszanie sie w locie
+	private static float forwardSpeedModifier = 0.90f; //wolniejszy ruch przod tyl
+	private static float sidesSpeedModifier = 0.85f; //wolniejszy strafe
+	private static float jumpSpeedModifier = 0.95f;	//mniejsza predkosc po skoku
 
-	public GameObject player; //sluzy do translacji kucania
+	public float xVel; //do odczytywania predkosc - tylko do testow
 
-	private CharacterMotor chMotor;
+	//public GameObject player; //to sie jeszcze moze przydac 
+	
 	private Transform tr;
 	private float dist; // distance to ground
-	//	public bool up = Input.GetKey('w' key);
-
+	private CapsuleCollider capsule; //na razie nie ma uzycia, ale moze sie przydac chocby do kontroli kucania
+	private int slopeLimit = 30;
 
 	void Start ()
 	{
-//		chMotor = GetComponent<CharacterMotor>();
 		tr = transform;
-		player = GameObject.Find("Player");
+		//player = GameObject.Find("Player");
 		dist = 1.0f; // calculate distance to ground
 	}
 
 	void Awake () {
 		rigidbody.freezeRotation = true;
 		rigidbody.useGravity = true;
+		capsule = GetComponent<CapsuleCollider>();
 	}
 	
 	void FixedUpdate () {
 		float vScale = 1.5f;
-//		float speed = normalSpeed;
 		speed = normalSpeed;
+		xVel = rigidbody.velocity.magnitude;
 		if (grounded) {
 			canJump = true;
 			// Calculate how fast we should be moving
@@ -73,8 +75,8 @@ public class FPSControlsRigid : MonoBehaviour {
 			// Apply a force that attempts to reach our target velocity
 			Vector3 velocity = rigidbody.velocity;
 			Vector3 velocityChange = (targetVelocity - velocity);
-			velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-			velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange)*SpeedModifier; //wolniejsze ruszanie sie przy strafe
+			velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange)*sidesSpeedModifier;
+			velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange)*forwardSpeedModifier; //
 			velocityChange.y = 0;
 			rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
 			//
@@ -82,10 +84,10 @@ public class FPSControlsRigid : MonoBehaviour {
 			// Jump
 			if (canJump && Input.GetButton("Jump")) {
 				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
-
+				canJump = false;
 			}
 
-			//kucanie
+			//kucanie - do poprawki, glowa nie moze "kucac", a obecnie kuca. W ogole glowa moze byc do usuniecia, tylko wtedy nalezaloby zrobic osobne hitboxy glowy
 			float ultScale = tr.localScale.y; // crouch/stand up smoothly
 			
 			Vector3 tmpScale = tr.localScale;
@@ -116,16 +118,35 @@ public class FPSControlsRigid : MonoBehaviour {
 		
 
 	}
-	
-	void OnCollisionStay () {
-		grounded = true;    
-	}
 
-/*	function crouch() {
-		this.GetComponent(BoxCollider).size -= Vector3(0,crouchDeltaHeight, 0);
-		this.GetComponent(BoxCollider).center -= Vector3(0,crouchDeltaHeight/2, 0);
-		crouching = true;
-	}	*/
+
+	void TrackGrounded(Collision col)
+	{
+		float minimumHeight = 15f;
+		//ContactPoint c;
+		foreach (ContactPoint c in col.contacts)
+		{
+			if (c.point.y < minimumHeight)
+			{
+				float slopeAngle = (-c.normal.y + 1.0f) * 100.0f;
+				if (slopeAngle < slopeLimit)
+				{
+					// grounded is used in the FixedUpdate callback
+					grounded = true;
+				}
+			}
+		}
+	}
+	
+	void OnCollisionStay(Collision col)
+	{
+		TrackGrounded(col);
+	}
+	
+	void OnCollisionEnter(Collision col)
+	{
+		TrackGrounded(col);
+	}
 
 	float CalculateJumpVerticalSpeed () {
 		// From the jump height and gravity we deduce the upwards speed 

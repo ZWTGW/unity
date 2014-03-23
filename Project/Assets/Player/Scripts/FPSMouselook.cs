@@ -12,8 +12,8 @@ public class FPSMouselook : MonoBehaviour {
 
 	//os Y
 	public float SensitivityY = 400f;
-	public float MinimumY = -75f;
-	public float MaximumY = 75f;
+	public float MinimumY = -75f; //maksymalne spojrzenie w gore
+	public float MaximumY = 75f; // w dol
 	private float RotationY = 0f; // w danej chwili
 
 	public Quaternion OriginalRotation; // quaternion - uzywane do reprezentowania obrotow
