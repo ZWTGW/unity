@@ -3,7 +3,9 @@ using System.Collections;
 
 public class Dzwieki : MonoBehaviour {
 
-	public AudioClip jumpSound;
+	public AudioSource jumpSound;
+	public AudioSource stepSound;
+
 	void Start () {
 
 	}
@@ -13,9 +15,26 @@ public class Dzwieki : MonoBehaviour {
 			//audio.Play ();
 			playJump();
 		}
+		if ( Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || Input.GetKey("a") ) {
+			playStep();
+		}
+		else{
+			stopStep();
+		}
 	}
 
 	public void playJump(){
-		audio.PlayOneShot(jumpSound);
+		//audio.PlayOneShot(jumpSound);
+		jumpSound.Play ();
+	}
+
+	public void playStep(){
+		//audio.PlayOneShot (stepSound);
+		if(stepSound.isPlaying == false){
+			stepSound.Play();
+		}
+	}
+	public void stopStep(){
+		stepSound.Stop ();
 	}
 }
