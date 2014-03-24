@@ -31,6 +31,7 @@ public class FPSControlsRigid : MonoBehaviour {
 	private float dist; // distance to ground
 	private CapsuleCollider capsule; //na razie nie ma uzycia, ale moze sie przydac chocby do kontroli kucania
 	private int slopeLimit = 30;
+	
 
 	void Start ()
 	{
