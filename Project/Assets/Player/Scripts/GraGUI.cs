@@ -6,6 +6,7 @@ public class GraGUI : MonoBehaviour {
 
 	private BaseCharacter baseCharScript;
 	private bool showInGameMenu = false; // czy pokazac menu?
+	private float sliderValue = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -75,20 +76,28 @@ public class GraGUI : MonoBehaviour {
 	private void InGameMenu() {
 		// wymiary calego menu
 		int w = 500;
-		int h = 300;
+		int h = 370;
 
 		GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
 		GUI.skin.box.fontSize = 40;
 		GUI.skin.label.fontSize = 35;
 		GUI.skin.button.fontSize = 35;
+		GUI.skin.label.alignment = TextAnchor.UpperLeft;
+		GUI.skin.horizontalSlider.stretchHeight = true;
 		GUI.Box(new Rect(0,0,w,h), "MENU");
 		if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "BACK TO GAME")) {
 			showInGameMenu = false;
 		}
-		if (GUI.Button (new Rect (15, 50 + 70, w * 0.95f, 60), "QUIT TO DESKTOP")) {
+		if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "QUIT TO DESKTOP")) {
 			Application.Quit();
 		}
+
+		GUI.Label (new Rect (15, 50 + 90, w * 0.95f, 60), "VOLUME");
+		sliderValue = GUI.HorizontalSlider (new Rect (15, 50 + 90 + 50, w * 0.95f, 60), sliderValue, 0, 1);
 		GUI.EndGroup();
+
+		AudioListener.volume = sliderValue;
+
 	}
 
 	void OnGUI() {
