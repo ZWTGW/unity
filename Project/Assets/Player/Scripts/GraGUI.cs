@@ -7,7 +7,7 @@ public class GraGUI : MonoBehaviour {
 	private BaseCharacter baseCharScript;
 	private bool showInGameMenu = false; // czy pokazac menu?
 	private float sliderValue = 1f;
-	enum MenuStates { MAIN, REDEFINE };
+	enum MenuStates { MAIN, OPTIONS, SOUND, REDEFINE };
 	MenuStates menuState = MenuStates.MAIN;
 
 	// Use this for initialization
@@ -21,7 +21,8 @@ public class GraGUI : MonoBehaviour {
 			// pokazujemy kursorek do menu, albo nie pokazujemy w edytorze unity to chyba
 			// i tak zawsze jest
 			showInGameMenu = !showInGameMenu;
-			Screen.showCursor = showInGameMenu; 
+			Screen.showCursor = showInGameMenu;
+			menuState = MenuStates.MAIN;
 		}
 	}
 
@@ -81,32 +82,66 @@ public class GraGUI : MonoBehaviour {
 		int w = 500;
 		int h = 370;
 
+		// skin
+		GUI.skin.box.fontSize = 40;
+		GUI.skin.label.fontSize = 35;
+		GUI.skin.button.fontSize = 35;
+		GUI.skin.label.alignment = TextAnchor.UpperLeft;
+		GUI.skin.horizontalSlider.stretchHeight = true;
+
+		// wlasciwe rysowanie menu w zaleznosci od stanu
+
+		GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
+
 		switch(menuState) {
+		default:
 		case MenuStates.MAIN:
-			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
-			GUI.skin.box.fontSize = 40;
-			GUI.skin.label.fontSize = 35;
-			GUI.skin.button.fontSize = 35;
-			GUI.skin.label.alignment = TextAnchor.UpperLeft;
-			GUI.skin.horizontalSlider.stretchHeight = true;
 			GUI.Box(new Rect(0,0,w,h), "MENU");
 			if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "BACK TO GAME")) {
 				showInGameMenu = false;
 			}
+
+			if (GUI.Button (new Rect (15, 50 + 60 + 60, w * 0.95f, 60), "OPTIONS")) {
+				menuState = MenuStates.OPTIONS;
+			}
+
 			if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "QUIT TO DESKTOP")) {
 				Application.Quit();
 			}
 
-			GUI.Label (new Rect (15, 50 + 90, w * 0.95f, 60), "VOLUME");
-			sliderValue = GUI.HorizontalSlider (new Rect (15, 50 + 90 + 50, w * 0.95f, 60), sliderValue, 0, 1);
-			GUI.EndGroup();
 
+			break;
+
+		case MenuStates.OPTIONS:
+			GUI.Box(new Rect(0,0,w,h), "OPTIONS");
+			if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "SOUND OPTIONS")) {
+				menuState = MenuStates.SOUND;
+			}
+			
+			if (GUI.Button (new Rect (15, 50 + 60 + 60, w * 0.95f, 60), "KEY BINDINGS")) {
+				menuState = MenuStates.REDEFINE;
+			}
+			
+			if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "BACK")) {
+				menuState = MenuStates.MAIN;
+			}
+			break;
+
+		case MenuStates.SOUND:
+			GUI.Box(new Rect(0,0,w,h), "SOUND");
+			GUI.Label (new Rect (15, 50 + 90, w * 0.95f, 60), "VOLUME");
+			sliderValue = GUI.HorizontalSlider (new Rect (15, 50 + 90 + 50, w * 0.95f, 60), sliderValue, 0, 1);	
 			AudioListener.volume = sliderValue;
+			if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "BACK")) {
+				menuState = MenuStates.OPTIONS;
+			}
 			break;
 
 		case MenuStates.REDEFINE:
 			break;
 		}
+
+		GUI.EndGroup();
 
 	}
 
