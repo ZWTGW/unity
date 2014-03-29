@@ -31,6 +31,8 @@ public class FPSControlsRigid : MonoBehaviour {
 	private float dist; // distance to ground
 	private CapsuleCollider capsule; //na razie nie ma uzycia, ale moze sie przydac chocby do kontroli kucania
 	private int slopeLimit = 30;
+
+	UserSettings us = new UserSettings();
 	
 
 	void Start ()
@@ -53,13 +55,14 @@ public class FPSControlsRigid : MonoBehaviour {
 		if (grounded) {
 			canJump = true;
 			// Calculate how fast we should be moving
-
-			if (Input.GetKey("left shift") && Input.GetKey("w"))
+			if (us.GetKey("run") && us.GetKey("up"))
 			{
 				speed = runSpeed;
 			}
-			
-			if (Input.GetKey("c"))
+
+			//Debug.Log(us.GetKey("crouch"));
+
+			if (us.GetKey("crouch"))
 			{ // press C to crouch
 //				crouch = true;
 				canJump = false;
@@ -83,7 +86,8 @@ public class FPSControlsRigid : MonoBehaviour {
 			//
 
 			// Jump
-			if (canJump && Input.GetButton("Jump")) {
+
+			if (canJump && us.GetKey("jump")) {
 				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
 				canJump = false;
 			}

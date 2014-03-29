@@ -5,6 +5,11 @@ using System.Collections;
 public class GraGUI : MonoBehaviour {
 
 	private BaseCharacter baseCharScript;
+
+	// tu ok bo instancja nowa moze byc
+	// ale czy na pewno za kazdym razem chcemy nowa instancje obiektu basecharacter? nie sądzę
+	private UserSettings userSettings;
+
 	private bool showInGameMenu = false; // czy pokazac menu?
 	private float sliderValue = 1f;
 	enum MenuStates { MAIN, OPTIONS, SOUND, REDEFINE };
@@ -138,6 +143,11 @@ public class GraGUI : MonoBehaviour {
 			break;
 
 		case MenuStates.REDEFINE:
+			GUI.Box(new Rect(0,0,w,h), "KEY BINDINGS");
+			//ArrayList keyBindings = new ArrayList();
+			//keyBindings.Add( new { desc = "Left",  } );
+			//Debug.Log(keyBindings[0]);
+
 			break;
 		}
 
