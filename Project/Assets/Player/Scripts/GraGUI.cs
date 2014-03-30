@@ -8,12 +8,13 @@ public class GraGUI : MonoBehaviour {
 
 	// tu ok bo instancja nowa moze byc
 	// ale czy na pewno za kazdym razem chcemy nowa instancje obiektu basecharacter? nie sądzę
-	private UserSettings userSettings;
+	private UserSettings us = new UserSettings();
 
 	private bool showInGameMenu = false; // czy pokazac menu?
 	private float sliderValue = 1f;
 	enum MenuStates { MAIN, OPTIONS, SOUND, REDEFINE };
 	MenuStates menuState = MenuStates.MAIN;
+	string keyChanging = "";
 
 	// Use this for initialization
 	void Start () {
@@ -143,10 +144,67 @@ public class GraGUI : MonoBehaviour {
 			break;
 
 		case MenuStates.REDEFINE:
+			GUI.skin.label.fontSize = 20;
+			GUI.skin.button.fontSize = 20;
+
 			GUI.Box(new Rect(0,0,w,h), "KEY BINDINGS");
-			//ArrayList keyBindings = new ArrayList();
-			//keyBindings.Add( new { desc = "Left",  } );
-			//Debug.Log(keyBindings[0]);
+
+			int i = 0; // offset przy rysowaniu
+			foreach(string name in us.keys.Keys) {
+				//Debug.Log(name + " " + us.keys[name]);
+				GUI.Label(new Rect(15, 50 + i, w * 0.95f, 30), name);
+				GUI.Label(new Rect(100, 50 + i, w * 0.95f, 30), us.keys[name].ToString());
+
+				if(name == keyChanging) { // zmieniamy klawisz ktory aktualnie wyswietlamy
+					if(GUI.Button(new Rect (200, 50 + i, 280, 30), "PRESS KEY")) {
+						keyChanging = "";
+					}
+				}
+				else { // nie zmieniamy
+					if(GUI.Button(new Rect (200, 50 + i, 280, 30), "CHANGE")) {
+						keyChanging = name;
+					}
+				}
+				i += 32;
+			}
+
+			GUI.skin.button.fontSize = 35;
+
+			if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "BACK")) {
+				menuState = MenuStates.OPTIONS;
+			}
+
+			// tutaj czekamy na jakis klawisz
+			if(keyChanging != "") { // cos zmieniamy
+				Event e = Event.current;
+				KeyCode kc = KeyCode.None;
+				// to ponizej nie wykryje shifta bo
+				// prawdziwy bug w kochanym Unity 
+				// http://forum.unity3d.com/threads/30343-current-event-not-detecting-shift-key
+				if(e.isKey && e.keyCode != KeyCode.None) {
+					Debug.Log("nacisneto klawisz: " + e.keyCode);
+					kc = e.keyCode;
+				}
+
+				// wiec workaround z tego threada ponizej
+
+				if(e.shift) {
+					if (Input.GetKey(KeyCode.LeftShift)) {
+						Debug.Log("lewy szift");
+						kc = KeyCode.LeftShift;
+					}
+					else if (Input.GetKey(KeyCode.RightShift)){
+						Debug.Log("prawy szift");
+						kc = KeyCode.RightShift;
+					}
+				}
+
+				// jak mamy klawisz to dokonujemy zamiany
+				if(kc != KeyCode.None) {
+					us.ChangeKey(keyChanging, kc);
+					keyChanging = "";
+				}
+			}
 
 			break;
 		}

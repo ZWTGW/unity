@@ -2,10 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class UserSettings  : MonoBehaviour {
-	//public ArrayList keys = new ArrayList();
-	//private Dictonary<string, KeyCode> keys = new Dictonary<string, KeyCode>();
-	private Hashtable keys = new Hashtable();
+public class UserSettings  { //: MonoBehaviour {
+
+	public Hashtable keys = new Hashtable();
 
 
 	public UserSettings() {
@@ -25,6 +24,10 @@ public class UserSettings  : MonoBehaviour {
 
 	public bool GetKey(string name) {
 		return Input.GetKey ((KeyCode)keys [name]);
+	}
+
+	public void ChangeKey(string name, KeyCode toWhat) {
+		keys[name] = toWhat;
 	}
 
 	void Start () {
