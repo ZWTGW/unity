@@ -32,23 +32,30 @@ public class FPSControlsRigid : MonoBehaviour {
 	private CapsuleCollider capsule; //na razie nie ma uzycia, ale moze sie przydac chocby do kontroli kucania
 	private int slopeLimit = 30;
 
-	UserSettings us = new UserSettings();
+	UserSettings us;
 	
 
 	void Start ()
 	{
+
+
 		tr = transform;
 		//player = GameObject.Find("Player");
 		dist = 1.0f; // calculate distance to ground
 	}
 
 	void Awake () {
+
+
 		rigidbody.freezeRotation = true;
 		rigidbody.useGravity = true;
 		capsule = GetComponent<CapsuleCollider>();
 	}
 	
 	void FixedUpdate () {
+		GraGUI gg = GameObject.Find ("Player").GetComponent<GraGUI> ();
+		us = gg.us;
+
 		float vScale = 1.5f;
 		speed = normalSpeed;
 		xVel = rigidbody.velocity.magnitude;

@@ -8,7 +8,7 @@ public class GraGUI : MonoBehaviour {
 
 	// tu ok bo instancja nowa moze byc
 	// ale czy na pewno za kazdym razem chcemy nowa instancje obiektu basecharacter? nie sądzę
-	private UserSettings us = new UserSettings();
+	public UserSettings us = new UserSettings();
 
 	private bool showInGameMenu = false; // czy pokazac menu?
 	private float sliderValue = 1f;
@@ -217,5 +217,8 @@ public class GraGUI : MonoBehaviour {
 		HUD();
 		if (showInGameMenu) InGameMenu ();
 	}
-	
+
+	public void Test() {
+		Debug.Log ("Jestem testem!!!!!!!!");
+	}
 }
