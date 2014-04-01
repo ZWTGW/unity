@@ -2,9 +2,11 @@
 using System.Collections;
 
 
-public class GraGUI : MonoBehaviour {
+public class GraGUI : MonoBehaviour{
 
 	private BaseCharacter baseCharScript;
+	public Shader myShader;
+
 
 	// tu ok bo instancja nowa moze byc
 	// ale czy na pewno za kazdym razem chcemy nowa instancje obiektu basecharacter? nie sądzę
@@ -18,7 +20,6 @@ public class GraGUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	}
 	
 	// Update is called once per frame
@@ -30,6 +31,7 @@ public class GraGUI : MonoBehaviour {
 			Screen.showCursor = showInGameMenu;
 			menuState = MenuStates.MAIN;
 		}
+
 	}
 
 	void Awake() {
@@ -37,6 +39,7 @@ public class GraGUI : MonoBehaviour {
 	}
 
 	private void HUD() {
+		//camera.RenderWithShader(
 		// te rzeczy trzeba by pozniej pobrac z jakiegos obiektu player czy cos takiego
 		// na razie dla testu stale
 		int hp = baseCharScript.currHP;
