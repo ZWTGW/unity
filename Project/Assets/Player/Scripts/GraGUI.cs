@@ -20,6 +20,7 @@ public class GraGUI : MonoBehaviour{
 
 	// Use this for initialization
 	void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -35,6 +36,7 @@ public class GraGUI : MonoBehaviour{
 	}
 
 	void Awake() {
+		us.Load ();
 		baseCharScript = GetComponent<BaseCharacter>();
 	}
 
@@ -153,7 +155,10 @@ public class GraGUI : MonoBehaviour{
 			GUI.Box(new Rect(0,0,w,h), "KEY BINDINGS");
 
 			int i = 0; // offset przy rysowaniu
-			foreach(string name in us.keys.Keys) {
+
+			ArrayList sortedKeys = new ArrayList();
+
+			foreach(string name in us.sortedKeys) { // kiedys bylo us.keys.Keys ale hashtable nie są po kolei, a pasowaloby zeby klawisze do sterowania byly na poczatku
 				//Debug.Log(name + " " + us.keys[name]);
 				GUI.Label(new Rect(15, 50 + i, w * 0.95f, 30), name);
 				GUI.Label(new Rect(100, 50 + i, w * 0.95f, 30), us.keys[name].ToString());
@@ -206,6 +211,7 @@ public class GraGUI : MonoBehaviour{
 				if(kc != KeyCode.None) {
 					us.ChangeKey(keyChanging, kc);
 					keyChanging = "";
+					us.Save();
 				}
 			}
 
