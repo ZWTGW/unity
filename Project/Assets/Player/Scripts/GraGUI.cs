@@ -5,7 +5,7 @@ using System.Collections;
 public class GraGUI : MonoBehaviour{
 
 	private BaseCharacter baseCharScript;
-	public Shader myShader;
+
 
 
 	// tu ok bo instancja nowa moze byc
@@ -85,6 +85,13 @@ public class GraGUI : MonoBehaviour{
 		GUI.BeginGroup( new Rect( position.x, position.y, orb2.width * textureCrop.width, orb2.height * textureCrop.height ) );
 		GUI.DrawTexture( new Rect( -orb2.width * textureCrop.x, -orb2.height * textureCrop.y, orb2.width, orb2.height ), orb2 );
 		GUI.EndGroup();
+
+		// sprawdzamy czy szarosc
+		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();
+		// na razie wlaczamy szarosc jak jest mniej niz 85 hp, dlatego
+		// ze jak sie spadnie z tego klocka co maciek dal to tak jest ;)
+		if (hp >= 85) mg.enabled = false; 
+		else mg.enabled = true;
 	}
 
 	private void InGameMenu() {
