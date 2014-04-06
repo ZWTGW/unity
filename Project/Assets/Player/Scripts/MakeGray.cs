@@ -5,6 +5,8 @@ public class MakeGray : MonoBehaviour {
 	public Shader myShader;
 	// Use this for initialization
 
+	private float power = 0.84f;
+
 	void Start () {
 	}
 	
@@ -12,7 +14,12 @@ public class MakeGray : MonoBehaviour {
 	void Update () {
 	}
 
+	public void SetPower(float power) {
+		this.power = power;
+	}
+
 	void OnGUI() {
+		Shader.SetGlobalFloat ("PowerOfGray", power);
 		if(enabled) camera.RenderWithShader (myShader, "");
 	}
 
