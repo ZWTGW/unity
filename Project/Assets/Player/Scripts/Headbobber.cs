@@ -10,6 +10,7 @@ public class Headbobber: MonoBehaviour
 	public float bobbingSpeed = 0.22f; //zamiast tego mozna korzystac z parametru, ktorym jest aktualna predkosc
 	public float bobbingAmount = 0.4f; 
 	public float midpoint = 2.0f;
+	public float lean = 0f;
 	//private float param;
 
 
@@ -48,8 +49,9 @@ public class Headbobber: MonoBehaviour
 		}
 		else {
 			cSharpConversion.y = midpoint;
+
 		}
-		
+		cSharpConversion.x = lean;
 		transform.localPosition = cSharpConversion;
 	}
 	

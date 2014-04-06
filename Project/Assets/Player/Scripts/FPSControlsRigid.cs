@@ -28,10 +28,15 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private static float jumpSpeedModifier = 0.95f;	//mniejsza predkosc po skoku
 	
 	public float xVel; //do odczytywania predkosc - tylko do testow
-	public float yVel;
+	public float yVel; //jw
 	public float falldmg; //obrazenia od upadku
-	
-	
+	public float alpha;
+	public bool blood = false;
+	public GUIStyle BloodSplat;
+//	public Texture2D textureToDisplay;
+	public Camera Transform;
+	GameObject Player;
+
 	private Transform tr;
 	private float dist; // distance to ground
 	private int slopeLimit = 30; //na jakie pochylosci mozna wchodzic
@@ -41,7 +46,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	{
 		tr = transform;
 		dist = 1.0f; // calculate distance to ground
-		
+		alpha = 0f;
 	}
 	
 	void Awake () {
@@ -49,7 +54,16 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		rigidbody.useGravity = true;
 		
 	}
-	
+	void OnGUI(){
+	GUI.color = new Color() { a = alpha };
+//	GUI.Label(new Rect(10, 40, textureToDisplay.width, textureToDisplay.height), textureToDisplay);
+//	GUI.Label(new Rect(0, 0, Screen.width, Screen.width), textureToDisplay);
+		GUI.contentColor = Color.red;
+	GUI.Label(new Rect(0,0, Screen.width, Screen.height), "", BloodSplat);
+
+
+
+	}
 	void FixedUpdate () {
 		GraGUI gg = GameObject.Find ("Player").GetComponent<GraGUI> ();
 		
@@ -95,7 +109,19 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				if (restTime<100) restTime+=1;
 			}
 			//
-			
+			//WYCHYLANIE SIE (do poprawki)
+			if(Input.GetKeyDown("q")) {
+				cbob.lean=-3;
+
+			}
+			if(Input.GetKeyDown("e")) {
+				cbob.lean=3;
+				
+			}
+			if(Input.GetKeyDown("b")) {
+				cbob.lean=0;
+				
+			}
 			//SPRINT
 			if (us.GetKey("run") && us.GetKey("up") && canSprint == true)
 				
@@ -158,10 +184,24 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				vScale = 0.8f;
 			//	float asd = cbob.midpoint;
 				getDmg((int)falldmg);
+				//GUI.color.a=1f; //
+				alpha=0.5f;
+				blood=true;
+				cbob.midpoint=1.1f;
+
 			//	Debug.Log(asd);
 			//	cbob.midpoint=1; ruch kamery przy upadku
 				falldmg=0;
 				
+			}
+
+			//usuwanie krwi z ekranu
+			if (blood == true && alpha >0){
+				alpha -= Time.deltaTime/4;
+				if (cbob.midpoint <2.0f){cbob.midpoint += Time.deltaTime*1.5f;}
+				if (cbob.midpoint >2.0f) {cbob.midpoint = 2.0f;}
+				if (alpha <=0){ blood = false;}
+
 			}
 			//
 			
