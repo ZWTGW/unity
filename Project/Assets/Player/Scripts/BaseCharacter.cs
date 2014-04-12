@@ -9,6 +9,7 @@ public class BaseCharacter : MonoBehaviour {
 	public int maxHP=100;
 	public int currHP=100;
 	public float stamina=100;
+	public float maxStamina=100;
 
 	void Start () {
 	

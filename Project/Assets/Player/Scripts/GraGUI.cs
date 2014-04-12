@@ -48,6 +48,8 @@ public class GraGUI : MonoBehaviour{
 		int maxHp = baseCharScript.maxHP;
 		int ammo = 15;
 		int maxAmmo = 20;
+		int stamina = (int)baseCharScript.stamina;
+		int maxStamina = (int)baseCharScript.maxStamina;
 		
 		// ustawiamy skórkę gui
 		GUI.skin.label.normal.textColor = new Color (255, 255, 255);
@@ -69,23 +71,39 @@ public class GraGUI : MonoBehaviour{
 		Rect srodek = new Rect ((Screen.width - celownik.width) / 2, (Screen.height - celownik.height) / 2, 32, 32);
 		
 		GUI.DrawTexture (srodek, celownik);
+
+		Texture2D orb2 = (Texture2D)Resources.Load ("hud_live_0");
+		Texture2D orb1 = (Texture2D)Resources.Load ("hud_live_1");
+
+		float resizedW = orb1.width / 5;
+		float resizedH = orb2.height / 5;
+
+		Rect pozycjaOrba = new Rect (5, Screen.height - 250, resizedW, resizedH);
+		// rysujemy caly orb pusty
+		GUI.DrawTexture (pozycjaOrba, orb2);
+		// rysujemy zajety fragment
+		drawFragment (orb1, (float)hp / (float)maxHp, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+
+
+		orb2 = (Texture2D)Resources.Load ("hud_stamina_0");
+		orb1 = (Texture2D)Resources.Load ("hud_stamina_1");
 		
-		// taki orb z hp ala diablo czy coś (tylko gorszy)
-		Texture2D orb1 = (Texture2D)Resources.Load ("hpOrb1");
-		Texture2D orb2 = (Texture2D)Resources.Load ("hpOrb2");
-		Rect pozycjaOrba = new Rect (5, Screen.height - 180, orb1.width, orb1.height);
-		// rysujemy caly orb zajety
-		GUI.DrawTexture (pozycjaOrba, orb1);
+		pozycjaOrba = new Rect (5, Screen.height - 200, resizedW, resizedH);
+		// rysujemy caly orb pusty
+		GUI.DrawTexture (pozycjaOrba, orb2);
+		// rysujemy zajety fragment
+		drawFragment (orb1, (float)stamina / (float)maxStamina, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+
+		orb2 = (Texture2D)Resources.Load ("hud_ammo_2");
+		orb1 = (Texture2D)Resources.Load ("hud_ammo_1");
 		
-		// do rysowania fragmentu textury
-		// trick z http://answers.unity3d.com/questions/160560/select-part-of-the-texture-in-guidrawtexture.html
-		Rect textureCrop = new Rect( 0.0f, 0.0f, 1f, 1f - (float)hp / (float)maxHp );
-		Vector2 position = new Vector2( pozycjaOrba.x, pozycjaOrba.y );
-		
-		// fragment orba wypelnionego czy cos
-		GUI.BeginGroup( new Rect( position.x, position.y, orb2.width * textureCrop.width, orb2.height * textureCrop.height ) );
-		GUI.DrawTexture( new Rect( -orb2.width * textureCrop.x, -orb2.height * textureCrop.y, orb2.width, orb2.height ), orb2 );
-		GUI.EndGroup();
+		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 250, resizedW, resizedH);
+		// rysujemy caly orb pusty
+		GUI.DrawTexture (pozycjaOrba, orb2);
+		// rysujemy zajety fragment
+		drawFragment (orb1, (float)ammo / (float)maxAmmo, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+
+
 
 		// sprawdzamy czy szarosc
 		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();
@@ -94,6 +112,23 @@ public class GraGUI : MonoBehaviour{
 		if (hp >= 25) mg.enabled = false; 
 		else mg.enabled = true;
 	}
+
+	private void drawFragment(Texture2D texturka, float w, float h, float maxW, float maxH, float pozX, float pozY) {
+		// skrot do ponizszego od lewej gornej krawedzi
+		drawFragment(texturka, 0.0f, 0.0f, w, h, maxW, maxH, pozX, pozY);
+	}
+
+	private void drawFragment(Texture2D texturka, float x, float y, float w, float h, float maxW, float maxH, float pozX, float pozY) {
+		// do rysowania fragmentu textury
+		// trick z http://answers.unity3d.com/questions/160560/select-part-of-the-texture-in-guidrawtexture.html
+		Vector2 position = new Vector2( pozX, pozY );
+		Rect textureCrop = new Rect( x, y, w, h );
+
+		GUI.BeginGroup( new Rect( position.x, position.y, maxW * textureCrop.width, maxH * textureCrop.height ) );
+		GUI.DrawTexture( new Rect( -maxW * textureCrop.x, -maxH * textureCrop.y, maxW, maxH ), texturka );
+		GUI.EndGroup();
+	}
+
 
 	private void InGameMenu() {
 
