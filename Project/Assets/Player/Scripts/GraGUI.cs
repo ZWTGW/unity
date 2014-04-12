@@ -50,6 +50,7 @@ public class GraGUI : MonoBehaviour{
 		int maxAmmo = 20;
 		
 		// ustawiamy skórkę gui
+		GUI.skin.label.normal.textColor = new Color (255, 255, 255);
 		GUI.skin.label.fontSize = 40;
 		GUI.skin.label.alignment = TextAnchor.UpperLeft;
 		
@@ -90,7 +91,7 @@ public class GraGUI : MonoBehaviour{
 		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();
 		// na razie wlaczamy szarosc jak jest mniej niz 85 hp, dlatego
 		// ze jak sie spadnie z tego klocka co maciek dal to tak jest ;)
-		if (hp >= 85) mg.enabled = false; 
+		if (hp >= 25) mg.enabled = false; 
 		else mg.enabled = true;
 	}
 

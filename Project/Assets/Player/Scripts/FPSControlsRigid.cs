@@ -55,14 +55,9 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		
 	}
 	void OnGUI(){
-	GUI.color = new Color() { a = alpha };
-//	GUI.Label(new Rect(10, 40, textureToDisplay.width, textureToDisplay.height), textureToDisplay);
-//	GUI.Label(new Rect(0, 0, Screen.width, Screen.width), textureToDisplay);
-		GUI.contentColor = Color.red;
-	GUI.Label(new Rect(0,0, Screen.width, Screen.height), "", BloodSplat);
-
-
-
+		GUI.color = new Color (255, 0, 0, alpha);
+		GUI.Label(new Rect(0,0, Screen.width, Screen.height), "", BloodSplat);
+		GUI.color = new Color (255, 255, 255, 0);
 	}
 	void FixedUpdate () {
 		GraGUI gg = GameObject.Find ("Player").GetComponent<GraGUI> ();
