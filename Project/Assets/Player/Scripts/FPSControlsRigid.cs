@@ -35,7 +35,9 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public GUIStyle BloodSplat;
 //	public Texture2D textureToDisplay;
 	public Camera Transform;
-	GameObject Player;
+//	GameObject Player;
+//	GameObject HeadCube;
+
 
 	private Transform tr;
 	private float dist; // distance to ground
@@ -227,11 +229,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	void FixedUpdate () 
 	{
 		GameObject cam = transform.FindChild ("PlayerCam").gameObject;
+		GameObject hcube = transform.FindChild ("HeadCube").gameObject;
+
 
 		if (!networkView.isMine) {
 			cam.SetActive (false);
 		} else {
 			keyboardUpdate();
+			hcube.renderer.enabled = false;
 		}
 	
 
