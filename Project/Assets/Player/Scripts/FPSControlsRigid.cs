@@ -59,11 +59,10 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		GUI.Label(new Rect(0,0, Screen.width, Screen.height), "", BloodSplat);
 		GUI.color = new Color (255, 255, 255, 0);
 	}
-	void FixedUpdate () {
-		GraGUI gg = GameObject.Find ("Player").GetComponent<GraGUI> ();
-		
-		GameObject cam = transform.FindChild("PlayerCam").gameObject;
-		
+
+	void keyboardUpdate()
+	{
+		GraGUI gg = gameObject.GetComponent<GraGUI> ();
 		Headbobber cbob = GameObject.Find("PlayerCam").GetComponent<Headbobber> ();
 		
 		us = gg.us;
@@ -73,7 +72,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		xVel = rigidbody.velocity.magnitude;
 		yVel = rigidbody.velocity.y;
 		if (grounded) {
-
+			
 			//USTAWIENIA STAMINY
 			if (stamina>1 && restTime>=100){
 				speed=normalSpeed;
@@ -107,7 +106,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//WYCHYLANIE SIE (do poprawki)
 			if(Input.GetKeyDown("q")) {
 				cbob.lean=-3;
-
+				
 			}
 			if(Input.GetKeyDown("e")) {
 				cbob.lean=3;
@@ -177,26 +176,26 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				//Debug.Log(falldmg*0.35);
 				falldmg*=-0.35f;
 				vScale = 0.8f;
-			//	float asd = cbob.midpoint;
+				//	float asd = cbob.midpoint;
 				getDmg((int)falldmg);
 				//GUI.color.a=1f; //
 				alpha=0.5f;
 				blood=true;
 				cbob.midpoint=1.1f;
-
-			//	Debug.Log(asd);
-			//	cbob.midpoint=1; ruch kamery przy upadku
+				
+				//	Debug.Log(asd);
+				//	cbob.midpoint=1; ruch kamery przy upadku
 				falldmg=0;
 				
 			}
-
+			
 			//usuwanie krwi z ekranu
 			if (blood == true && alpha >0){
 				alpha -= Time.deltaTime/4;
 				if (cbob.midpoint <2.0f){cbob.midpoint += Time.deltaTime*1.5f;}
 				if (cbob.midpoint >2.0f) {cbob.midpoint = 2.0f;}
 				if (alpha <=0){ blood = false;}
-
+				
 			}
 			//
 			
@@ -223,8 +222,19 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		}		
 		// We apply gravity manually for more tuning control
 		rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
-		
-		
+	}
+
+	void FixedUpdate () 
+	{
+		GameObject cam = transform.FindChild ("PlayerCam").gameObject;
+
+		if (!networkView.isMine) {
+			cam.SetActive (false);
+		} else {
+			keyboardUpdate();
+		}
+	
+
 	}
 	
 	
