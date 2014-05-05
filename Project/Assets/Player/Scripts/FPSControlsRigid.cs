@@ -272,7 +272,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		TrackGrounded(col);
 		
 	}
-	
+
 	float CalculateJumpVerticalSpeed () {
 		// From the jump height and gravity we deduce the upwards speed 
 		// for the character to reach at the apex.
@@ -282,7 +282,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	void transformCam(int doWartosci){
 
 	}
-	void getDmg(int amount){
+	public void getDmg(int amount){
 		currHP-=amount;
 		
 		
