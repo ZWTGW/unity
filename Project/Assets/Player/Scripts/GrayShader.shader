@@ -29,5 +29,5 @@
 		}
 		ENDCG
 	} 
-	FallBack "Diffuse"
+	FallBack "VertexLit"
 }

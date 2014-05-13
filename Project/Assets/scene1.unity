@@ -230,7 +230,7 @@ GameObject:
   - 54: {fileID: 829706459}
   m_Layer: 0
   m_Name: TestCube2
-  m_TagString: Untagged
+  m_TagString: CanBeGray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -258,7 +258,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 197f587cc9b5151488eaa99e21a8dc56, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -315,7 +315,7 @@ GameObject:
   - 54: {fileID: 945582623}
   m_Layer: 0
   m_Name: TestCube3
-  m_TagString: Untagged
+  m_TagString: CanBeGray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -343,7 +343,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 38a8b579733300b4eadf257257a22a08, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -400,7 +400,7 @@ GameObject:
   - 54: {fileID: 1068561637}
   m_Layer: 0
   m_Name: TestCube
-  m_TagString: Untagged
+  m_TagString: CanBeGray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -417,7 +417,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 38a8b579733300b4eadf257257a22a08, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -485,7 +485,7 @@ GameObject:
   - 54: {fileID: 1143042594}
   m_Layer: 0
   m_Name: TestCube4
-  m_TagString: Untagged
+  m_TagString: CanBeGray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -513,7 +513,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 197f587cc9b5151488eaa99e21a8dc56, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -607,7 +607,7 @@ GameObject:
   - 154: {fileID: 1950141102}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Bla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

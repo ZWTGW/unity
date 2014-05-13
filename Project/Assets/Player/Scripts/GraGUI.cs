@@ -109,8 +109,8 @@ public class GraGUI : MonoBehaviour{
 		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();
 		// na razie wlaczamy szarosc jak jest mniej niz 85 hp, dlatego
 		// ze jak sie spadnie z tego klocka co maciek dal to tak jest ;)
-		if (hp >= 25) mg.enabled = false; 
-		else mg.enabled = true;
+		if (hp >= 25) mg.grayEnabled = false; 
+		else mg.grayEnabled = true;
 	}
 
 	private void drawFragment(Texture2D texturka, float w, float h, float maxW, float maxH, float pozX, float pozY) {
