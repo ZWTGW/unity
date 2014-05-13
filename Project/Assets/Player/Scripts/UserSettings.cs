@@ -28,12 +28,18 @@ public class UserSettings  { //: MonoBehaviour {
 		sortedKeys.Add ("run");
 		keys.Add("crouch", KeyCode.C);
 		sortedKeys.Add ("crouch");
+		keys.Add("granade", KeyCode.G);
+		sortedKeys.Add ("granade");
 		
 		//Debug.Log (keys ["w"]);
 	}
 
 	public bool GetKey(string name) {
 		return Input.GetKey ((KeyCode)keys [name]);
+	}
+
+	public bool GetKeyDown(string name) {
+		return Input.GetKeyDown ((KeyCode)keys [name]);
 	}
 
 	public void ChangeKey(string name, KeyCode toWhat) {
