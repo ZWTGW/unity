@@ -74,23 +74,6 @@ public class Weapon : MonoBehaviour {
 			//lastShot += 1;
 		}
 
-
-		if(Input.GetMouseButtonDown(0))
-		{
-			StartShooting();
-		}
-		if(Input.GetMouseButtonUp(0))
-		{
-			StopShooting();
-		}
-
-		if(Input.GetKey("r"))
-		{
-			StartReloading();
-		}
-
-	
-
 		//foreach (State st in state)
 		if(state != null)
 		{

@@ -17,6 +17,18 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(Input.GetMouseButtonDown(0))
+		{
+			weapon.GetComponent<Weapon>().StartShooting();
+		}
+		if(Input.GetMouseButtonUp(0))
+		{
+			weapon.GetComponent<Weapon>().StopShooting();
+		}
+		
+		if(Input.GetKey("r"))
+		{
+			weapon.GetComponent<Weapon>().StartReloading();
+		}
 	}
 }
