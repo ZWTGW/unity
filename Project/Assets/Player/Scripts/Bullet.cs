@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour {
 			//hit.transform.localScale = new Vector3(2, 2, 2);
 			if(hit.transform != null)
 			{
-				if (hit.transform.tag == "BulletObstacle")
+				if (hit.transform.tag == "BulletObstacle")//obiekty do niszczenia
 				{
 					Destroy(hit.transform.gameObject);
 					Destroy(gameObject);

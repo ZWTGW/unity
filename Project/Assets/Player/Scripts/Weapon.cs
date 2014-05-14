@@ -53,6 +53,9 @@ public class Weapon : MonoBehaviour {
 			type = new Gun(this);
 		}
 
+		endPoint.transform.position = transform.position + new Vector3(0, 0, 1);
+
+
 		reloading = false;
 		shooting = false;
 		lastShot = fireRate;
