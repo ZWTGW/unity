@@ -124,6 +124,7 @@ GameObject:
   - 82: {fileID: 8200000}
   - 148: {fileID: 14800000}
   - 114: {fileID: 11400022}
+  - 114: {fileID: 11400024}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -568,6 +569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myShader: {fileID: 4800000, guid: 3a878e06ad94fbc4d8aca86c312ba9be, type: 3}
+  grayEnabled: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -804,6 +806,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 2000000}
   granadePref: {fileID: 100000, guid: d1c1cd89002286649be3b0764a28d0f9, type: 2}
+--- !u!114 &11400024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e5a72764e339145a871864dcd138f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponModel: {fileID: 100002, guid: e179bf1e0aea911488d59f031b0a384f, type: 2}
+  camera: {fileID: 100000}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
