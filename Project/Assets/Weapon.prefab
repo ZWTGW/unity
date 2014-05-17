@@ -105,25 +105,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dfa0f54d2afa6443a5716992360ba0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 30e8d13b204b1bc4e9ac6c2048e003a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   name: 
   range: 500
   strength: 1
-  fireRate: .200000003
+  fireRate: 1
   bulletSpeed: 10000
-  ammoInMag: 0
+  ammoInMag: 20
   maxAmmoInMag: 20
   ammoInShot: 1
-  reloadingTime: 2
-  reloadingAdvance: 0
+  reloadingTime: 1
+  reloadingAdvance: 1
   reloading: 0
   shooting: 0
   lastShot: 0
   rail: 0
   type: {fileID: 0}
-  Bullet: {fileID: 5400000, guid: ada08d63846fa244a8bf6edb84a3912a, type: 2}
+  Bullet: {fileID: 5400000, guid: 06470fad62d37764496496f61dedbd2c, type: 2}
   endPoint: {fileID: 400000}
 --- !u!1001 &100100000
 Prefab:

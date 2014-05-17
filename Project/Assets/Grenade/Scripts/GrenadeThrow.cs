@@ -14,9 +14,9 @@ public class GrenadeThrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GraGUI gg = gameObject.GetComponent<GraGUI> ();
 
-		if(gg.us.GetKeyDown("granade")){
+		}
+	public void Throw (){
 			if( grenadesNumber > 0 )
 			{
 				GameObject granade = Instantiate( granadePref ) as GameObject;
@@ -27,6 +27,6 @@ public class GrenadeThrow : MonoBehaviour {
 			else{
 				Debug.Log( "no granades left!" );
 			}
-		}
+
 	}
 }

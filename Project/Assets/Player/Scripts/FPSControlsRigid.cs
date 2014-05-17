@@ -22,7 +22,6 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public int restTime=100;
 	
 	private bool grounded = false;
-	//	private bool crouch;
 	private static float forwardSpeedModifier = 0.90f; //wolniejszy ruch przod tyl
 	private static float sidesSpeedModifier = 0.85f; //wolniejszy strafe
 	private static float jumpSpeedModifier = 0.95f;	//mniejsza predkosc po skoku
@@ -33,11 +32,6 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public float alpha;
 	public bool blood = false;
 	public GUIStyle BloodSplat;
-//	public Texture2D textureToDisplay;
-	public Camera Transform;
-//	GameObject Player;
-//	GameObject HeadCube;
-
 
 	private Transform tr;
 	private float dist; // distance to ground
@@ -66,7 +60,9 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	{
 		GraGUI gg = gameObject.GetComponent<GraGUI> ();
 		Headbobber cbob = GameObject.Find("PlayerCam").GetComponent<Headbobber> ();
-		
+		GrenadeThrow gt = gameObject.GetComponent<GrenadeThrow> ();
+
+
 		us = gg.us;
 		canJump = true;
 		float vScale = 1.5f;
@@ -206,6 +202,12 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			
 			//
 			grounded = false;
+
+			if (us.GetKeyDown("granade")) //GRANAT
+			{
+				gt.Throw();
+				
+			}
 		}
 		else
 			
@@ -230,13 +232,23 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	{
 		GameObject cam = transform.FindChild ("PlayerCam").gameObject;
 		GameObject hcube = transform.FindChild ("HeadCube").gameObject;
+		//FPSMouselook ml2 = hcube.GetComponent (FPSControlsRigid);
+		FPSMouselook ml = gameObject.GetComponent<FPSMouselook> ();
 
 
 		if (!networkView.isMine) {
 			cam.SetActive (false);
+
+			//ml.RotXY=FPSMouselook.RotationAxis.Off;
+			//ml.SensitivityX=0;
+			//ml.SensitivityY=0;
+			ml.enabled=false;
+
 		} else {
 			keyboardUpdate();
 			hcube.renderer.enabled = false;
+			ml.enabled=true;
+
 		}
 	
 
@@ -245,7 +257,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	
 	void TrackGrounded(Collision col)
 	{
-		float minimumHeight = 15f;
+		float minimumHeight = 150f;
 		//ContactPoint c;
 		foreach (ContactPoint c in col.contacts)
 		{
@@ -278,10 +290,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		// for the character to reach at the apex.
 		return Mathf.Sqrt(2 * jumpHeight * gravity);
 	}
-	
-	void transformCam(int doWartosci){
 
-	}
 	public void getDmg(int amount){
 		currHP-=amount;
 		
