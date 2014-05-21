@@ -5,7 +5,7 @@ using System.Collections;
 public class GraGUI : MonoBehaviour{
 
 	private BaseCharacter baseCharScript;
-
+	public bool isMainMenu; // scena glownego menu, czy nie? jesli nie to ingame menu i hudy etc.
 
 
 	// tu ok bo instancja nowa moze byc
@@ -109,8 +109,12 @@ public class GraGUI : MonoBehaviour{
 		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();
 		// na razie wlaczamy szarosc jak jest mniej niz 85 hp, dlatego
 		// ze jak sie spadnie z tego klocka co maciek dal to tak jest ;)
-		if (hp >= 25) mg.grayEnabled = false; 
-		else mg.grayEnabled = true;
+		if (mg != null) {
+			if (hp >= 25)
+					mg.grayEnabled = false;
+			else
+					mg.grayEnabled = true;
+		}
 	}
 
 	private void drawFragment(Texture2D texturka, float w, float h, float maxW, float maxH, float pozX, float pozY) {
@@ -151,16 +155,33 @@ public class GraGUI : MonoBehaviour{
 		default:
 		case MenuStates.MAIN:
 			GUI.Box(new Rect(0,0,w,h), "MENU");
-			if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "BACK TO GAME")) {
-				showInGameMenu = false;
+
+			if(!isMainMenu) {
+				if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "BACK TO GAME")) {
+					showInGameMenu = false;
+				}
+			}
+			else {
+				if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "NEW GAME")) {
+					// 0 = menu, 1 = nasz level
+					Application.LoadLevel(1);
+				}
 			}
 
 			if (GUI.Button (new Rect (15, 50 + 60 + 60, w * 0.95f, 60), "OPTIONS")) {
 				menuState = MenuStates.OPTIONS;
 			}
 
-			if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "QUIT TO DESKTOP")) {
-				Application.Quit();
+			if(isMainMenu) {
+				if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "QUIT TO DESKTOP")) {
+					Application.Quit();
+					// to nie dziala jak sie odpala w edytorze unity (trzeba wyeksportowac i dopiero)
+				}
+			}
+			else {
+				if (GUI.Button (new Rect (15, h - 70, w * 0.95f, 60), "QUIT TO MAIN MENU")) {
+					Application.LoadLevel(0);
+				}
 			}
 
 
@@ -266,8 +287,15 @@ public class GraGUI : MonoBehaviour{
 	}
 
 	void OnGUI() {
-		HUD();
-		if (showInGameMenu) InGameMenu ();
+		if (isMainMenu) {
+			InGameMenu();
+		}
+
+		else {
+			HUD ();
+			if (showInGameMenu)
+			InGameMenu();
+		}
 	}
 
 	public void Test() {
