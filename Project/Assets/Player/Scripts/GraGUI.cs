@@ -163,6 +163,18 @@ public class GraGUI : MonoBehaviour{
 			}
 			else {
 				if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "NEW GAME")) {
+
+					// ---------- kod pozyczony z networking.cs 
+					if (Network.isServer)
+					{
+						// zdjęcie serwera z listy hostów
+						MasterServer.UnregisterHost();
+						// usunięcie nagromadzonych zbuforowanych wywołań RPC
+						Network.RemoveRPCsInGroup(0);
+					}
+					// rozłączenie
+					Network.Disconnect();
+
 					// 0 = menu, 1 = nasz level
 					Application.LoadLevel(1);
 				}
