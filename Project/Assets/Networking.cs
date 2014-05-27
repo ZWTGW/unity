@@ -96,6 +96,7 @@ public class Networking : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		Application.runInBackground = true;
 		MasterServer.ipAddress = "127.0.0.1";
 		MasterServer.port = 23466;
 	}
