@@ -103,7 +103,17 @@ public class Networking : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (!Network.isClient && !Network.isServer)
+		if(!GraGUI.networkTakenCareOf) {  
+			if(GraGUI.hostToJoin == null) {
+				StartServer();
+			}
+			else {
+				JoinServer(GraGUI.hostToJoin);
+			}
+			GraGUI.networkTakenCareOf = true;
+		}
+
+/*		if (!Network.isClient && !Network.isServer)
 		{
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 				StartServer();
@@ -119,7 +129,7 @@ public class Networking : MonoBehaviour {
 						JoinServer(hostList[i]);
 				}
 			}
-		}
+		}*/
 	}
 	
 	
