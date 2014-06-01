@@ -14,13 +14,24 @@ public class GraGUI : MonoBehaviour{
 
 	private bool showInGameMenu = false; // czy pokazac menu?
 	private float sliderValue = 1f;
-	enum MenuStates { MAIN, OPTIONS, SOUND, REDEFINE };
+	enum MenuStates { MAIN, OPTIONS, SOUND, REDEFINE, NETWORK };
 	MenuStates menuState = MenuStates.MAIN;
 	string keyChanging = "";
 
+	private const string typeName = "UniqueGameName";
+	private const string gameName = "RoomName";
+	
+	private HostData[] hostList = null;
+	public static HostData hostToJoin = null;
+	public static bool networkTakenCareOf = false;
+
+
+
 	// Use this for initialization
 	void Start () {
-
+		Application.runInBackground = true;
+		MasterServer.ipAddress = "127.0.0.1";
+		MasterServer.port = 23466;
 	}
 	
 	// Update is called once per frame
@@ -135,6 +146,9 @@ public class GraGUI : MonoBehaviour{
 	}
 
 
+
+
+
 	private void InGameMenu() {
 
 		// wymiary calego menu
@@ -153,6 +167,43 @@ public class GraGUI : MonoBehaviour{
 		GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
 
 		switch(menuState) {
+		case MenuStates.NETWORK:
+			GUI.Box(new Rect(0,0,w,h), "NEW GAME");
+
+			if (!Network.isClient && !Network.isServer)
+			{
+				networkTakenCareOf = false;
+
+				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
+					hostToJoin = null;
+					Application.LoadLevel(1);
+				}
+					
+				
+				if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts")) {
+					MasterServer.ClearHostList();
+					MasterServer.RequestHostList(typeName);
+				}
+
+				if (MasterServer.PollHostList().Length != 0) {
+					hostList = MasterServer.PollHostList();
+					//MasterServer.ClearHostList();
+				}
+				
+				if (hostList != null)
+				{
+					for (int i = 0; i < hostList.Length; i++)
+					{
+						if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName)) {
+							hostToJoin = hostList[i];
+							Application.LoadLevel(1);
+						}
+						
+					}
+				}
+			}
+			break;
+
 		default:
 		case MenuStates.MAIN:
 			GUI.Box(new Rect(0,0,w,h), "MENU");
@@ -176,8 +227,11 @@ public class GraGUI : MonoBehaviour{
 					// rozłączenie
 					Network.Disconnect();
 
+					menuState = MenuStates.NETWORK;
+
+
 					// 0 = menu, 1 = nasz level
-					Application.LoadLevel(1);
+					//Application.LoadLevel(1);
 				}
 			}
 
