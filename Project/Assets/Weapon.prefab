@@ -111,7 +111,7 @@ MonoBehaviour:
   name: 
   range: 500
   strength: 1
-  fireRate: 1
+  fireRate: .200000003
   bulletSpeed: 10000
   ammoInMag: 20
   maxAmmoInMag: 20
@@ -123,7 +123,7 @@ MonoBehaviour:
   lastShot: 0
   rail: 0
   type: {fileID: 0}
-  Bullet: {fileID: 5400000, guid: 06470fad62d37764496496f61dedbd2c, type: 2}
+  Bullet: {fileID: 5400000, guid: d1c1cd89002286649be3b0764a28d0f9, type: 2}
   endPoint: {fileID: 400000}
 --- !u!1001 &100100000
 Prefab:
