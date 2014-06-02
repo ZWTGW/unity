@@ -288,7 +288,7 @@ public class Gun: Type
 	public override void Fire()
 	{
 		Rigidbody bulletInstance;
-		bulletInstance = Instantiate(Weapon.Bullet, Weapon.endPoint.position, new Quaternion()) as Rigidbody;
+		bulletInstance = Network.Instantiate(Weapon.Bullet, Weapon.endPoint.position, new Quaternion(),0) as Rigidbody;
 
 		bulletInstance.AddForce((Weapon.transform.rotation * new Vector3(0, 0, 1)) * Weapon.bulletSpeed);
 		//bulletInstance.transform.Rotate(Vector3.right, 90);
