@@ -496,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa3880f53c12ff4b97f4ceb86c1ba29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMainMenu: 0
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,8 +549,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4fb7b0dc5044f4e8ddf3ef1cdb9fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponModel: {fileID: 100002, guid: 22e4fcbb5b4e81a41baf3b09e118fd92, type: 2}
+  weaponMax: 0
   camera: {fileID: 100000}
+  weaponsList:
+  - {fileID: 100002, guid: 22e4fcbb5b4e81a41baf3b09e118fd92, type: 2}
+  - {fileID: 100002, guid: d4f70fe62bea9bd42ba47582c36dfc27, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

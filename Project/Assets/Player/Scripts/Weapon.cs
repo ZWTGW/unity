@@ -47,10 +47,14 @@ public class Weapon : MonoBehaviour {
 		//state = new List<State>();
 		if(rail)
 		{
-			type = new Rail(this);
+			type = gameObject.AddComponent<Rail>();
+			type.weapon = this;
+			//type = new Rail(this);
 		}else
 		{
-			type = new Gun(this);
+			type = gameObject.AddComponent<Gun>();
+			type.weapon = this;
+			//type = new Gun(this);
 		}
 
 		endPoint.transform.position = transform.position + new Vector3(0, 0, 1);
@@ -259,7 +263,7 @@ class Shooting:State
 #region
 public abstract class Type: MonoBehaviour
 {
-	private Weapon weapon;
+	public Weapon weapon;
 	public Weapon Weapon
 	{
 		get
