@@ -47,8 +47,6 @@ public class GraGUI : MonoBehaviour{
 	private string[] steampunksPlayerInfo;
 	private string[] futuresPlayerInfo;
 	
-	private long secondsAtGameStart = 0L;
-	
 	public static string serverIp = "";
 	public static string mapName = "";
 	//endof mantkowicz
@@ -64,8 +62,6 @@ public class GraGUI : MonoBehaviour{
 		
 		steampunksPlayerInfo = new string[20];
 		futuresPlayerInfo = new string[20];
-		
-		secondsAtGameStart = (System.DateTime.UtcNow.Ticks - System.DateTime.Parse("01/01/1970 00:00:00").Ticks) / 10000000;
 	}
 	
 	// Update is called once per frame
@@ -131,6 +127,12 @@ public class GraGUI : MonoBehaviour{
 		//camera.RenderWithShader(
 		// te rzeczy trzeba by pozniej pobrac z jakiegos obiektu player czy cos takiego
 		// na razie dla testu stale
+		if( !baseCharScript.startTimeIsSet )
+		{
+			baseCharScript.secondsAtGameStart = (System.DateTime.UtcNow.Ticks - System.DateTime.Parse("01/01/1970 00:00:00").Ticks) / 10000000;
+			baseCharScript.startTimeIsSet = true;
+		}
+
 		int hp = baseCharScript.currHP;
 		int maxHp = baseCharScript.maxHP;
 		int ammo = 15;
@@ -463,7 +465,6 @@ public class GraGUI : MonoBehaviour{
 	{
 		for(int i=0; i<20; i+=4)
 		{
-			steampunksPlayerInfo[i] = "Steamp"+i.ToString();
 			steampunksPlayerInfo[i+1] = "+";
 			steampunksPlayerInfo[i+2] = (i+2).ToString();
 			steampunksPlayerInfo[i+3] = (i+3).ToString();
@@ -555,13 +556,13 @@ public class GraGUI : MonoBehaviour{
 		GUI.skin.label.alignment = TextAnchor.MiddleRight;
 		GUI.Label( new Rect( offset, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 2.0f, (teamStatisticsBoxHeight/10.0f) ), "map:" );
 		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
-		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 2.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 3.0f, (teamStatisticsBoxHeight/10.0f) ), mapName );
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 2.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 2.0f, (teamStatisticsBoxHeight/10.0f) ), mapName );
 		GUI.skin.label.alignment = TextAnchor.MiddleRight;
-		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 5.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 2.0f, (teamStatisticsBoxHeight/10.0f) ), "game time:" );
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 4.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 3.0f, (teamStatisticsBoxHeight/10.0f) ), "game time:" );
 		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
 		
 		long secondsFromGameStart = (System.DateTime.UtcNow.Ticks - System.DateTime.Parse ("01/01/1970 00:00:00").Ticks) / 10000000;
-		secondsFromGameStart -= secondsAtGameStart;
+		secondsFromGameStart -= baseCharScript.secondsAtGameStart;
 		
 		System.TimeSpan t = System.TimeSpan.FromSeconds( secondsFromGameStart );
 		

@@ -10,6 +10,10 @@ public class BaseCharacter : MonoBehaviour {
 	public int currHP=100;
 	public float stamina=100;
 	public float maxStamina=100;
+	public string playerName = "just me";
+
+	public long secondsAtGameStart = 0L;
+	public bool startTimeIsSet = false;
 
 	void Start () {
 	

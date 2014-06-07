@@ -418,6 +418,8 @@ MonoBehaviour:
   currHP: 100
   stamina: 100
   maxStamina: 100
+  playerName: just me
+  startTimeIsSet: 0
   speed: 0
   canSprint: 1
   restTime: 100
@@ -503,7 +505,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f53b311a9244b994095a5af5e91b4e59, type: 3}
   m_Name: 
@@ -512,6 +514,8 @@ MonoBehaviour:
   currHP: 100
   stamina: 100
   maxStamina: 100
+  playerName: just me
+  startTimeIsSet: 0
 --- !u!114 &11400020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,6 +560,7 @@ MonoBehaviour:
   - {fileID: 100002, guid: d4f70fe62bea9bd42ba47582c36dfc27, type: 2}
   - {fileID: 0}
   - {fileID: 0}
+  weapons: []
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
