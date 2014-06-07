@@ -32,6 +32,10 @@ public class Shooter : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 		{
 			weapon.GetComponent<Weapon>().StartShooting();
+
+			//byle co zeby tylko narastala ilosc kills - absolutnie do wywalenia
+			BaseCharacter baseCharScript = GetComponent<BaseCharacter>();
+			baseCharScript.kills++;
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
@@ -77,7 +81,7 @@ public class Shooter : MonoBehaviour {
 
 	void ChangeWeapon(int n)
 	{
-		if (weaponsList[n] == null || actualWeapon == n)
+		if (n >= weaponsList.Length || weaponsList[n] == null || actualWeapon == n)
 		{
 			return;
 		}
@@ -85,7 +89,7 @@ public class Shooter : MonoBehaviour {
 		{
 			weapon.renderer.enabled = false;
 		}
-		if (weapons[n] == null)
+		if (n >= weapons.Length || weapons[n] == null)
 		{
 			weapon = Instantiate(weaponsList[n]) as GameObject;
 			weapon.transform.position = this.transform.position + new Vector3(0, 0, 2);

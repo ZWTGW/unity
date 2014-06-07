@@ -10,6 +10,11 @@ public class BaseCharacter : MonoBehaviour {
 	public int currHP=100;
 	public float stamina=100;
 	public float maxStamina=100;
+	public int kills = 0;
+
+	public int deaths = 0;
+	private bool respawned = true;
+
 	public string playerName = "just me";
 
 	public long secondsAtGameStart = 0L;
@@ -21,6 +26,12 @@ public class BaseCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(currHP <= 0 && respawned )
+		{
+			deaths++;
+			respawned = false;
+		}
 	
 	}
 }

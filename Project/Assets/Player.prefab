@@ -18,7 +18,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: PlayerCam
-  m_TagString: Player
+  m_TagString: PlayerCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +38,7 @@ GameObject:
   - 114: {fileID: 11400010}
   m_Layer: 10
   m_Name: HeadCube
-  m_TagString: Player
+  m_TagString: HeadCube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,8 @@ MonoBehaviour:
   currHP: 100
   stamina: 100
   maxStamina: 100
+  kills: 0
+  deaths: 0
   playerName: just me
   startTimeIsSet: 0
   speed: 0
@@ -514,6 +516,8 @@ MonoBehaviour:
   currHP: 100
   stamina: 100
   maxStamina: 100
+  kills: 0
+  deaths: 0
   playerName: just me
   startTimeIsSet: 0
 --- !u!114 &11400020

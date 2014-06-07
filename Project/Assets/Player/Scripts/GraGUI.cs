@@ -471,22 +471,57 @@ public class GraGUI : MonoBehaviour{
 	
 	private void loadSteampunksPlayerInfo()
 	{
+		GameObject[] objects = GameObject.FindGameObjectsWithTag ("Player");
+		int cur = 0;
+		
 		for(int i=0; i<20; i+=4)
 		{
-			steampunksPlayerInfo[i+1] = "+";
-			steampunksPlayerInfo[i+2] = (i+2).ToString();
-			steampunksPlayerInfo[i+3] = (i+3).ToString();
+			if(cur < objects.Length)
+			{
+				BaseCharacter script = objects[cur].GetComponent<BaseCharacter>();
+				
+				steampunksPlayerInfo[i] = script.playerName;
+				
+				if(script.currHP <= 0)
+				{
+					steampunksPlayerInfo[i+1] = "+";
+				}
+				else {}
+				
+				steampunksPlayerInfo[i+2] = script.kills.ToString();
+				steampunksPlayerInfo[i+3] = script.deaths.ToString();
+				
+				cur++;
+			}
+			else {}
 		}
 	}
 	
 	private void loadFuturesPlayerInfo()
 	{
+		GameObject[] objects = GameObject.FindGameObjectsWithTag ("Player2");
+		int cur = 0;
+
 		for(int i=0; i<20; i+=4)
 		{
-			futuresPlayerInfo[i] = "Fut"+i.ToString();
-			futuresPlayerInfo[i+1] = "+";
-			futuresPlayerInfo[i+2] = (i+5).ToString();
-			futuresPlayerInfo[i+3] = (i+7).ToString();
+			if(cur < objects.Length)
+			{
+				BaseCharacter script = objects[cur].GetComponent<BaseCharacter>();
+
+				futuresPlayerInfo[i] = script.playerName;
+
+				if(script.currHP <= 0)
+				{
+					futuresPlayerInfo[i+1] = "+";
+				}
+				else {}
+
+				futuresPlayerInfo[i+2] = script.kills.ToString();
+				futuresPlayerInfo[i+3] = script.deaths.ToString();
+
+				cur++;
+			}
+			else {}
 		}
 	}
 	
@@ -500,8 +535,8 @@ public class GraGUI : MonoBehaviour{
 		float yOffset = 15.0f;
 		
 		//DRAWING TABLE TEMPLATE
-		GUI.Label( new Rect( offset, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "TEAM1" );
-		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "TEAM2" );
+		GUI.Label( new Rect( offset, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "STEAMPUNKS" );
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "FUTURES" );
 		
 		yOffset += (teamStatisticsBoxHeight / 10.0f) + 5.0f;
 		
@@ -515,7 +550,7 @@ public class GraGUI : MonoBehaviour{
 		GUI.skin.label.padding.left = 0;
 		
 		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 2.5f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 0.75f, (teamStatisticsBoxHeight/10.0f) ), skullTexture );
-		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 3.25f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 0.75f, (teamStatisticsBoxHeight/10.0f) ), "f" );
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 3.25f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 0.75f, (teamStatisticsBoxHeight/10.0f) ), "k" );
 		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 4.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 0.75f, (teamStatisticsBoxHeight/10.0f) ), "d" );
 		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 4.75f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 0.5f, (teamStatisticsBoxHeight/10.0f) ), "|" );
 		
@@ -605,11 +640,37 @@ public class GraGUI : MonoBehaviour{
 			drawTeamStatisticsBox(teamStatisticsOffset);
 		}
 	}
+
+	private int calculateRankPosition()
+	{
+		return 1;
+	}
 	
 	private void drawPersonalStatisticsBox(float offset)
 	{
-		GUI.skin.label.fontSize = (int) (Screen.height * 0.03f);
+		GUI.skin.label.fontSize = (int) (Screen.height * 0.06f);
+		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+		GUI.skin.label.padding.left = 10;
 		GUI.Box ( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset, personalStatisticsBoxWidth, personalStatisticsBoxHeight ), "" );
+
+		float yOffset = 5.0f;
+		
+		//DRAWING TABLE TEMPLATE
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 3.0f, (personalStatisticsBoxHeight/10.0f) * 4.0f ), baseCharScript.playerName );
+
+		GUI.skin.label.fontSize = (int) (Screen.height * 0.03f);
+		GUI.skin.label.alignment = TextAnchor.MiddleRight;
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f), (personalStatisticsBoxHeight/10.0f) * 3.0f ), "rank: " );
+		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f), (personalStatisticsBoxHeight/10.0f) * 3.0f ), calculateRankPosition().ToString() );
+
+		yOffset += (personalStatisticsBoxHeight/10.0f) * 4.0f ;
+
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 2.0f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "weapon" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 2.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.0f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "shoots" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.7f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "acc%" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.7f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.3f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "headshots" );
+
 	}
 	
 	private void displayPersonalStatistics()
