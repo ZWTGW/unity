@@ -73,7 +73,7 @@ public class GraGUI : MonoBehaviour{
 			Screen.showCursor = showInGameMenu;
 			menuState = MenuStates.MAIN;
 		}
-		
+		if(!isMainMenu) { // pc - drobna poprawka, bo pokazywanie statsow w main menu nie ma sensu ;)
 		//mantkowicz - dodanie wyswietlania statystyk tab/alt
 		if( Input.GetKey( KeyCode.Tab ) ) 
 		{
@@ -115,6 +115,7 @@ public class GraGUI : MonoBehaviour{
 			personalStatisticsBoxInitialized = false;
 		}
 		//endof mantkowicz
+		}
 	}
 	
 	void Awake() {
@@ -240,8 +241,18 @@ public class GraGUI : MonoBehaviour{
 		GUI.skin.horizontalSlider.stretchHeight = true;
 		
 		// wlasciwe rysowanie menu w zaleznosci od stanu
-		
-		GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
+
+		if(menuState != MenuStates.NETWORK) {
+			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
+		}
+		else {
+			if (MasterServer.PollHostList().Length != 0) {
+				hostList = MasterServer.PollHostList();
+				w = 800;
+				h = 450;
+			}
+			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
+		}
 		
 		switch(menuState) {
 		case MenuStates.NETWORK:
@@ -262,10 +273,7 @@ public class GraGUI : MonoBehaviour{
 					MasterServer.RequestHostList(typeName);
 				}
 				
-				if (MasterServer.PollHostList().Length != 0) {
-					hostList = MasterServer.PollHostList();
-					//MasterServer.ClearHostList();
-				}
+
 				
 				if (hostList != null)
 				{

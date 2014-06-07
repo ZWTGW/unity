@@ -2,9 +2,18 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\GraGUI.cs">
     <Files>
+<<<<<<< HEAD
       <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="465" Column="3" />
       <File FileName="Assets\Networking.cs" Line="82" Column="30" />
       <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="13" Column="23" />
+=======
+      <File FileName="Assets\Player\Scripts\Shooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\Networking.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="248" Column="11" />
+      <File FileName="Assets\Player\Scripts\Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="1" Column="1" />
+>>>>>>> 564e3a7650283805aab1b2f52a3cbaedfb0dbc92
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
