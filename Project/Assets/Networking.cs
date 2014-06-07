@@ -77,6 +77,9 @@ public class Networking : MonoBehaviour {
 	{
 		int rand = Random.Range (10, 50);
 		Network.Instantiate(playerPrefab, new Vector3(550f + rand, 1.5f, 491f), Quaternion.identity, 0);
+
+		GraGUI.serverIp = MasterServer.ipAddress;
+		GraGUI.mapName = "Antique";
 	}
 	
 
