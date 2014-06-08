@@ -564,7 +564,11 @@ MonoBehaviour:
   - {fileID: 100002, guid: d4f70fe62bea9bd42ba47582c36dfc27, type: 2}
   - {fileID: 0}
   - {fileID: 0}
-  weapons: []
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1
