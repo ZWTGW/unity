@@ -165,8 +165,18 @@ public class GraGUI : MonoBehaviour{
 		Texture2D orb2 = (Texture2D)Resources.Load ("life-empty");
 		Texture2D orb1 = (Texture2D)Resources.Load ("life");
 		
-		float resizedW = orb1.width / 2;
-		float resizedH = orb2.height / 2;
+		float resizedW = (int)(orb1.width / 2.4f);
+		float resizedH = (int)(orb2.height / 2.4f);
+
+		if(Screen.width < 1100) {
+			resizedW = (int)(orb1.width / 2.75f);
+			resizedH = (int)(orb2.height / 2.75f);
+		}
+		if(Screen.width < 770) {
+			resizedW = (int)(orb1.width / 3f);
+			resizedH = (int)(orb2.height / 3f);
+		}
+
 		
 		Rect pozycjaOrba = new Rect (5, Screen.height - 250, resizedW, resizedH);
 		// rysujemy caly orb pusty
