@@ -165,20 +165,22 @@ public class GraGUI : MonoBehaviour{
 		Texture2D orb2 = (Texture2D)Resources.Load ("life-empty");
 		Texture2D orb1 = (Texture2D)Resources.Load ("life");
 		
-		float resizedW = (int)(orb1.width / 2.4f);
-		float resizedH = (int)(orb2.height / 2.4f);
+		float resizedW = (int)(orb1.width / 2f);
+		float resizedH = (int)(orb2.height / 2f);
 
 		if(Screen.width < 1100) {
-			resizedW = (int)(orb1.width / 2.75f);
-			resizedH = (int)(orb2.height / 2.75f);
+			resizedW = (int)(orb1.width / 2.5f);
+			resizedH = (int)(orb2.height / 2.5f);
 		}
 		if(Screen.width < 770) {
-			resizedW = (int)(orb1.width / 3f);
-			resizedH = (int)(orb2.height / 3f);
+			resizedW = (int)(orb1.width / 2.8f);
+			resizedH = (int)(orb2.height / 2.8f);
 		}
 
+		resizedW *= 0.75f;
+
 		
-		Rect pozycjaOrba = new Rect (5, Screen.height - 250, resizedW, resizedH);
+		Rect pozycjaOrba = new Rect (5, Screen.height - 150, resizedW, resizedH);
 		// rysujemy caly orb pusty
 		GUI.DrawTexture (pozycjaOrba, orb2);
 		// rysujemy zajety fragment
@@ -194,15 +196,25 @@ public class GraGUI : MonoBehaviour{
 		// rysujemy zajety fragment
 		drawFragment (orb1, (float)stamina / (float)maxStamina, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
 		
-		orb2 = (Texture2D)Resources.Load ("amun_gran-empty");
-		orb1 = (Texture2D)Resources.Load ("amun_gran");
+		orb2 = (Texture2D)Resources.Load ("amun-empty");
+		orb1 = (Texture2D)Resources.Load ("amun");
 		
-		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 250, resizedW, resizedH);
+		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 150, resizedW, resizedH);
 		// rysujemy caly orb pusty
 		GUI.DrawTexture (pozycjaOrba, orb2);
 		// rysujemy zajety fragment
 		drawFragment (orb1, (float)ammo / (float)maxAmmo, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+
+
+		orb2 = (Texture2D)Resources.Load ("gran-empty");
+		orb1 = (Texture2D)Resources.Load ("gran");
 		
+		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 200, resizedW, resizedH);
+		// rysujemy caly orb pusty
+		GUI.DrawTexture (pozycjaOrba, orb2);
+		// rysujemy zajety fragment
+		drawFragment (orb1, (float)ammo / (float)maxAmmo, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+
 		
 		
 		// sprawdzamy czy szarosc
