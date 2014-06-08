@@ -20,6 +20,8 @@ public class BaseCharacter : MonoBehaviour {
 	public long secondsAtGameStart = 0L;
 	public bool startTimeIsSet = false;
 
+	public string team = "steams";
+
 	void Start () {
 	
 	}

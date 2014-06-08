@@ -42,10 +42,13 @@ public class GraGUI : MonoBehaviour{
 	private float personalStatisticsBoxStep = 0.0f;
 	
 	private Texture2D skullTexture;
+	private Texture2D steampunksLogoTexture;
+	private Texture2D futuresLogoTexture;
 	private Texture2D leftLineTexture;
 	
 	private string[] steampunksPlayerInfo;
 	private string[] futuresPlayerInfo;
+	private string[] personalPlayerInfo;
 	
 	public static string serverIp = "";
 	public static string mapName = "";
@@ -58,10 +61,14 @@ public class GraGUI : MonoBehaviour{
 		MasterServer.port = 23466;
 		
 		skullTexture = Resources.Load<Texture2D> ("skull");
+		steampunksLogoTexture = Resources.Load<Texture2D> ("steampunksLogo");
+		futuresLogoTexture = Resources.Load<Texture2D> ("futuresLogo");
 		leftLineTexture = Resources.Load<Texture2D> ("leftLine");
 		
 		steampunksPlayerInfo = new string[20];
 		futuresPlayerInfo = new string[20];
+
+		personalPlayerInfo = new string[12];
 	}
 	
 	// Update is called once per frame
@@ -551,15 +558,23 @@ public class GraGUI : MonoBehaviour{
 	{
 		GUI.skin.label.fontSize = (int) (Screen.height * 0.045f);
 		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
-		GUI.skin.label.padding.left = 20;
+		GUI.skin.label.padding.left = 10;
 		GUI.Box( new Rect( offset, (teamStatisticsBoxHeight / 4.0f), teamStatisticsBoxWidth, teamStatisticsBoxHeight ), "" );
 		
 		float yOffset = 15.0f;
 		
 		//DRAWING TABLE TEMPLATE
-		GUI.Label( new Rect( offset, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "STEAMPUNKS" );
-		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/2.0f), (teamStatisticsBoxHeight/10.0f) ), "FUTURES" );
+		GUI.skin.label.alignment = TextAnchor.MiddleRight;
+		GUI.Label( new Rect( offset, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 1.0f, (teamStatisticsBoxHeight/10.0f) ), steampunksLogoTexture );
+		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 1.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 4.0f, (teamStatisticsBoxHeight/10.0f) ), "STEAMS" );
+		GUI.skin.label.alignment = TextAnchor.MiddleRight;
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 5.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 1.0f, (teamStatisticsBoxHeight/10.0f) ), futuresLogoTexture );
+		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+		GUI.Label( new Rect( offset + (teamStatisticsBoxWidth/10.0f) * 6.0f, (teamStatisticsBoxHeight / 4.0f) + yOffset, (teamStatisticsBoxWidth/10.0f) * 4.0f, (teamStatisticsBoxHeight/10.0f) ), "FUTURES" );
 		
+		GUI.skin.label.padding.left = 20;
+
 		yOffset += (teamStatisticsBoxHeight / 10.0f) + 5.0f;
 		
 		GUI.skin.label.fontSize = (int) (Screen.height * 0.027f);
@@ -668,6 +683,17 @@ public class GraGUI : MonoBehaviour{
 		return 1;
 	}
 	
+	private void loadPersonalInfo()
+	{
+		for(int i=0; i<12; i+=4)
+		{
+			personalPlayerInfo[i] = "gun"+i.ToString();
+			personalPlayerInfo[i+1] = "12"+i.ToString();
+			personalPlayerInfo[i+2] = (i*6).ToString()+"%";
+			personalPlayerInfo[i+3] = "0";
+		}
+	}
+	
 	private void drawPersonalStatisticsBox(float offset)
 	{
 		GUI.skin.label.fontSize = (int) (Screen.height * 0.06f);
@@ -678,21 +704,47 @@ public class GraGUI : MonoBehaviour{
 		float yOffset = 5.0f;
 		
 		//DRAWING TABLE TEMPLATE
-		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 3.0f, (personalStatisticsBoxHeight/10.0f) * 4.0f ), baseCharScript.playerName );
-
+		GUI.skin.label.alignment = TextAnchor.MiddleRight;
+		
+		if (baseCharScript.team.Equals("steams") ) GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.5f, (personalStatisticsBoxHeight/10.0f) * 3.0f), steampunksLogoTexture ); 
+		else                                           GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.5f, (personalStatisticsBoxHeight/10.0f) * 3.0f), futuresLogoTexture );
+		
+		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + (personalStatisticsBoxWidth/5.0f) * 0.5f, Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 2.0f, (personalStatisticsBoxHeight/10.0f) * 3.0f ), baseCharScript.playerName );
+		
 		GUI.skin.label.fontSize = (int) (Screen.height * 0.03f);
 		GUI.skin.label.alignment = TextAnchor.MiddleRight;
 		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f), (personalStatisticsBoxHeight/10.0f) * 3.0f ), "rank: " );
 		GUI.skin.label.alignment = TextAnchor.MiddleLeft;
 		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f), (personalStatisticsBoxHeight/10.0f) * 3.0f ), calculateRankPosition().ToString() );
-
-		yOffset += (personalStatisticsBoxHeight/10.0f) * 4.0f ;
-
-		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 2.0f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "weapon" );
-		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 2.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.0f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "shoots" );
-		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.7f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "acc%" );
-		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.7f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.3f, (personalStatisticsBoxHeight/10.0f) * 2.0f ), "headshots" );
-
+		
+		yOffset += (personalStatisticsBoxHeight/10.0f) * 3.0f ;
+		
+		GUI.skin.label.fontSize = (int) (Screen.height * 0.025f);
+		
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 2.0f, (personalStatisticsBoxHeight/10.0f) * 1.75f ), "weapon" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 2.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.0f, (personalStatisticsBoxHeight/10.0f) * 1.75f ), "shoots" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.7f, (personalStatisticsBoxHeight/10.0f) * 1.75f ), "acc%" );
+		GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.7f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.3f, (personalStatisticsBoxHeight/10.0f) * 1.75f ), "headshots" );
+		
+		yOffset += (personalStatisticsBoxHeight/10.0f) * 1.75f ;
+		
+		loadPersonalInfo();
+		
+		GUI.skin.label.fontSize = (int) (Screen.height * 0.02f);
+		
+		for(int i=0; i<12; i+=4)
+		{
+			GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 2.0f, (personalStatisticsBoxHeight/10.0f) * 1.5f ), personalPlayerInfo[i] );
+			GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 2.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.0f, (personalStatisticsBoxHeight/10.0f) * 1.5f ), personalPlayerInfo[i+1] );
+			GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 3.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 0.7f, (personalStatisticsBoxHeight/10.0f) * 1.5f ), personalPlayerInfo[i+2] );
+			GUI.Label( new Rect( (personalStatisticsBoxWidth / 4.0f) + ((personalStatisticsBoxWidth/5.0f) * 4.0f), Screen.height + offset + yOffset, (personalStatisticsBoxWidth/5.0f) * 1.3f, (personalStatisticsBoxHeight/10.0f) * 1.5f ), personalPlayerInfo[i+3] );
+			
+			yOffset += (personalStatisticsBoxHeight/10.0f) * 1.5f ;
+		}
+		
+		GUI.skin.label.padding.left = 0;
+		GUI.skin.label.padding.right = 0;
 	}
 	
 	private void displayPersonalStatistics()
