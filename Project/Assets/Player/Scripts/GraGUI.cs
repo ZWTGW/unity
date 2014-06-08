@@ -147,11 +147,11 @@ public class GraGUI : MonoBehaviour{
 		GUI.skin.label.alignment = TextAnchor.UpperLeft;
 		
 		// rysujemy gui
-		GUI.Label (new Rect (10, Screen.height - 50, 1000, 100), hp + " HP");
+		//GUI.Label (new Rect (10, Screen.height - 50, 1000, 100), hp + " HP");
 		
 		// to chcemy wyrownane do prawej ale w sumie troche lewo to dziala
 		GUI.skin.label.alignment = TextAnchor.UpperRight;
-		GUI.Label (new Rect (170, Screen.height - 50, 1000, 100), "Ammo " + ammo + "/" + maxAmmo);
+		//GUI.Label (new Rect (170, Screen.height - 50, 1000, 100), "Ammo " + ammo + "/" + maxAmmo);
 		
 		// celownik
 		// trzeba wrzucac teksturki do katalogu Assets/Resources - nie logiczne bo standardowo tego nie ma
@@ -162,11 +162,11 @@ public class GraGUI : MonoBehaviour{
 		
 		GUI.DrawTexture (srodek, celownik);
 		
-		Texture2D orb2 = (Texture2D)Resources.Load ("hud_live_0");
-		Texture2D orb1 = (Texture2D)Resources.Load ("hud_live_1");
+		Texture2D orb2 = (Texture2D)Resources.Load ("life-empty");
+		Texture2D orb1 = (Texture2D)Resources.Load ("life");
 		
-		float resizedW = orb1.width / 5;
-		float resizedH = orb2.height / 5;
+		float resizedW = orb1.width / 2;
+		float resizedH = orb2.height / 2;
 		
 		Rect pozycjaOrba = new Rect (5, Screen.height - 250, resizedW, resizedH);
 		// rysujemy caly orb pusty
@@ -175,8 +175,8 @@ public class GraGUI : MonoBehaviour{
 		drawFragment (orb1, (float)hp / (float)maxHp, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
 		
 		
-		orb2 = (Texture2D)Resources.Load ("hud_stamina_0");
-		orb1 = (Texture2D)Resources.Load ("hud_stamina_1");
+		orb2 = (Texture2D)Resources.Load ("stamina-empty");
+		orb1 = (Texture2D)Resources.Load ("stamina");
 		
 		pozycjaOrba = new Rect (5, Screen.height - 200, resizedW, resizedH);
 		// rysujemy caly orb pusty
@@ -184,8 +184,8 @@ public class GraGUI : MonoBehaviour{
 		// rysujemy zajety fragment
 		drawFragment (orb1, (float)stamina / (float)maxStamina, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
 		
-		orb2 = (Texture2D)Resources.Load ("hud_ammo_2");
-		orb1 = (Texture2D)Resources.Load ("hud_ammo_1");
+		orb2 = (Texture2D)Resources.Load ("amun_gran-empty");
+		orb1 = (Texture2D)Resources.Load ("amun_gran");
 		
 		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 250, resizedW, resizedH);
 		// rysujemy caly orb pusty
