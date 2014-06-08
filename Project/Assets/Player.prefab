@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
-  m_LocalScale: {x: .650000036, y: .649999976, z: .650000036}
+  m_LocalScale: {x: .649999976, y: .649999976, z: .650000036}
   m_Children: []
   m_Father: {fileID: 400010}
 --- !u!4 &400002
@@ -121,8 +121,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29999995, z: 0}
-  m_LocalScale: {x: .649999976, y: .649999976, z: .649999976}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
   m_Children: []
   m_Father: {fileID: 400010}
 --- !u!4 &400010
@@ -132,8 +132,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 581.736511, y: 0, z: 430.650055}
-  m_LocalScale: {x: 1.20000005, y: 1.5, z: 1.20000005}
+  m_LocalPosition: {x: 109.223244, y: 1.5, z: 407.467407}
+  m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400000}
@@ -305,7 +305,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!82 &8200000
 AudioSource:
   m_ObjectHideFlags: 1
@@ -377,7 +377,7 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -423,7 +423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobbingSpeed: .180000007
   bobbingAmount: .400000006
-  midpoint: 2
+  midpoint: 1.70000005
   lean: 0
 --- !u!114 &11400006
 MonoBehaviour:
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobbingSpeed: .180000007
   bobbingAmount: .0149999997
-  midpoint: 1.39999998
+  midpoint: 2
   lean: 0
 --- !u!114 &11400012
 MonoBehaviour:
@@ -677,7 +677,7 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
