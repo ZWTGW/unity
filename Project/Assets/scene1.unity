@@ -516,6 +516,7 @@ GameObject:
   - 23: {fileID: 171759309}
   - 114: {fileID: 171759308}
   - 54: {fileID: 171759307}
+  - 148: {fileID: 171759312}
   m_Layer: 0
   m_Name: Flag
   m_TagString: Untagged
@@ -609,6 +610,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 489568339}
   m_GameObject: {fileID: 171759305}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!148 &171759312
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: b415d4c4e68882f4f81e7f5702af23c1,
+    type: 2}
+  m_PrefabInternal: {fileID: 489568339}
+  m_GameObject: {fileID: 171759305}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 171759306}
+  m_ViewID:
+    m_ID: 3
+    m_Type: 1
 --- !u!1001 &178728229
 Prefab:
   m_ObjectHideFlags: 0
@@ -2025,6 +2039,14 @@ Prefab:
     - target: {fileID: 400006, guid: b415d4c4e68882f4f81e7f5702af23c1, type: 2}
       propertyPath: m_LocalRotation.w
       value: .991444886
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: b415d4c4e68882f4f81e7f5702af23c1, type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: b415d4c4e68882f4f81e7f5702af23c1, type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b415d4c4e68882f4f81e7f5702af23c1, type: 2}
@@ -4512,6 +4534,7 @@ GameObject:
   - 23: {fileID: 996394361}
   - 114: {fileID: 996394360}
   - 54: {fileID: 996394359}
+  - 148: {fileID: 996394365}
   m_Layer: 0
   m_Name: Flag2
   m_TagString: Untagged
@@ -4605,6 +4628,19 @@ Transform:
   - {fileID: 1227142850}
   - {fileID: 2055479358}
   m_Father: {fileID: 0}
+--- !u!148 &996394365
+NetworkView:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14800000, guid: 5e99c0a4a7b63e54b9fb7e22c001cc84,
+    type: 2}
+  m_PrefabInternal: {fileID: 2049907669}
+  m_GameObject: {fileID: 996394358}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 996394364}
+  m_ViewID:
+    m_ID: 2
+    m_Type: 1
 --- !u!1001 &1004748655
 Prefab:
   m_ObjectHideFlags: 0
@@ -9739,6 +9775,14 @@ Prefab:
     - target: {fileID: 400006, guid: 5e99c0a4a7b63e54b9fb7e22c001cc84, type: 2}
       propertyPath: m_LocalRotation.w
       value: 4.33374332e-08
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 5e99c0a4a7b63e54b9fb7e22c001cc84, type: 2}
+      propertyPath: m_ViewID.m_ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 14800000, guid: 5e99c0a4a7b63e54b9fb7e22c001cc84, type: 2}
+      propertyPath: m_ViewID.m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e99c0a4a7b63e54b9fb7e22c001cc84, type: 2}
