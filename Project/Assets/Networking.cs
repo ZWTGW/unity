@@ -77,11 +77,11 @@ public class Networking : MonoBehaviour {
 	{
 		int rand = Random.Range (10, 10);
 		Network.Instantiate(playerPrefab, new Vector3(70f + rand, 1.5f, 170f), Quaternion.identity, 0);
-
+		
 		GraGUI.serverIp = MasterServer.ipAddress;
 		GraGUI.mapName = "Antique";
 	}
-	
+
 
 	// zamykanie połączenia (u klienta i na serwerze)
 	void closeConnection()

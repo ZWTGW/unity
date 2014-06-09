@@ -1,11 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\Flag.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Networking.cs">
     <Files>
-      <File FileName="Assets\Player\Scripts\Flag.cs" Line="26" Column="30" />
-      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="1" Column="1" />
-      <File FileName="Assets\Player\Scripts\IgnoreCollision.cs" Line="19" Column="31" />
+      <File FileName="Assets\Grenade\Scripts\Grenade.cs" Line="49" Column="1" />
+      <File FileName="Assets\Player\Scripts\Flag.cs" Line="44" Column="1" />
+      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="776" Column="1" />
+      <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="40" Column="1" />
+      <File FileName="Assets\Player\Scripts\IgnoreCollision.cs" Line="24" Column="1" />
+      <File FileName="Assets\Player\Scripts\Weapon.cs" Line="331" Column="11" />
+      <File FileName="Assets\Networking.cs" Line="89" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

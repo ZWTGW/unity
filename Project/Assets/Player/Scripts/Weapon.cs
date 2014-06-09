@@ -151,7 +151,7 @@ public class Weapon : MonoBehaviour {
 
 		//strzelanie
 		Rigidbody bulletInstance;
-		bulletInstance = Instantiate(Bullet, endPoint.position, new Quaternion()) as Rigidbody;
+		bulletInstance = Network.Instantiate(Bullet, endPoint.position, new Quaternion(),0) as Rigidbody;
 		bulletInstance.AddForce(new Vector3(0, 0, 1) * bulletSpeed);
 
 		if(ammoInMag == 0)

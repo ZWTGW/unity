@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: 04b3f2432c7dd7b44806af76f4d2a8dd
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerPrefab: {fileID: 100010, guid: f297ccef4e474704a978aa53b63231fd, type: 2}
+  - flagAPrefab: {fileID: 100006, guid: b415d4c4e68882f4f81e7f5702af23c1, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
