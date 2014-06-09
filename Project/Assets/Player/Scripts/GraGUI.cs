@@ -165,7 +165,8 @@ public class GraGUI : MonoBehaviour{
 		// tylko zwykle assets, ale inaczej resources.load nie zadziala
 		// pewnie mozna inaczej ale tak najprosciej
 		Texture2D celownik = (Texture2D)Resources.Load ("celownik");
-		Rect srodek = new Rect ((Screen.width - celownik.width) / 2, (Screen.height - celownik.height) / 2, 32, 32);
+		float wielkoscCelownika = 64;
+		Rect srodek = new Rect ((Screen.width - wielkoscCelownika) / 2, (Screen.height - wielkoscCelownika) / 2, wielkoscCelownika, wielkoscCelownika);
 		
 		GUI.DrawTexture (srodek, celownik);
 		
