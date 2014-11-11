@@ -52,10 +52,13 @@ public class GraGUI : MonoBehaviour{
 	
 	public static string serverIp = "";
 	public static string mapName = "";
+
 	//endof mantkowicz
 	
 	// Use this for initialization
 	void Start () {
+
+
 		Application.runInBackground = true;
 		MasterServer.ipAddress = "127.0.0.1";
 		MasterServer.port = 23466;

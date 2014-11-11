@@ -36,13 +36,22 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private Transform tr;
 	private float dist; // distance to ground
 	private int slopeLimit = 30; //na jakie pochylosci mozna wchodzic
-	
+
+	public AudioSource au_footsteps;
+
 	UserSettings us;
 	void Start ()
 	{
 		tr = transform;
 		dist = 1.0f; // calculate distance to ground
 		alpha = 0f;
+
+		au_footsteps = (AudioSource)gameObject.AddComponent ("AudioSource");
+		AudioClip myAudioClip;
+		myAudioClip = (AudioClip)Resources.Load ("sounds/step2");
+		au_footsteps.clip = myAudioClip;
+		au_footsteps.loop = true;
+
 	}
 	
 	void Awake () {
@@ -69,6 +78,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		speed = normalSpeed;
 		xVel = rigidbody.velocity.magnitude;
 		yVel = rigidbody.velocity.y;
+
 		if (grounded) {
 			
 			//USTAWIENIA STAMINY
@@ -139,7 +149,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			targetVelocity = transform.TransformDirection(targetVelocity);
 			targetVelocity *= speed;
-			
+			//Debug.Log (rigidbody.velocity.magnitude);
 			
 			// Apply a force that attempts to reach our target velocity
 			Vector3 velocity = rigidbody.velocity;
@@ -160,6 +170,13 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			
 			tmpPosition.y += dist * (tr.localScale.y - ultScale); // fix vertical position
 			tr.position = tmpPosition;
+			if (rigidbody.velocity.magnitude > 5){
+
+				//au_footsteps.Play(); dzwiek nachodzi na siebie zamiast odtwarzac sie tylko raz
+			}
+			else if (rigidbody.velocity.magnitude < 5){
+				au_footsteps.Stop();
+			}
 			//
 			//
 			//SKOK
@@ -293,9 +310,10 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 	public void getDmg(int amount){
 		currHP-=amount;
-		
+		//animation.Play("Death");
 		
 	}
 	
 }
+
 

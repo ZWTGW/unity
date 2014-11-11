@@ -29,7 +29,7 @@ public class BaseCharacter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(currHP <= 0 && respawned )
+		if(currHP <= 0 && respawned )// ???
 		{
 			deaths++;
 			respawned = false;
