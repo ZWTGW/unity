@@ -1,15 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\FPSControlsRigid.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\Konsola.cs">
     <Files>
-      <File FileName="Assets\Grenade\Scripts\Grenade.cs" Line="49" Column="1" />
-      <File FileName="Assets\Player\Scripts\Flag.cs" Line="44" Column="1" />
-      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="168" Column="14" />
-      <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="40" Column="1" />
+      <File FileName="Assets\Player\Scripts\Konsola.cs" Line="72" Column="17" />
+      <File FileName="Assets\Grenade\Scripts\Grenade.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\Flag.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Player\Scripts\BaseCharacter.cs" Line="1" Column="1" />
       <File FileName="Assets\Player\Scripts\IgnoreCollision.cs" Line="1" Column="1" />
-      <File FileName="Assets\Player\Scripts\Weapon.cs" Line="301" Column="12" />
+      <File FileName="Assets\Player\Scripts\Weapon.cs" Line="1" Column="1" />
       <File FileName="Assets\Networking.cs" Line="1" Column="1" />
-      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="152" Column="6" />
+      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="16" Column="56" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

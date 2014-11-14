@@ -18,27 +18,29 @@ public class Konsola : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// testy - to powinno sie wyswietlic w naszej konsoli, ale tez w wbudowanej konsoli unity
-		print ("test test test");
-		print ("druga linijka");
-		Debug.Log ("to samo inaczej");
-		print ("test test test");
-		print ("druga linijka");
-		Debug.Log ("to samo inaczej");
-		print ("test test test");
-		print ("druga linijka");
-		Debug.Log ("to samo inaczej");
+		print ("------- GAME STARTED -------");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.BackQuote)) { // tylda
-						consoleShown = !consoleShown;
-			GUI.FocusControl("poletekstowe");
+			consoleShown = !consoleShown;
+			polecenie = "";
 		} 
 	}
 
 	void handleCommand(string polecenie) {
-		polecenie.Split (' ');
+		string[] s = polecenie.Split (' ');
+		if (s.Length < 1) return; // nie mamy nic
+		switch (s [0]) {
+			case "cls":
+			case "clear":	
+				logs.Clear();
+				break;
+			default:
+				print("Invalid command " + s[0] + ". Try 'help'.");
+				break;
+		}
 	}
 
 	void OnEnable ()
@@ -70,6 +72,10 @@ public class Konsola : MonoBehaviour {
 			handleCommand(polecenie);
 			polecenie = "";
 		}
+		else if(e.keyCode == KeyCode.Escape) {
+			consoleShown = false;
+			polecenie = "";
+		}
 
 		GUI.skin.label.normal.textColor = new Color (255, 255, 255);
 		GUI.skin.label.fontSize = 15;
@@ -87,7 +93,10 @@ public class Konsola : MonoBehaviour {
 		GUI.EndGroup ();
 
 		GUI.SetNextControlName ("poletekstowe");
+		if (polecenie.StartsWith ("`")) polecenie = polecenie.Substring (1);
 		polecenie = GUI.TextField(new Rect(0, 200, Screen.width, 25) , polecenie);
+
+		GUI.FocusControl("poletekstowe");
 
 	}
 }
