@@ -291,35 +291,35 @@ public class GraGUI : MonoBehaviour{
 		case MenuStates.NETWORK:
 			GUI.Box(new Rect(0,0,w,h), "NEW GAME");
 			
-			if (!Network.isClient && !Network.isServer)
-			{
-				networkTakenCareOf = false;
-				
-				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
-					hostToJoin = null;
-					Application.LoadLevel(1);
-				}
-				
-				
-				if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts")) {
-					MasterServer.ClearHostList();
-					MasterServer.RequestHostList(typeName);
-				}
-				
-
-				
-				if (hostList != null)
-				{
-					for (int i = 0; i < hostList.Length; i++)
-					{
-						if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName)) {
-							hostToJoin = hostList[i];
-							Application.LoadLevel(1);
-						}
-						
-					}
-				}
-			}
+//			if (!Network.isClient && !Network.isServer)
+//			{
+//				networkTakenCareOf = false;
+//				
+//				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
+//					hostToJoin = null;
+//					Application.LoadLevel(1);
+//				}
+//				
+//				
+//				if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts")) {
+//					MasterServer.ClearHostList();
+//					MasterServer.RequestHostList(typeName);
+//				}
+//				
+//
+//				
+//				if (hostList != null)
+//				{
+//					for (int i = 0; i < hostList.Length; i++)
+//					{
+//						if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName)) {
+//							hostToJoin = hostList[i];
+//							Application.LoadLevel(1);
+//						}
+//						
+//					}
+//				}
+//			}
 			break;
 			
 		default:
@@ -334,22 +334,22 @@ public class GraGUI : MonoBehaviour{
 			else {
 				if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "NEW GAME")) {
 					
-					// ---------- kod pozyczony z networking.cs 
-					if (Network.isServer)
-					{
-						// zdjęcie serwera z listy hostów
-						MasterServer.UnregisterHost();
-						// usunięcie nagromadzonych zbuforowanych wywołań RPC
-						Network.RemoveRPCsInGroup(0);
-					}
-					// rozłączenie
-					Network.Disconnect();
-					
-					menuState = MenuStates.NETWORK;
+//					// ---------- kod pozyczony z networking.cs 
+//					if (Network.isServer)
+//					{
+//						// zdjęcie serwera z listy hostów
+//						MasterServer.UnregisterHost();
+//						// usunięcie nagromadzonych zbuforowanych wywołań RPC
+//						Network.RemoveRPCsInGroup(0);
+//					}
+//					// rozłączenie
+//					Network.Disconnect();
+//					
+//					menuState = MenuStates.NETWORK;
 					
 					
 					// 0 = menu, 1 = nasz level
-					//Application.LoadLevel(1);
+					Application.LoadLevel(1);
 				}
 			}
 			

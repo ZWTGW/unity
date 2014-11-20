@@ -253,22 +253,11 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		FPSMouselook ml = gameObject.GetComponent<FPSMouselook> ();
 
 
-		if (!networkView.isMine) {
-			cam.SetActive (false);
 
-			//ml.RotXY=FPSMouselook.RotationAxis.Off;
-			//ml.SensitivityX=0;
-			//ml.SensitivityY=0;
-			ml.enabled=false;
-
-		} else {
-			keyboardUpdate();
-			hcube.renderer.enabled = false;
-			ml.enabled=true;
-
-		}
-	
-
+		keyboardUpdate();
+		hcube.renderer.enabled = false;
+		ml.enabled=true;
+		
 	}
 	
 	
