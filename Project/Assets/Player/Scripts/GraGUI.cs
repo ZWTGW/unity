@@ -57,11 +57,7 @@ public class GraGUI : MonoBehaviour{
 	
 	// Use this for initialization
 	void Start () {
-
-
 		Application.runInBackground = true;
-		MasterServer.ipAddress = "127.0.0.1";
-		MasterServer.port = 23466;
 		
 		skullTexture = Resources.Load<Texture2D> ("skull");
 		steampunksLogoTexture = Resources.Load<Texture2D> ("steampunksLogo");
@@ -278,14 +274,14 @@ public class GraGUI : MonoBehaviour{
 		if(menuState != MenuStates.NETWORK) {
 			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
 		}
-		else {
-			if (MasterServer.PollHostList().Length != 0) {
-				hostList = MasterServer.PollHostList();
-				w = 800;
-				h = 450;
-			}
-			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
-		}
+//		else {
+//			if (MasterServer.PollHostList().Length != 0) {
+//				hostList = MasterServer.PollHostList();
+//				w = 800;
+//				h = 450;
+//			}
+//			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
+//		}
 		
 		switch(menuState) {
 		case MenuStates.NETWORK:
