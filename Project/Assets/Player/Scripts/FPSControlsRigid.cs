@@ -15,16 +15,21 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float gravity = 97.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci
 	private bool canJump = true;
-	private float inAirControl = 0.3f; //poruszanie sie w locie
+	public bool padjump = false; //zmienna do kontrolowania tego czy skoczylismy przy uzyciu jumppada czy normalnie - dodalem to po to by miec wieksza kotrole horyzontalna po skoku na jumppadzie niz po skoku zwyklym
+	private float inAirControl = 0.4f; //poruszanie sie w locie
+	private float jpadInAirControl = 0.8f; //poruszanie sie w locie - jumppad
 	private float jumpHeight = 4.5f; //wysokosc skoku
 	public float speed; //szybkosc aktualna, moze sie przydac w headbobber
 	public bool canSprint = true;
 	public int restTime=100;
-	
-	private bool grounded = false;
+
+	public float timer = 1.5f; //timer na razie oblicza czas od upadku do ustawienia zmiennej jumppadowej
+
+	public bool grounded = false;
 	private static float forwardSpeedModifier = 0.90f; //wolniejszy ruch przod tyl
 	private static float sidesSpeedModifier = 0.85f; //wolniejszy strafe
 	private static float jumpSpeedModifier = 0.95f;	//mniejsza predkosc po skoku
+	private static float jumpPadSpeedModifier = 1.1f;	//mniejsza predkosc po skoku
 	
 	public float xVel; //do odczytywania predkosc - tylko do testow
 	public float yVel; //jw
@@ -80,7 +85,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		yVel = rigidbody.velocity.y;
 
 		if (grounded) {
-			
+			if (padjump == true){
+				timer-=Time.deltaTime;
+				if (timer < 0){
+					padjump = false;
+					timer = 1.5f;
+				}
+			}
+			Debug.Log(padjump);
 			//USTAWIENIA STAMINY
 			if (stamina>1 && restTime>=100){
 				speed=normalSpeed;
@@ -180,11 +192,12 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//
 			//
 			//SKOK
+
 			if (canJump && us.GetKey("jump")) {
 				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
 				canJump = false;
 			}
-			
+
 			//UPADEK z duzej wysokosci
 			if (falldmg<-50)
 			{
@@ -229,14 +242,19 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		else
 			
 		{	//upadek
-			if(rigidbody.velocity.y < -50.0)
+			if(rigidbody.velocity.y < -50.0 && padjump == false)
 			{	falldmg=rigidbody.velocity.y;
 			}
-			
+
 			
 			// poruszanie sie w locie
 			
-			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));	
+			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			if (padjump == true)
+			{
+				inAirControl = 0.8f;
+			}
+			else {inAirControl = 0.4f;}
 			targetVelocity = transform.TransformDirection(targetVelocity) * inAirControl;
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
 			
@@ -299,6 +317,12 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	void OnCollisionEnter(Collision col)
 	{
 		TrackGrounded(col);
+		if (col.gameObject.tag == "JumpPad") {
+			padjump = true;
+			Vector3 velocity = rigidbody.velocity;
+			rigidbody.velocity = new Vector3(velocity.x*jumpPadSpeedModifier, 100, velocity.z*jumpPadSpeedModifier);
+			Debug.Log(padjump);
+		}
 		
 	}
 
@@ -313,7 +337,6 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		//animation.Play("Death");
 		
 	}
-	
 }
 
 
