@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\FPSControlsRigid.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\unity\Project\Assets\Player\Scripts\FPSControlsRigid.cs">
     <Files>
-      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="238" Column="16" />
-      <File FileName="Assets\Player\Scripts\Flag.cs" Line="35" Column="1" />
+      <File FileName="..\..\unity\Project\Assets\Player\Scripts\FPSControlsRigid.cs" Line="343" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

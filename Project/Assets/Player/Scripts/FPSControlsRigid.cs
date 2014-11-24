@@ -7,18 +7,18 @@ using System.Collections;
 
 public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY SPOSOB BY TO ZROBIC :(... ale dziala :)
 	
-	private int crchSpeed = 11; //predkosc kucania
-	private int normalSpeed = 22; //predkosc normalnego biegu
+	private int crchSpeed = 12; //predkosc kucania
+	private int normalSpeed = 23; //predkosc normalnego biegu
 	private int runSpeed = 34; //predkosc sprintu
-	private int tiredSpeed = 14; //predkosc po zmeczeniu sie
+	private int tiredSpeed = 15; //predkosc po zmeczeniu sie
 	
-	private float gravity = 97.0f; //grawitacja
+	private float gravity = 93.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci
 	private bool canJump = true;
 	public bool padjump = false; //zmienna do kontrolowania tego czy skoczylismy przy uzyciu jumppada czy normalnie - dodalem to po to by miec wieksza kotrole horyzontalna po skoku na jumppadzie niz po skoku zwyklym
-	private float inAirControl = 0.4f; //poruszanie sie w locie
+	private float inAirControl = 0.5f; //poruszanie sie w locie
 	private float jpadInAirControl = 0.8f; //poruszanie sie w locie - jumppad
-	private float jumpHeight = 4.5f; //wysokosc skoku
+	private float jumpHeight = 5.4f; //wysokosc skoku
 	public float speed; //szybkosc aktualna, moze sie przydac w headbobber
 	public bool canSprint = true;
 	public int restTime=100;
