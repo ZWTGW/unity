@@ -1,6 +1,7 @@
 ﻿//szablon ze strony http://wiki.unity3d.com/index.php?title=RigidbodyFPSWalker
 using UnityEngine;
 using System.Collections;
+using System.Timers;
 
 [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof (CapsuleCollider))]
@@ -45,6 +46,11 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public AudioSource au_footsteps;
 
 	UserSettings us;
+
+	//PC:
+	private bool canUseTeleport = true;
+	Timer timerTeleport = new Timer(2000.0);
+
 	void Start ()
 	{
 		tr = transform;
@@ -57,8 +63,15 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		au_footsteps.clip = myAudioClip;
 		au_footsteps.loop = true;
 
+		timerTeleport.Elapsed += OnTimedEvent;
+		timerTeleport.Enabled = true;
 	}
-	
+
+	private void OnTimedEvent(object source, ElapsedEventArgs e) {
+		Debug.Log ("mozna juz teleportowac");
+		canUseTeleport = true;
+	}
+
 	void Awake () {
 		rigidbody.freezeRotation = true;
 		rigidbody.useGravity = true;
@@ -239,7 +252,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				
 			}
 		}
-		else
+		else // not grounded
 			
 		{	//upadek
 			if(rigidbody.velocity.y < -50.0 && padjump == false)
@@ -257,10 +270,22 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			else {inAirControl = 0.4f;}
 			targetVelocity = transform.TransformDirection(targetVelocity) * inAirControl;
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
-			
+
+
 		}		
 		// We apply gravity manually for more tuning control
 		rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
+		// PC: teleportowanie
+		if (us.GetKeyDown("teleport") && canUseTeleport) {
+			rigidbody.velocity = Vector3.zero;
+			Vector3 targetVelocity = transform.TransformDirection(0, 0, 140);
+			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
+			// probowalem roznych force mode, ale za kazdym razem player moze czasem przejsc przez przeskody jak tego uzywa :/
+			canUseTeleport = false;
+			timerTeleport.Stop();
+			timerTeleport.Start();
+		}
+
 	}
 
 	void FixedUpdate () 

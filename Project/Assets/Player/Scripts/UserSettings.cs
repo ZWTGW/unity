@@ -30,6 +30,8 @@ public class UserSettings  { //: MonoBehaviour {
 		sortedKeys.Add ("crouch");
 		keys.Add("granade", KeyCode.G);
 		sortedKeys.Add ("granade");
+		keys.Add("teleport", KeyCode.R);
+		sortedKeys.Add ("teleport");
 		
 		//Debug.Log (keys ["w"]);
 	}
@@ -80,6 +82,7 @@ public class UserSettings  { //: MonoBehaviour {
 
 	public void Load() {
 		string path = Application.persistentDataPath;
+		Debug.Log(path);
 		string fileName = path + "/" + "keyconfig.txt";
 
 		string[] content = new string[sortedKeys.Count];
