@@ -277,10 +277,11 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
 		// PC: teleportowanie
 		if (us.GetKeyDown("teleport") && canUseTeleport) {
-			rigidbody.velocity = Vector3.zero;
-			Vector3 targetVelocity = transform.TransformDirection(0, 0, 140);
+			//rigidbody.velocity = Vector3.zero;
+			// to naprawia kolizje jak player jest bardzo szybki
+			rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+			Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
-			// probowalem roznych force mode, ale za kazdym razem player moze czasem przejsc przez przeskody jak tego uzywa :/
 			canUseTeleport = false;
 			timerTeleport.Stop();
 			timerTeleport.Start();
