@@ -19,7 +19,7 @@ namespace AssemblyCSharp
 		
 		private void Log(string msg)
 		{
-			debug = msg + "\n" + debug;
+			//debug = msg + "\n" + debug;
 		}
 
 		public string getDebug()
@@ -296,6 +296,9 @@ namespace AssemblyCSharp
 			if(eventObj.getSender() != appwarp.username)
 			{
 				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat);
+				appwarp.rotatePlayer(msg["rx"].AsFloat,msg["ry"].AsFloat,msg["rz"].AsFloat,msg["rw"].AsFloat);
+				appwarp.shootPlayer(msg["s"].AsFloat);
+				appwarp.sendChatMessage(msg["m"].AsObject);
 				//Log(msg["x"].ToString()+" "+msg["y"].ToString()+" "+msg["z"].ToString());
 			}
 		}

@@ -22,6 +22,12 @@ public class appwarp : MonoBehaviour {
 	public static string username;
 	Listener listen = new Listener();
 	public static Vector3 newPos = new Vector3(0,0,0);
+	public static Quaternion newRot = new Quaternion(0,0,0,0);
+	public static bool shoot = false;
+	public static bool isMessage = false;
+	public static int messageFrame = 0;
+	public static string chatMessage = "";
+	public static string message = "wiadomosc";
 	void Start () {;
 		WarpClient.initialize(apiKey,secretKey);
 		WarpClient.GetInstance().AddConnectionRequestListener(listen);
@@ -48,7 +54,9 @@ public class appwarp : MonoBehaviour {
 	
 	public static void addPlayer()
 	{
-		obj = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+		obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		Weapon w = new Weapon ();
+		obj.AddComponent<GrenadeThrow> ();
 		obj.transform.position = new Vector3(732f,1.5f,500f);
 	}
 	
@@ -56,13 +64,49 @@ public class appwarp : MonoBehaviour {
 	{
 		newPos = new Vector3(x,y,z);
 	}
+
+	public static void rotatePlayer(float rx,float ry,float rz,float rw)
+	{
+		newRot = new Quaternion(rx, ry, rz, rw);
+	}
+
+	public static void shootPlayer(float s)
+	{
+		if (s == 1) 
+		{
+			obj.GetComponent<GrenadeThrow>().Throw();
+		}
+		else
+		{
+			obj.GetComponent<GrenadeThrow>().Throw();
+		}
+	}
+
+	public static void sendChatMessage(string s)
+	{
+		if (isMessage == false) {
+						chatMessage = s;
+						isMessage = true;
+				}
+	}
 	
 	void Update () {
 		timer -= Time.deltaTime;
 		if(timer < 0)
 		{
-			string json = "{\"x\":\""+transform.position.x+"\",\"y\":\""+transform.position.y+"\",\"z\":\""+transform.position.z+"\"}";
-			
+			string json = "";
+
+			if(shoot)
+			{
+				json = "{\"x\":\""+transform.position.x+"\",\"y\":\""+transform.position.y+"\",\"z\":\""+transform.position.z+"\",\"rx\":\""+transform.rotation.x+"\",\"ry\":\""+transform.rotation.y+"\",\"rz\":\""+transform.rotation.z+"\",\"rw\":\""+transform.rotation.w+"\",\"s\":\""+1+"\",\"m\":\""+message+"\"}";
+			}
+			else
+			{
+				json = "{\"x\":\""+transform.position.x+"\",\"y\":\""+transform.position.y+"\",\"z\":\""+transform.position.z+"\",\"rx\":\""+transform.rotation.x+"\",\"ry\":\""+transform.rotation.y+"\",\"rz\":\""+transform.rotation.z+"\",\"rw\":\""+transform.rotation.w+"\",\"s\":\""+0+"\",\"m\":\""+message+"\"}";
+			}
+
+			message = "";
+
 			listen.sendMsg(json);
 			
 			timer = interval;
@@ -73,12 +117,29 @@ public class appwarp : MonoBehaviour {
     	}
 		WarpClient.GetInstance().Update();
 		obj.transform.position = Vector3.Lerp(obj.transform.position, newPos, Time.deltaTime);
+		obj.transform.rotation = newRot;
 	}
 	
 	void OnGUI()
 	{
 		GUI.contentColor = Color.black;
 		GUI.Label(new Rect(10,10,500,200), listen.getDebug());
+
+		GUIStyle gs = new GUIStyle ();
+		gs.fontSize = 10;
+		//gs.font.material.color = new Color (255, 255, 255);
+		if (messageFrame == 200) 
+		{
+			isMessage = false;
+			messageFrame = 0;
+			chatMessage = "";
+		}
+
+		if (isMessage) 
+		{
+			messageFrame++;
+			GUI.Label (new Rect (10, 10, 600, 50), chatMessage, gs);
+		}
 	}
 	
 	/*void OnEditorStateChanged()
