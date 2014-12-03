@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154a16e40ae84e42b591529ea211201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   detonatorControlled: 1
   startSize: 1
   size: 1.0519073
