@@ -1,6 +1,7 @@
 ﻿//szablon ze strony http://wiki.unity3d.com/index.php?title=RigidbodyFPSWalker
 using UnityEngine;
 using System.Collections;
+using System.Timers;
 
 [RequireComponent (typeof (Rigidbody))]
 [RequireComponent (typeof (CapsuleCollider))]
@@ -45,6 +46,40 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public AudioSource au_footsteps;
 
 	UserSettings us;
+
+	//PC:
+	private bool canUseTeleport = true;
+	private float teleportOpacity = 0.0f;
+	Timer timerTeleport = new Timer(2000.0);
+	Timer timerTeleportAnim = new Timer(100.0);
+
+	
+	private static Texture2D _staticRectTexture;
+	private static GUIStyle _staticRectStyle;
+	
+	// Note that this function is only meant to be called from OnGUI() functions.
+	public static void GUIDrawRect( Rect position, Color color )
+	{
+		if( _staticRectTexture == null )
+		{
+			_staticRectTexture = new Texture2D( 1, 1 );
+		}
+		
+		if( _staticRectStyle == null )
+		{
+			_staticRectStyle = new GUIStyle();
+		}
+		
+		_staticRectTexture.SetPixel( 0, 0, color );
+		_staticRectTexture.Apply();
+		
+		_staticRectStyle.normal.background = _staticRectTexture;
+		
+		GUI.Box( position, GUIContent.none, _staticRectStyle );
+		
+		
+	}
+
 	void Start ()
 	{
 		tr = transform;
@@ -57,17 +92,36 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		au_footsteps.clip = myAudioClip;
 		au_footsteps.loop = true;
 
+		timerTeleport.Elapsed += OnTimedEvent;
+		timerTeleport.Enabled = true;
+
+		timerTeleportAnim.Elapsed += TeleportAnimTimerEvent;
+		timerTeleportAnim.Enabled = false;
 	}
-	
+
+	private void TeleportAnimTimerEvent(object source, ElapsedEventArgs e) {
+		teleportOpacity -= 0.05f;
+		if(teleportOpacity < 0.0f) teleportOpacity = 0.0f;
+	}
+
+	private void OnTimedEvent(object source, ElapsedEventArgs e) {
+		Debug.Log ("mozna juz teleportowac");
+		canUseTeleport = true;
+	}
+
 	void Awake () {
 		rigidbody.freezeRotation = true;
 		rigidbody.useGravity = true;
 		
 	}
 	void OnGUI(){
+		if(teleportOpacity > 0.0f) GUIDrawRect(new Rect(0, 0, Screen.width, Screen.height), new Color(1f, 1f, 1f, teleportOpacity));
+
 		GUI.color = new Color (255, 0, 0, alpha);
 		GUI.Label(new Rect(0,0, Screen.width, Screen.height), "", BloodSplat);
 		GUI.color = new Color (255, 255, 255, 0);
+
+
 	}
 
 	void keyboardUpdate()
@@ -239,7 +293,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				
 			}
 		}
-		else
+		else // not grounded
 			
 		{	//upadek
 			if(rigidbody.velocity.y < -50.0 && padjump == false)
@@ -257,12 +311,30 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			else {inAirControl = 0.4f;}
 			targetVelocity = transform.TransformDirection(targetVelocity) * inAirControl;
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
-			
+
+
 		}		
 		// We apply gravity manually for more tuning control
 		rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
-	}
+		// PC: teleportowanie
+		if (us.GetKeyDown("teleport") && canUseTeleport) {
+			//rigidbody.velocity = Vector3.zero;
+			// to naprawia kolizje jak player jest bardzo szybki
+			rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+			Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
+			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
+			canUseTeleport = false;
+			timerTeleport.Stop();
+			timerTeleport.Start();
+			teleportOpacity = 0.4341231233f;
+			timerTeleportAnim.Stop();
+			timerTeleportAnim.Start();
 
+
+		}
+
+	}
+	
 	void FixedUpdate () 
 	{
 		GameObject cam = transform.FindChild ("PlayerCam").gameObject;
