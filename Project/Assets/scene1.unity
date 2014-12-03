@@ -10078,8 +10078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09f945a9568433c42adf85dad1edce81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 100000, guid: 310615fc80faf744bbc8a4e6887bc9da, type: 2}
-  dustSpawnPointTransforms:
+  dustParticleSystem: {fileID: 100000, guid: 310615fc80faf744bbc8a4e6887bc9da, type: 2}
+  mistParticleSystem: {fileID: 100000, guid: 1a3b2e5cd5d03754d88707ac0d0f2742, type: 2}
+  effectSpawnPoints:
   - {fileID: 2095802962}
 --- !u!1 &1113490090
 GameObject:

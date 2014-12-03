@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class KurzWPomieszczeniach : MonoBehaviour {
-	public ParticleSystem particleSystem;
-	public Transform[] dustSpawnPointTransforms;
+	public ParticleSystem dustParticleSystem;
+	public ParticleSystem mistParticleSystem;
+	public Transform[] effectSpawnPoints;
 
 	void Start () {
-		foreach (Transform transform in dustSpawnPointTransforms) {
-			GameObject kurz = Instantiate(particleSystem, transform.position, transform.rotation) as GameObject;
-			Transform kurzTransform = kurz.GetComponent<Transform>();
-			kurzTransform.localScale = transform.localScale;
+		foreach (Transform effectSpawnPoint in effectSpawnPoints) {
+			GameObject kurz = Instantiate(dustParticleSystem, effectSpawnPoint.position, effectSpawnPoint.rotation) as GameObject;
+			GameObject mgla = Instantiate(mistParticleSystem, effectSpawnPoint.position, effectSpawnPoint.rotation) as GameObject;
+			kurz.transform.localScale = effectSpawnPoint.localScale;
+			mgla.transform.localScale = new Vector3(effectSpawnPoint.localScale.x, effectSpawnPoint.localScale.y / 5, effectSpawnPoint.localScale.z);
 		}
 	}
 }
