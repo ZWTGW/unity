@@ -146,7 +146,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 					timer = 1.5f;
 				}
 			}
-			Debug.Log(padjump);
+			//Debug.Log(padjump);
 			//USTAWIENIA STAMINY
 			if (stamina>1 && restTime>=100){
 				speed=normalSpeed;
@@ -321,8 +321,13 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//rigidbody.velocity = Vector3.zero;
 			// to naprawia kolizje jak player jest bardzo szybki
 			rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-			Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
+			/*Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
+*/
+			GameObject cam = transform.FindChild ("PlayerCam").gameObject;
+			Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);
+			transform.position = ray.origin + ray.direction * 75;
+			print("ray origin" + ray.origin + " direction" + ray.direction);
 			canUseTeleport = false;
 			timerTeleport.Stop();
 			timerTeleport.Start();
@@ -393,7 +398,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			padjump = true;
 			Vector3 velocity = rigidbody.velocity;
 			rigidbody.velocity = new Vector3(velocity.x*jumpPadSpeedModifier, 100, velocity.z*jumpPadSpeedModifier);
-			Debug.Log(padjump);
+			//Debug.Log(padjump);
 		}
 		
 	}
