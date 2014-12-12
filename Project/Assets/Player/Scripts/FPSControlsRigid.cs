@@ -326,8 +326,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 */
 			GameObject cam = transform.FindChild ("PlayerCam").gameObject;
 			Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);
-			transform.position = ray.origin + ray.direction * 75;
-			print("ray origin" + ray.origin + " direction" + ray.direction);
+			//Vector3 targetVelocity = transform.TransformDirection(ray.direction.x * 190, ray.direction.y * 190, ray.direction.z * 190);
+			//rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
+			//transform.position = ray.origin + ray.direction * 75;
+			RaycastHit hitInfo = new RaycastHit();
+			bool traf = Physics.Raycast(ray, out hitInfo);
+			print(hitInfo.point);
+			if(traf) transform.position = hitInfo.point;
+
 			canUseTeleport = false;
 			timerTeleport.Stop();
 			timerTeleport.Start();
