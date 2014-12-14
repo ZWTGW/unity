@@ -315,7 +315,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 		}		
 		// We apply gravity manually for more tuning control
-		rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
+			rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
+
 		// PC: teleportowanie
 		if (us.GetKeyDown("teleport") && canUseTeleport) {
 			//rigidbody.velocity = Vector3.zero;
@@ -336,7 +337,16 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			print(hitInfo.point);
 
 			if(traf) { 
+				// takie cos dziala ale instant teleport, w sumie nie wiem czy pan W tak nie chcial
 				transform.position = hitInfo.point;
+
+				// eskperymenty
+				/// nie wiem jak to zrobic ok, bo na cialo ma wplyw takze grawitacja i inne smieszne rzeczy
+				/// jakby nie miala to chyba by cos takiego (albo podobnego) smigalo
+				/// ale musimy teraz nasza sila przeciwdzialac grawitacji i nie wiem jak to zrobic :/
+				//Vector3 sila = (hitInfo.point - transform.position).normalized * hitInfo.distance;
+				//rigidbody.AddForce(sila, ForceMode.VelocityChange);
+
 				canUseTeleport = false;
 				timerTeleport.Stop();
 				timerTeleport.Start();
