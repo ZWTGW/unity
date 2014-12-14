@@ -325,21 +325,25 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
 */
 			GameObject cam = transform.FindChild ("PlayerCam").gameObject;
-			Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);
+
+			//Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);
+			Ray ray = cam.camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
 			//Vector3 targetVelocity = transform.TransformDirection(ray.direction.x * 190, ray.direction.y * 190, ray.direction.z * 190);
 			//rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
 			//transform.position = ray.origin + ray.direction * 75;
 			RaycastHit hitInfo = new RaycastHit();
 			bool traf = Physics.Raycast(ray, out hitInfo);
 			print(hitInfo.point);
-			if(traf) transform.position = hitInfo.point;
 
-			canUseTeleport = false;
-			timerTeleport.Stop();
-			timerTeleport.Start();
-			teleportOpacity = 0.4341231233f;
-			timerTeleportAnim.Stop();
-			timerTeleportAnim.Start();
+			if(traf) { 
+				transform.position = hitInfo.point;
+				canUseTeleport = false;
+				timerTeleport.Stop();
+				timerTeleport.Start();
+				teleportOpacity = 0.4341231233f;
+				timerTeleportAnim.Stop();
+				timerTeleportAnim.Start();
+			}
 
 
 		}
