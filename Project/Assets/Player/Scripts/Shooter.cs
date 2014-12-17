@@ -12,6 +12,8 @@ public class Shooter : MonoBehaviour {
 	public GameObject[] weaponsList;
 	public GameObject[] weapons;
 
+	private Vector3 weaponPosition = new Vector3(2,0,1);
+
 	// Use this for initialization
 	void Start () {
 		weaponCount = 0;
@@ -72,7 +74,7 @@ public class Shooter : MonoBehaviour {
 			weapons[i] = Instantiate(weaponsList[i]) as GameObject;
 			weapons[i].transform.localRotation = camera.transform.rotation;
 			weapons[i].transform.parent = camera.transform;
-			weapons[i].transform.localPosition = new Vector3(0, -1, 2);
+			weapons[i].transform.localPosition = weaponPosition;
 			weapons[i].renderer.enabled = false;
 		}
 		actualWeapon = -1;
@@ -92,10 +94,10 @@ public class Shooter : MonoBehaviour {
 		if (n >= weapons.Length || weapons[n] == null)
 		{
 			weapon = Instantiate(weaponsList[n]) as GameObject;
-			weapon.transform.position = this.transform.position + new Vector3(0, 0, 2);
+			//weapon.transform.position = this.transform.position + new Vector3(0, 0, 2);
 			weapon.transform.localRotation = camera.transform.rotation;
 			weapon.transform.parent = camera.transform;
-			weapon.transform.localPosition = new Vector3(0, -1, 2);
+			weapon.transform.localPosition = weaponPosition;
 			weapons[n] = weapon;
 		}
 		actualWeapon = n;

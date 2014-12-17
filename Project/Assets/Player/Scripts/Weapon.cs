@@ -57,7 +57,7 @@ public class Weapon : MonoBehaviour {
 			//type = new Gun(this);
 		}
 
-		endPoint.transform.position = transform.position + new Vector3(0, 0, 1);
+		//endPoint.transform.position = transform.position + new Vector3(0, 0, 1);
 
 
 		reloading = false;
@@ -293,7 +293,7 @@ public class Gun: Type
 	{
 		Rigidbody bulletInstance;
 		bulletInstance = Instantiate(Weapon.Bullet, Weapon.endPoint.position, new Quaternion()) as Rigidbody;
-
+		bulletInstance.transform.rotation = Weapon.transform.rotation;
 		bulletInstance.AddForce((Weapon.transform.rotation * new Vector3(0, 0, 1)) * Weapon.bulletSpeed);
 		//bulletInstance.transform.Rotate(Vector3.right, 90);
 
