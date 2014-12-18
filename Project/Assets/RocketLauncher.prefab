@@ -168,9 +168,9 @@ MonoBehaviour:
   ammoInMag: 21
   maxAmmoInMag: 21
   ammoInShot: 1
-  reloadingTime: 12
+  reloadingTime: 2
   reloadingAdvance: 0
-  reloading: 0
+  reloading: 1
   shooting: 0
   lastShot: 0
   rail: 0

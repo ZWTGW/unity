@@ -9,10 +9,13 @@ public class Rocket : MonoBehaviour {
 	public float blowSize = 15.0f;
 	public float maxDamage = 60.0f;
 	public GameObject explosionPrefab;
+	
+	private Vector3 lastPosition;
 
 	// Use this for initialization
 	void Start () {
 		time = 0;
+		lastPosition = gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -20,22 +23,33 @@ public class Rocket : MonoBehaviour {
 		time += Time.deltaTime;
 
 		gameObject.GetComponent<Rigidbody>().velocity *= acceleration;
+		//kolizje z obiektami////////////////////////////////
+		RaycastHit hit;
+		Vector3 v = new Vector3();
+		v = gameObject.transform.position - lastPosition;
+		Ray ray = new Ray(lastPosition, v);
+		if(Physics.Raycast(ray, out hit, Vector3.Magnitude(v)));//.rigidbody.velocity)))
+		{
+			if(hit.transform != null)
+			{
+				Explode(hit.point);//pozycja styku
+				return;
+			}
 
-		Collider[] hitColliders = Physics.OverlapSphere( transform.position, blowSize );
+		}
+		lastPosition = gameObject.transform.position;
+		///////////////////////////////////////////////////
 		if(time >= timeDestruction)
 		{
-			Explode();
+			Explode(gameObject.transform.position);
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
+	void Explode(Vector3 position)
 	{
-		Explode();
-	}
+		//Instantiate(explosionPrefab,gameObject.transform.position, gameObject.transform.rotation );
+		Instantiate(explosionPrefab, position, gameObject.transform.rotation );
 
-	void Explode()
-	{
-		Instantiate(explosionPrefab,gameObject.transform.position, gameObject.transform.rotation );
 		Collider[] hitColliders = Physics.OverlapSphere( transform.position, blowSize );
 		
 		foreach( Collider collision in hitColliders )

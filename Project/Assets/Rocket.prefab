@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 1.20000005
-  timeDestruction: 1e+08
+  timeDestruction: 1
   blowSize: 15
   maxDamage: 60
   explosionPrefab: {fileID: 100000, guid: df7b4adaa3ec9ca41ac71edbc755ea05, type: 2}
@@ -98,7 +98,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .5
   m_Height: 2
   m_Direction: 1
