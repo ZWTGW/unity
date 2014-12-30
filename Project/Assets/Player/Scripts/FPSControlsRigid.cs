@@ -52,6 +52,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float teleportOpacity = 0.0f;
 	Timer timerTeleport = new Timer(2000.0);
 	Timer timerTeleportAnim = new Timer(100.0);
+	Vector3 teleportPos = Vector3.zero;
 
 	
 	private static Texture2D _staticRectTexture;
@@ -334,18 +335,22 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//transform.position = ray.origin + ray.direction * 75;
 			RaycastHit hitInfo = new RaycastHit();
 			bool traf = Physics.Raycast(ray, out hitInfo);
-			print(hitInfo.point);
 
 			if(traf) { 
 				// takie cos dziala ale instant teleport, w sumie nie wiem czy pan W tak nie chcial
-				transform.position = hitInfo.point;
+				//transform.position = hitInfo.point;
 
 				// eskperymenty
 				/// nie wiem jak to zrobic ok, bo na cialo ma wplyw takze grawitacja i inne smieszne rzeczy
 				/// jakby nie miala to chyba by cos takiego (albo podobnego) smigalo
 				/// ale musimy teraz nasza sila przeciwdzialac grawitacji i nie wiem jak to zrobic :/
-				//Vector3 sila = (hitInfo.point - transform.position).normalized * hitInfo.distance;
+				//Vector3 sila = (hitInfo.normal) * hitInfo.distance;
+				//print (hitInfo.normal);
+				//print ((hitInfo.point - transform.position).normalized);
 				//rigidbody.AddForce(sila, ForceMode.VelocityChange);
+				//rigidbody.transform.position = Vector3.MoveTowards(rigidbody.transform.position, hitInfo.point, 40);
+
+
 
 				canUseTeleport = false;
 				timerTeleport.Stop();
@@ -353,6 +358,11 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				teleportOpacity = 0.4341231233f;
 				timerTeleportAnim.Stop();
 				timerTeleportAnim.Start();
+				teleportPos = hitInfo.point;
+
+			}
+			else {
+				teleportPos = Vector3.zero;
 			}
 
 
@@ -381,6 +391,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			hcube.renderer.enabled = false;
 			ml.enabled=true;
 
+		}
+
+		if(teleportPos != Vector3.zero) {
+			print("no cos robimy - pozdrawiam");
+			rigidbody.transform.position = Vector3.MoveTowards(rigidbody.transform.position, teleportPos, 5);
+			if ((rigidbody.transform.position - teleportPos).magnitude < 0.0001f)  {
+				teleportPos = Vector3.zero;
+			}
 		}
 	
 
