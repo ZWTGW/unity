@@ -359,6 +359,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				timerTeleportAnim.Stop();
 				timerTeleportAnim.Start();
 				teleportPos = hitInfo.point;
+				teleportPos.y += 2; // workaround buga wchodzenie w sufity 
 
 			}
 			else {
