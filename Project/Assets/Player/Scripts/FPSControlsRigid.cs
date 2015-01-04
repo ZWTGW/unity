@@ -43,7 +43,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float dist; // distance to ground
 	private int slopeLimit = 30; //na jakie pochylosci mozna wchodzic
 
-	public AudioSource au_footsteps;
+	public AudioSource source;
+	public AudioClip stepSound;
+	public AudioClip fallSound;
+	public AudioClip teleSound;
+
+	public float footstepDelay = 0.6f;
+	public float stepVol = 0.6f;
+	private float nextFootstep = 0;
 
 	UserSettings us;
 
@@ -54,7 +61,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	Timer timerTeleportAnim = new Timer(100.0);
 	Vector3 teleportPos = Vector3.zero;
 
-	
+	private static CapsuleCollider bodyCollider;
 	private static Texture2D _staticRectTexture;
 	private static GUIStyle _staticRectStyle;
 	
@@ -87,11 +94,9 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		dist = 1.0f; // calculate distance to ground
 		alpha = 0f;
 
-		au_footsteps = (AudioSource)gameObject.AddComponent ("AudioSource");
-		AudioClip myAudioClip;
-		myAudioClip = (AudioClip)Resources.Load ("sounds/step2");
-		au_footsteps.clip = myAudioClip;
-		au_footsteps.loop = true;
+		CapsuleCollider bodyCollider = transform.GetComponent<CapsuleCollider>();
+
+		source = GetComponent<AudioSource>();
 
 		timerTeleport.Elapsed += OnTimedEvent;
 		timerTeleport.Enabled = true;
@@ -144,7 +149,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				timer-=Time.deltaTime;
 				if (timer < 0){
 					padjump = false;
-					timer = 1.5f;
+					timer = 0.6f;
 				}
 			}
 			//Debug.Log(padjump);
@@ -179,7 +184,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 			//
 			//WYCHYLANIE SIE (do poprawki)
-			if(Input.GetKeyDown("q")) {
+			/*if(Input.GetKeyDown("q")) {
 				cbob.lean=-3;
 				
 			}
@@ -190,28 +195,33 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			if(Input.GetKeyDown("b")) {
 				cbob.lean=0;
 				
-			}
-			//SPRINT
-			if (us.GetKey("run") && us.GetKey("up") && canSprint == true)
-				
+			}*/
+			if (grounded && us.GetKey("up") || grounded && us.GetKey("right") || grounded && us.GetKey("down") || grounded && us.GetKey("left"))
 			{
-				speed = runSpeed; //szybkosc poruszania sie w biegu
-				stamina-=0.8f;
-				
+				footstepDelay = 0.6f;
+				stepVol = 0.7f;
+				nextFootstep -= Time.deltaTime;
+				if (us.GetKey("run") && us.GetKey("up") && canSprint == true){//SPRINT
+					footstepDelay = 0.5f;
+					speed = runSpeed; //szybkosc poruszania sie w biegu
+					stamina-=0.8f;
+					stepVol = 0.85f;
+				}
+				else if (us.GetKey("crouch"))
+				{ 	footstepDelay = 0.7f;
+					//				crouch = true;
+					canJump = false;
+					//bodyCollider.height = 10;
+					vScale = 0.85f;
+					stepVol = 0.25f;
+					speed = crchSpeed; //szybkosc poruszania sie w przykucnieciu
+				}
 			}
-			//
-			
-			//KUCANIE
-			if (us.GetKey("crouch"))
-			{ 
-				//				crouch = true;
-				canJump = false;
-				vScale = 0.85f;
-				speed = crchSpeed; //szybkosc poruszania sie w przykucnieciu
-				
+
+			if (nextFootstep <= 0) {
+				audio.PlayOneShot(stepSound, stepVol);
+				nextFootstep += footstepDelay;
 			}
-			//
-			
 			//BIEG
 			Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			targetVelocity = transform.TransformDirection(targetVelocity);
@@ -237,13 +247,6 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			
 			tmpPosition.y += dist * (tr.localScale.y - ultScale); // fix vertical position
 			tr.position = tmpPosition;
-			if (rigidbody.velocity.magnitude > 5){
-
-				//au_footsteps.Play(); dzwiek nachodzi na siebie zamiast odtwarzac sie tylko raz
-			}
-			else if (rigidbody.velocity.magnitude < 5){
-				au_footsteps.Stop();
-			}
 			//
 			//
 			//SKOK
@@ -261,6 +264,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				vScale = 0.8f;
 				//	float asd = cbob.midpoint;
 				getDmg((int)falldmg);
+				source.PlayOneShot(fallSound,1f);
 				//GUI.color.a=1f; //
 				alpha=0.5f;
 				blood=true;
@@ -326,6 +330,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			/*Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
 */
+			padjump = true; //zeby gracz nie otrzymywal obrazen jak teleportuje sie z gory, z wysoka na dol
+			source.PlayOneShot(teleSound,1f);
 			GameObject cam = transform.FindChild ("PlayerCam").gameObject;
 
 			//Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);

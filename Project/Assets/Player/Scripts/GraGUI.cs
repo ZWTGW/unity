@@ -236,7 +236,7 @@ public class GraGUI : MonoBehaviour{
 			if (hp >= 25)
 				mg.grayEnabled = false;
 			else
-				mg.grayEnabled = true;
+				mg.grayEnabled = false; //MD: to byla przyczyna tego, ze wszystko znikalo, zakomentowalem bo nie wiem jak poprawic
 		}
 	}
 	

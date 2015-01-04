@@ -9,9 +9,9 @@ public class DetonatorSound : DetonatorComponent {
 	public AudioClip[] farSounds;
 	
 	public float distanceThreshold = 50f; //threshold in m between playing nearSound and farSound
-	public float minVolume = .4f;
+	public float minVolume = 0.8f;
 	public float maxVolume = 1f;
-	public float rolloffFactor = 0.5f;
+	public float rolloffFactor = 1f; //??
 	
 	private AudioSource _soundComponent;
 	private bool _delayedExplosionStarted = false;
@@ -61,7 +61,7 @@ public class DetonatorSound : DetonatorComponent {
 			else
 			{
 				_idx = (int)(Random.value * farSounds.Length);
-				_soundComponent.PlayOneShot(farSounds[_idx]);
+				_soundComponent.PlayOneShot(farSounds[_idx],10f);
 			}	
 			_delayedExplosionStarted = false;
 			_explodeDelay = 0f;			

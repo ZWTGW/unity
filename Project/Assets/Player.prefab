@@ -635,7 +635,12 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  au_footsteps: {fileID: 0}
+  source: {fileID: 0}
+  stepSound: {fileID: 8300000, guid: 40a7f1750d1dea64badf51085125479f, type: 3}
+  fallSound: {fileID: 8300000, guid: 4af7ed85df31a4180adbb4da56104696, type: 3}
+  teleSound: {fileID: 8300000, guid: 64bc3c8eeb442c44c91fe01c3acceadf, type: 3}
+  footstepDelay: .5
+  stepVol: .600000024
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,8 +745,8 @@ MonoBehaviour:
   MinimumX: -360
   MaximumX: 360
   SensitivityY: 400
-  MinimumY: -75
-  MaximumY: 75
+  MinimumY: -55
+  MaximumY: 55
   OriginalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &11400024
 MonoBehaviour:
