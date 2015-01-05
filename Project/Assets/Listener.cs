@@ -260,13 +260,7 @@ namespace AssemblyCSharp
 		
 		public void onUserJoinedRoom (RoomData eventObj, string username)
 		{
-			if(username != appwarp.username )
-			{
-				appwarp.addPlayer(username);
-			}
-			Debug.Log ("onUserJoinedRoom : " + username);
-
-			if(username == appwarp.username ) Debug.Log ( " TO JA!!!!");
+			Log ("onUserJoinedRoom : " + username);
 		}
 		
 		public void onUserLeftLobby (LobbyData eventObj, string username)
@@ -299,20 +293,13 @@ namespace AssemblyCSharp
 			//Log(eventObj.getSender() + " sended " + eventObj.getMessage());
 			com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSONNode msg =  com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSON.Parse(eventObj.getMessage());
 			//msg[0] 
-			checkUser(eventObj.getSender());
 			if(eventObj.getSender() != appwarp.username)
 			{
-				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat, eventObj.getSender());
-				appwarp.rotatePlayer(msg["rx"].AsFloat,msg["ry"].AsFloat,msg["rz"].AsFloat,msg["rw"].AsFloat, eventObj.getSender());
-				//appwarp.shootPlayer(msg["s"].AsFloat);
-				//appwarp.sendChatMessage(msg["m"].AsObject);
+				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat);
+				appwarp.rotatePlayer(msg["rx"].AsFloat,msg["ry"].AsFloat,msg["rz"].AsFloat,msg["rw"].AsFloat);
+				appwarp.shootPlayer(msg["s"].AsFloat);
+				appwarp.sendChatMessage(msg["m"].AsObject);
 				//Log(msg["x"].ToString()+" "+msg["y"].ToString()+" "+msg["z"].ToString());
-			}
-		}
-
-		public void checkUser(string uname){
-			if(!appwarp.players.ContainsKey(uname)){
-				appwarp.addPlayer(uname);
 			}
 		}
 		
