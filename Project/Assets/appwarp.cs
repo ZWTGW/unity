@@ -28,6 +28,11 @@ public class appwarp : MonoBehaviour {
 	public static int messageFrame = 0;
 	public static string chatMessage = "";
 	public static string message = "wiadomosc";
+
+	public static Dictionary<string, GameObject> gObjects = new Dictionary<string, GameObject>();
+	public static Dictionary<string, Vector3> positions = new Dictionary<string, Vector3>();
+	public static Dictionary<string, NetworkPlayer> players = new Dictionary<string, NetworkPlayer>();
+
 	void Start () {;
 		WarpClient.initialize(apiKey,secretKey);
 		WarpClient.GetInstance().AddConnectionRequestListener(listen);
@@ -40,45 +45,49 @@ public class appwarp : MonoBehaviour {
 		WarpClient.GetInstance ().AddTurnBasedRoomRequestListener (listen);
 		// join with a unique name (current time stamp)
 		username = System.DateTime.UtcNow.Ticks.ToString();
+
+		message = username;
+
 		WarpClient.GetInstance().Connect(username);
-		
-		//EditorApplication.playmodeStateChanged += OnEditorStateChanged;
-		addPlayer();
+
 	}
 	
 	public float interval = 0.1f;
 	float timer = 0;
 
-	
-	public static GameObject obj;
-	
 	public static void addPlayer()
 	{
-		obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+
 		Weapon w = new Weapon ();
 		obj.AddComponent<GrenadeThrow> ();
 		obj.transform.position = new Vector3(732f,1.5f,500f);
 	}
-	
-	public static void movePlayer(float x, float y, float z)
+
+	public static void addPlayer(string uname)
 	{
-		newPos = new Vector3(x,y,z);
+		players.Add(uname, new NetworkPlayer(uname));
+	}
+	
+	public static void movePlayer(float x, float y, float z, string uname)
+	{
+		players[uname].Position = new Vector3(x,y,z);
 	}
 
-	public static void rotatePlayer(float rx,float ry,float rz,float rw)
+	public static void rotatePlayer(float rx,float ry,float rz,float rw, string uname)
 	{
-		newRot = new Quaternion(rx, ry, rz, rw);
+		players[uname].Rotation = new Quaternion(rx, ry, rz, rw);
 	}
 
 	public static void shootPlayer(float s)
 	{
 		if (s == 1) 
 		{
-			obj.GetComponent<GrenadeThrow>().Throw();
+			//obj.GetComponent<GrenadeThrow>().Throw();
 		}
 		else
 		{
-			obj.GetComponent<GrenadeThrow>().Throw();
+			//obj.GetComponent<GrenadeThrow>().Throw();
 		}
 	}
 
@@ -116,8 +125,11 @@ public class appwarp : MonoBehaviour {
         	Application.Quit();
     	}
 		WarpClient.GetInstance().Update();
-		obj.transform.position = Vector3.Lerp(obj.transform.position, newPos, Time.deltaTime);
-		obj.transform.rotation = newRot;
+
+		foreach(string key in players.Keys){
+			players[key].update();
+		}
+
 	}
 	
 	void OnGUI()
