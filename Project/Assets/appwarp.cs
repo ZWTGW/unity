@@ -25,6 +25,7 @@ public class appwarp : MonoBehaviour {
 	public static Quaternion newRot = new Quaternion(0,0,0,0);
 	public static bool shoot = false;
 	public static bool isMessage = false;
+	public static bool isMovementKeyPressed = false;
 	public static int messageFrame = 0;
 	public static string chatMessage = "";
 	public static string message = "wiadomosc";
@@ -79,6 +80,10 @@ public class appwarp : MonoBehaviour {
 		players[uname].Rotation = new Quaternion(rx, ry, rz, rw);
 	}
 
+	public static void setPlayerMovementState(string uname, bool isPlayerMovementKeyPressed){
+		players[uname].IsMovementKeyPressed = isPlayerMovementKeyPressed;
+	}
+
 	public static void shootPlayer(float s)
 	{
 		if (s == 1) 
@@ -98,32 +103,44 @@ public class appwarp : MonoBehaviour {
 						isMessage = true;
 				}
 	}
+
+	private void manageInput(){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.Quit();
+		}
+		if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+			isMovementKeyPressed = true;
+		else
+			isMovementKeyPressed = false;
+	}
+
+	private string toJson(){
+		System.Text.StringBuilder sb = new System.Text.StringBuilder();
+		string shootInfo = shoot ? "1" : "0";
+		string movementKeyInfo = isMovementKeyPressed ? "1" : "0";
+		sb.Append("{\"x\":\""+transform.position.x+"\",");
+		sb.Append("\"y\":\""+transform.position.y+"\",");
+		sb.Append("\"z\":\""+transform.position.z+"\",");
+		sb.Append("\"rx\":\""+transform.rotation.x+"\",");
+		sb.Append("\"ry\":\""+transform.rotation.y+"\",");
+		sb.Append("\"rz\":\""+transform.rotation.z+"\",");
+		sb.Append("\"rw\":\""+transform.rotation.w+"\",");
+		sb.Append("\"s\":\""+shootInfo+"\",");
+		sb.Append("\"mk\":\""+movementKeyInfo+"\",");
+		sb.Append("\"m\":\""+message+"\"}");
+		return sb.ToString();
+	}
 	
 	void Update () {
 		timer -= Time.deltaTime;
 		if(timer < 0)
 		{
-			string json = "";
-
-			if(shoot)
-			{
-				json = "{\"x\":\""+transform.position.x+"\",\"y\":\""+transform.position.y+"\",\"z\":\""+transform.position.z+"\",\"rx\":\""+transform.rotation.x+"\",\"ry\":\""+transform.rotation.y+"\",\"rz\":\""+transform.rotation.z+"\",\"rw\":\""+transform.rotation.w+"\",\"s\":\""+1+"\",\"m\":\""+message+"\"}";
-			}
-			else
-			{
-				json = "{\"x\":\""+transform.position.x+"\",\"y\":\""+transform.position.y+"\",\"z\":\""+transform.position.z+"\",\"rx\":\""+transform.rotation.x+"\",\"ry\":\""+transform.rotation.y+"\",\"rz\":\""+transform.rotation.z+"\",\"rw\":\""+transform.rotation.w+"\",\"s\":\""+0+"\",\"m\":\""+message+"\"}";
-			}
-
+			listen.sendMsg(toJson());
 			message = "";
-
-			listen.sendMsg(json);
-			
 			timer = interval;
 		}
 		
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-        	Application.Quit();
-    	}
+		manageInput();
 		WarpClient.GetInstance().Update();
 
 		foreach(string key in players.Keys){
@@ -131,7 +148,7 @@ public class appwarp : MonoBehaviour {
 		}
 
 	}
-	
+
 	void OnGUI()
 	{
 		GUI.contentColor = Color.black;

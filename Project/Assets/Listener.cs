@@ -302,8 +302,10 @@ namespace AssemblyCSharp
 			checkUser(eventObj.getSender());
 			if(eventObj.getSender() != appwarp.username)
 			{
+				bool isMovementKeyPressed = msg["mk"].Equals("1") ? true : false;
 				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat, eventObj.getSender());
 				appwarp.rotatePlayer(msg["rx"].AsFloat,msg["ry"].AsFloat,msg["rz"].AsFloat,msg["rw"].AsFloat, eventObj.getSender());
+				appwarp.setPlayerMovementState(eventObj.getSender(), isMovementKeyPressed); 
 				//appwarp.shootPlayer(msg["s"].AsFloat);
 				//appwarp.sendChatMessage(msg["m"].AsObject);
 				//Log(msg["x"].ToString()+" "+msg["y"].ToString()+" "+msg["z"].ToString());

@@ -12,6 +12,7 @@ public class NetworkPlayer{
 	private int messageFrame = 0;
 	private string chatMessage = "";
 	private string message = "";
+	private bool isMovementKeyPressed = false;
 
 	public NetworkPlayer (){
 	}
@@ -29,23 +30,8 @@ public class NetworkPlayer{
 	}
 
 	public void update(){
-		this.Avatar.transform.position = this.position;
+		this.Avatar.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
 		this.Avatar.transform.rotation = this.rotation;
-	}
-
-	public string toJson(){
-		System.Text.StringBuilder sb = new System.Text.StringBuilder();
-		sb.Append("{\"id\":\""+this.id+"\",");
-		sb.Append("\"x\":\""+this.position.x+"\",");
-		sb.Append("\"y\":\""+this.position.y+"\",");
-		sb.Append("\"z\":\""+this.position.z+"\",");
-		sb.Append("\"rx\":\""+this.rotation.x+"\",");
-		sb.Append("\"ry\":\""+this.rotation.y+"\",");
-		sb.Append("\"rz\":\""+this.rotation.z+"\",");
-		sb.Append("\"rw\":\""+this.rotation.w+"\",");
-		sb.Append("\"s\":\""+this.shoot+"\",");
-		sb.Append("\"m\":\""+this.message+"\"}");
-		return sb.ToString();
 	}
 
 	public string Id {
@@ -123,6 +109,15 @@ public class NetworkPlayer{
 		}
 		set {
 			message = value;
+		}
+	}
+
+	public bool IsMovementKeyPressed {
+		get {
+			return this.isMovementKeyPressed;
+		}
+		set {
+			isMovementKeyPressed = value;
 		}
 	}
 }
