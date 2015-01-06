@@ -47,6 +47,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public AudioClip stepSound;
 	public AudioClip fallSound;
 	public AudioClip teleSound;
+	public AudioClip jump_landSound;
+	public AudioClip jump_startSound;
 
 	public float footstepDelay = 0.6f;
 	public float stepVol = 0.6f;
@@ -253,6 +255,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 			if (canJump && us.GetKey("jump")) {
 				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
+				source.PlayOneShot(jump_startSound,1f);
 				canJump = false;
 			}
 
@@ -275,6 +278,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				falldmg=0;
 				
 			}
+
 			
 			//usuwanie krwi z ekranu
 			if (blood == true && alpha >0){
