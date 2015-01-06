@@ -108,7 +108,7 @@ public class appwarp : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			Application.Quit();
 		}
-		if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
 			isMovementKeyPressed = true;
 		else
 			isMovementKeyPressed = false;
