@@ -472,6 +472,7 @@ public class GraGUI : MonoBehaviour{
 	}
 	
 	void OnGUI() {
+
 		if (isMainMenu) {
 			InGameMenu();
 		}
