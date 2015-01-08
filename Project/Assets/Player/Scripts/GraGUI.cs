@@ -264,7 +264,7 @@ public class GraGUI : MonoBehaviour{
 		
 		// wymiary calego menu
 		int w = 500;
-		int h = 370;
+		int h = 470;
 		
 		// skin
 		GUI.skin.box.fontSize = 40;
@@ -297,7 +297,7 @@ public class GraGUI : MonoBehaviour{
 				
 				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
 					hostToJoin = null;
-					Application.LoadLevel(1);
+					Application.LoadLevel(2);
 				}
 				
 				
@@ -314,7 +314,7 @@ public class GraGUI : MonoBehaviour{
 					{
 						if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName)) {
 							hostToJoin = hostList[i];
-							Application.LoadLevel(1);
+							Application.LoadLevel(2);
 						}
 						
 					}
