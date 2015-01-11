@@ -90,6 +90,7 @@ MonoBehaviour:
   blowSize: 15
   maxDamage: 60
   explosionPrefab: {fileID: 100000, guid: df7b4adaa3ec9ca41ac71edbc755ea05, type: 2}
+  force: 40
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
