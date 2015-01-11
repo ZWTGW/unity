@@ -42,6 +42,8 @@ public class Weapon : MonoBehaviour {
 	public Rigidbody Bullet;
 	public Transform endPoint;
 
+	public GameObject shooter;
+
 	// Use this for initialization
 	void Start () {
 		//state = new List<State>();
@@ -83,6 +85,15 @@ public class Weapon : MonoBehaviour {
 		{
 			state.Update();
 		}
+		if(shooter != null)
+		{
+			transform.LookAt(shooter.GetComponent<Shooter>().GetTarget());
+		}
+	}
+
+	public void SetShooter(GameObject s)
+	{
+		shooter = s;
 	}
 
 	public void StartShooting()

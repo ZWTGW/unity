@@ -31,6 +31,10 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Ray ray = new Ray(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 1));
+		Debug.DrawRay(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 100000000));
+
+
 		if(Input.GetMouseButtonDown(0))
 		{
 			weapon.GetComponent<Weapon>().StartShooting();
@@ -72,10 +76,12 @@ public class Shooter : MonoBehaviour {
 		for (int i = 0; i < weaponMax; i++)
 		{
 			weapons[i] = Instantiate(weaponsList[i]) as GameObject;
+			weapons[i].GetComponent<Weapon>().SetShooter(gameObject);
 			weapons[i].transform.localRotation = camera.transform.rotation;
 			weapons[i].transform.parent = camera.transform;
 			weapons[i].transform.localPosition = weaponPosition;
 			weapons[i].renderer.enabled = false;
+
 		}
 		actualWeapon = -1;
 		ChangeWeapon(n);
@@ -94,17 +100,35 @@ public class Shooter : MonoBehaviour {
 		if (n >= weapons.Length || weapons[n] == null)
 		{
 			weapon = Instantiate(weaponsList[n]) as GameObject;
+			
+			weapon.GetComponent<Weapon>().SetShooter(gameObject);
 			//weapon.transform.position = this.transform.position + new Vector3(0, 0, 2);
 			weapon.transform.localRotation = camera.transform.rotation;
 			weapon.transform.parent = camera.transform;
 			weapon.transform.localPosition = weaponPosition;
 			weapons[n] = weapon;
+
 		}
 		actualWeapon = n;
 		weapon = weapons[n];
 		weapon.renderer.enabled = true;
 		//Destroy(weapon);
 
+	}
+
+	public Vector3 GetTarget()
+	{
+		RaycastHit hit;
+		Ray ray = new Ray(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 1));
+		if(Physics.Raycast(ray, out hit, 100000000))
+		{
+			if(hit.transform != null)
+			{
+				return hit.point;
+			}
+
+		}
+		return camera.transform.position + (camera.transform.rotation * new Vector3(0, 0, 1000));
 	}
 
 	void DeleteWeapon(int n)

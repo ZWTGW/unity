@@ -11,6 +11,8 @@ public class Rocket : MonoBehaviour {
 	public GameObject explosionPrefab;
 	
 	private Vector3 lastPosition;
+	private float turnAngle = 45f;
+	public float force = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -22,13 +24,18 @@ public class Rocket : MonoBehaviour {
 	void Update () {
 		time += Time.deltaTime;
 
+		Debug.DrawRay(transform.position, transform.rotation * new Vector3(0,0, 1000000));
+
+		gameObject.transform.Rotate(Vector3.forward, turnAngle);
+		gameObject.rigidbody.AddForce(gameObject.transform.rotation * new Vector3(0, 1, 0) * force * Random.Range(-100f, 100f) * 0.01f);
+
 		gameObject.GetComponent<Rigidbody>().velocity *= acceleration;
 		//kolizje z obiektami////////////////////////////////
 		RaycastHit hit;
 		Vector3 v = new Vector3();
 		v = gameObject.transform.position - lastPosition;
 		Ray ray = new Ray(lastPosition, v);
-		if(Physics.Raycast(ray, out hit, Vector3.Magnitude(v)));//.rigidbody.velocity)))
+		if(Physics.Raycast(ray, out hit, Vector3.Magnitude(v)))//.rigidbody.velocity)))
 		{
 			if(hit.transform != null)
 			{
