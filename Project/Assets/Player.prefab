@@ -565,12 +565,6 @@ MonoBehaviour:
   playerName: just me
   startTimeIsSet: 0
   team: steams
-  padjump: 0
-  speed: 0
-  canSprint: 1
-  restTime: 100
-  timer: 2.5
-  grounded: 0
   xVel: 0
   yVel: 0
   falldmg: 0
@@ -635,14 +629,12 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
-  source: {fileID: 0}
   stepSound: {fileID: 8300000, guid: 40a7f1750d1dea64badf51085125479f, type: 3}
   fallSound: {fileID: 8300000, guid: 0d5e5142c8fd3ca4881f51019315da36, type: 3}
   teleSound: {fileID: 8300000, guid: 64bc3c8eeb442c44c91fe01c3acceadf, type: 3}
   jump_landSound: {fileID: 8300000, guid: 2d4cf9c6b8e9fff4884a0742873d6ca1, type: 3}
   jump_startSound: {fileID: 8300000, guid: a74f4047bc0a6e747b9696100b697c6a, type: 3}
-  footstepDelay: .5
-  stepVol: .600000024
+  deathAnim: {fileID: 7400000, guid: 00c4c494fdb3d5d4a939ccd2fe54fa2c, type: 2}
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1

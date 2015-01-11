@@ -16,17 +16,17 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float gravity = 93.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci
 	private bool canJump = true;
-	public bool padjump = false; //zmienna do kontrolowania tego czy skoczylismy przy uzyciu jumppada czy normalnie - dodalem to po to by miec wieksza kotrole horyzontalna po skoku na jumppadzie niz po skoku zwyklym
+	private bool padjump = false; //zmienna do kontrolowania tego czy skoczylismy przy uzyciu jumppada czy normalnie - dodalem to po to by miec wieksza kotrole horyzontalna po skoku na jumppadzie niz po skoku zwyklym
 	private float inAirControl = 0.5f; //poruszanie sie w locie
 	private float jpadInAirControl = 0.8f; //poruszanie sie w locie - jumppad
 	private float jumpHeight = 5.4f; //wysokosc skoku
-	public float speed; //szybkosc aktualna, moze sie przydac w headbobber
-	public bool canSprint = true;
-	public int restTime=100;
+	private float speed; //szybkosc aktualna, moze sie przydac w headbobber
+	private bool canSprint = true;
+	private int restTime=100;
 
-	public float timer = 1.5f; //timer na razie oblicza czas od upadku do ustawienia zmiennej jumppadowej
+	private float timer = 1.5f; //timer na razie oblicza czas od upadku do ustawienia zmiennej jumppadowej
 
-	public bool grounded = false;
+	private bool grounded = false;
 	private static float forwardSpeedModifier = 0.90f; //wolniejszy ruch przod tyl
 	private static float sidesSpeedModifier = 0.85f; //wolniejszy strafe
 	private static float jumpSpeedModifier = 0.95f;	//mniejsza predkosc po skoku
@@ -43,15 +43,15 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float dist; // distance to ground
 	private int slopeLimit = 30; //na jakie pochylosci mozna wchodzic
 
-	public AudioSource source;
+	private AudioSource source;
 	public AudioClip stepSound;
 	public AudioClip fallSound;
 	public AudioClip teleSound;
 	public AudioClip jump_landSound;
 	public AudioClip jump_startSound;
 
-	public float footstepDelay = 0.6f;
-	public float stepVol = 0.6f;
+	private float footstepDelay = 0.6f;
+	private float stepVol = 0.6f;
 	private float nextFootstep = 0;
 
 	UserSettings us;
@@ -66,7 +66,11 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private static CapsuleCollider bodyCollider;
 	private static Texture2D _staticRectTexture;
 	private static GUIStyle _staticRectStyle;
-	
+
+	private Networking ntScript;
+	public AnimationClip deathAnim;
+	private bool allow = true;
+
 	// Note that this function is only meant to be called from OnGUI() functions.
 	public static void GUIDrawRect( Rect position, Color color )
 	{
@@ -105,6 +109,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 		timerTeleportAnim.Elapsed += TeleportAnimTimerEvent;
 		timerTeleportAnim.Enabled = false;
+		ntScript = GameObject.FindObjectOfType(typeof(Networking)) as Networking;
 	}
 
 	private void TeleportAnimTimerEvent(object source, ElapsedEventArgs e) {
@@ -299,7 +304,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			if (us.GetKeyDown("granade")) //GRANAT
 			{
 				gt.Throw();
-				
+
 			}
 		}
 		else // not grounded
@@ -377,6 +382,10 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 
 
+		}
+		if (this.transform.position.y<0 && allow==true){
+			Die ();
+			allow = false;
 		}
 
 	}
@@ -461,7 +470,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	public void getDmg(int amount){
 		currHP-=amount;
 		//animation.Play("Death");
+		if (currHP < 1) {
+			Die ();}
 		
+	}
+	private void Die(){
+		Destroy(this.gameObject, deathAnim.length);//MD: nie wiem jak zrobic zeby dziala ta animacja :(
+
+		ntScript.SpawnPlayer();
 	}
 }
 
