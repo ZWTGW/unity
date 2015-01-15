@@ -87,7 +87,12 @@ public class Weapon : MonoBehaviour {
 		}
 		if(shooter != null)
 		{
+			Quaternion w = transform.rotation;
 			transform.LookAt(shooter.GetComponent<Shooter>().GetTarget());
+			Quaternion v = transform.rotation;
+			transform.rotation = w;
+			
+			transform.rotation = Quaternion.Lerp(transform.rotation, v, 0.1f);
 		}
 	}
 
