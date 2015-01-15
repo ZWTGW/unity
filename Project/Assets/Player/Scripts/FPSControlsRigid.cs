@@ -16,6 +16,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private float gravity = 93.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci
 	private bool canJump = true;
+	private bool doubleJumped = false; // PC: double jump
 	private bool padjump = false; //zmienna do kontrolowania tego czy skoczylismy przy uzyciu jumppada czy normalnie - dodalem to po to by miec wieksza kotrole horyzontalna po skoku na jumppadzie niz po skoku zwyklym
 	private float inAirControl = 0.5f; //poruszanie sie w locie
 	private float jpadInAirControl = 0.8f; //poruszanie sie w locie - jumppad
@@ -331,6 +332,14 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		// We apply gravity manually for more tuning control
 			rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
 
+		// PC: double jump
+		if (us.GetKeyDown("jump") && doubleJumped == false) {
+			doubleJumped = true;
+			Vector3 velocity = rigidbody.velocity;
+			rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
+			source.PlayOneShot(jump_startSound,1f);
+		}
+
 		// PC: teleportowanie
 		if (us.GetKeyDown("teleport") && canUseTeleport) {
 			//rigidbody.velocity = Vector3.zero;
@@ -438,6 +447,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				{
 					// grounded is used in the FixedUpdate callback
 					grounded = true;
+					doubleJumped = false;
 				}
 			}
 			
