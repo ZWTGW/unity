@@ -12,6 +12,8 @@ public class Shooter : MonoBehaviour {
 	public GameObject[] weaponsList;
 	public GameObject[] weapons;
 
+	public bool forceShooting = false;
+
 	// Use this for initialization
 	void Start () {
 		weaponCount = 0;
@@ -29,6 +31,9 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (forceShooting) weapon.GetComponent<Weapon>().StartShooting();
+
 		if(Input.GetMouseButtonDown(0))
 		{
 			weapon.GetComponent<Weapon>().StartShooting();

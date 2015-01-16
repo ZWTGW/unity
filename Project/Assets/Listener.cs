@@ -10,6 +10,8 @@ using com.shephertz.app42.gaming.multiplayer.client.transformer;
 using System;
 using System.Collections.Generic;
 
+using System.Xml.Serialization;
+
 namespace AssemblyCSharp
 {
 	public class Listener : ConnectionRequestListener, LobbyRequestListener, ZoneRequestListener, RoomRequestListener, ChatRequestListener, UpdateRequestListener, NotifyListener, TurnBasedRoomListener
@@ -296,24 +298,34 @@ namespace AssemblyCSharp
 		
 		public void onChatReceived (ChatEvent eventObj)
 		{
-			//Log(eventObj.getSender() + " sended " + eventObj.getMessage());
 			com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSONNode msg =  com.shephertz.app42.gaming.multiplayer.client.SimpleJSON.JSON.Parse(eventObj.getMessage());
-			//msg[0] 
+
 			checkUser(eventObj.getSender());
-			if(eventObj.getSender() != appwarp.username)
+
+			string sender = eventObj.getSender();
+			string parameters = msg ["parameters"].ToString();
+			string message = msg ["message"].ToString();
+
+			if( parameters.Length > 0 )
 			{
-				bool isMovementKeyPressed = msg["mk"].Equals("1") ? true : false;
-				appwarp.movePlayer(msg["x"].AsFloat,msg["y"].AsFloat,msg["z"].AsFloat, eventObj.getSender());
-				appwarp.rotatePlayer(msg["rx"].AsFloat,msg["ry"].AsFloat,msg["rz"].AsFloat,msg["rw"].AsFloat, eventObj.getSender());
-				appwarp.setPlayerMovementState(eventObj.getSender(), isMovementKeyPressed); 
-				//appwarp.shootPlayer(msg["s"].AsFloat);
-				//appwarp.sendChatMessage(msg["m"].AsObject);
-				//Log(msg["x"].ToString()+" "+msg["y"].ToString()+" "+msg["z"].ToString());
+				parameters = parameters.Substring(0, parameters.Length - 1);
+				parameters = parameters.Substring(1, parameters.Length - 1);
+
+				appwarp.manageNotification(sender, parameters);
+			}
+			else if( message.Length > 0 )
+			{
+				message = message.Substring(0, message.Length - 1);
+				message = message.Substring(1, message.Length - 1);
+
+				appwarp.showMessage(message, sender);
 			}
 		}
 
-		public void checkUser(string uname){
-			if(!appwarp.players.ContainsKey(uname)){
+		public void checkUser(string uname)
+		{
+			if(!appwarp.players.ContainsKey(uname))
+			{
 				appwarp.addPlayer(uname);
 			}
 		}

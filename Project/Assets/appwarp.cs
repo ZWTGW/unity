@@ -13,28 +13,36 @@ using com.shephertz.app42.gaming.multiplayer.client.transformer;
 
 using AssemblyCSharp;
 
-public class appwarp : MonoBehaviour {
-
-	//please update with values you get after signing up
+public class appwarp : MonoBehaviour 
+{
 	public static string apiKey = "1aeaf55857e4e6236795c704f96b34d600252349d1a77b5962e777e3b0c0176a";
 	public static string secretKey = "084fcd2b1262908c6c13e6960da6837628b04e83c89aababadba1b120d4d8053";
 	public static string roomid = "1070595519";
 	public static string username;
-	Listener listen = new Listener();
-	public static Vector3 newPos = new Vector3(0,0,0);
-	public static Quaternion newRot = new Quaternion(0,0,0,0);
-	public static bool shoot = false;
-	public static bool isMessage = false;
-	public static bool isMovementKeyPressed = false;
-	public static int messageFrame = 0;
-	public static string chatMessage = "";
-	public static string message = "wiadomosc";
 
-	public static Dictionary<string, GameObject> gObjects = new Dictionary<string, GameObject>();
-	public static Dictionary<string, Vector3> positions = new Dictionary<string, Vector3>();
+	public static float timeCounter = 0.0f;
+
+	public static float interval = 0.1f;
+	public static float timer = 0.1f;
+
+	//chcemy troche ograniczyc tempo wysylania wiadomosci coby nie bylo spamu :)
+	public static float msgInterval = 1f;
+	public static float msgTimer = 1f;
+
+	public static string messageToSend = "";
+	public static Dictionary<float, string> messagesToDisplay = new Dictionary<float, string> ();
+
+	Listener listen = new Listener();
+		
 	public static Dictionary<string, NetworkPlayer> players = new Dictionary<string, NetworkPlayer>();
 
-	void Start () {;
+	//flags
+	public static bool isMovementKeyPressed = false;
+	public static bool notifyShooting = false;
+
+	//main functions
+	void Start () 
+	{
 		WarpClient.initialize(apiKey,secretKey);
 		WarpClient.GetInstance().AddConnectionRequestListener(listen);
 		WarpClient.GetInstance().AddChatRequestListener(listen);
@@ -47,141 +55,247 @@ public class appwarp : MonoBehaviour {
 		// join with a unique name (current time stamp)
 		username = System.DateTime.UtcNow.Ticks.ToString();
 
-		message = username;
-
 		WarpClient.GetInstance().Connect(username);
+	}
 
+	void Update () 
+	{
+		//naliczanie czasu
+		timeCounter += Time.deltaTime;
+
+		//wysylanie wiadomosci co interval
+		timer -= Time.deltaTime;
+		if(timer < 0)
+		{
+			listen.sendMsg( toJson( getParameters() ) );
+			timer = interval;
+		}
+
+		//wysylanie wiadomosci uzytkownika co msgInterval
+		msgTimer -= Time.deltaTime;
+		if(msgTimer < 0 && messageToSend.Length > 0) //jesli jest jakas wiadomosc
+		{
+			listen.sendMsg( toJson( messageToSend ) );
+			msgTimer = msgInterval;
+
+			messageToSend = "";
+		}
+
+		//---------------------------------------------------------------------------|
+		
+		manageInput();
+
+		WarpClient.GetInstance().Update();
+		
+		foreach(string key in players.Keys)
+		{
+			players[key].update();
+		}
 	}
 	
-	public float interval = 0.1f;
-	float timer = 0;
-
-	public static void addPlayer()
+	void OnGUI()
 	{
-		GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		//update messages
+		foreach(KeyValuePair<float, string> msg in messagesToDisplay)
+		{
+			if( timeCounter - msg.Key > 3.0f )
+			{
+				messagesToDisplay.Remove( msg.Key );
+			}
+		}
 
-		Weapon w = new Weapon ();
-		obj.AddComponent<GrenadeThrow> ();
-		obj.transform.position = new Vector3(732f,1.5f,500f);
+		//show messages
+		if( messagesToDisplay.Count > 0 )
+		{
+			//get 5 newest ones
+			string[] topMsg = new string[5]{"", "", "", "", ""};
+
+			List<float> keyList = new List<float>( messagesToDisplay.Keys );
+			keyList.Sort();
+
+			while( keyList.Count > 5 ) 
+			{
+				keyList.RemoveAt(0);
+			}
+
+			int temp_counter = 0;
+			foreach(KeyValuePair<float, string> msg in messagesToDisplay)
+			{
+				topMsg[temp_counter] = msg.Value;
+
+				temp_counter++;
+			}
+
+			//and show them
+
+			GUIStyle descriptionStyle = new GUIStyle();
+			descriptionStyle.wordWrap = true;
+
+			string outMessage = "";
+
+			for(int i = 0; i < 5; i++)
+			{
+				outMessage += topMsg[i] + "\n";
+			}
+
+			GUI.Button (new Rect (10,70, 400, 300), outMessage, descriptionStyle);
+		}
+	}
+
+	void OnApplicationQuit()
+	{
+		WarpClient.GetInstance().Disconnect();
+	}
+
+	//!!tu uzupelniamy dane ktorych potem uzywamy w funkcji manageNotification() ponizej!
+	private float[] getParameters()
+	{
+		return new float[]
+		{
+			transform.position.x,
+			transform.position.y,
+			transform.position.z,
+
+			transform.rotation.x,
+			transform.rotation.y,
+			transform.rotation.z,
+			transform.rotation.w,
+
+			isMovementKeyPressed ? 1.0f : 0.0f,
+
+			notifyShooting ? 1.0f : 0.0f
+		};
+	}
+	
+	//managing functions
+	//uwaga! w celu uzyskania wartosci float danych z tabelki, wykonujemy na nich funkcje p()
+	public static void manageNotification(string username, string parameters)
+	{
+		string[] p = deserializeParameters(parameters);
+
+		//ignorujemy notyfikacje od siebie
+		if( username != appwarp.username )
+		{
+			movePlayer( f(p[0]), f(p[1]), f(p[2]), username);
+
+			rotatePlayer( f(p[3]), f(p[4]), f(p[5]), f(p[6]), username);
+
+			bool keyPressed = ( f(p[7]) == 1.0f ) ? true : false;
+			setPlayerMovementState(keyPressed, username);
+
+			bool doStartShooting = ( f(p[8]) == 1.0f ) ? true : false;
+			startShooting( doStartShooting, username );
+		}
+
+		//nie ignorujemy notyfikacji od siebie
+	}
+
+	public static float f(string o)
+	{
+		return float.Parse (o);
 	}
 
 	public static void addPlayer(string uname)
 	{
 		players.Add(uname, new NetworkPlayer(uname));
 	}
-	
+
+	private void manageInput()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape)) 
+		{
+			Application.Quit();
+		}
+
+		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+		{
+			isMovementKeyPressed = true;
+		}
+		else
+		{
+			isMovementKeyPressed = false;
+		}
+
+		//na potrzeby testow - jak bedzie mozliwosc wpisywania msg z ekranu to od razu do wywalenia!
+		if(Input.GetKey(KeyCode.H)) {messageToSend = "WIADOMOSC SPOD KLAWISZA h";}
+		else if(Input.GetKey(KeyCode.J)){ messageToSend = "WIADOMOSC SPOD KLAWISZA j";}
+		else if(Input.GetKey(KeyCode.K)){ messageToSend = "WIADOMOSC SPOD KLAWISZA k";}
+	}
+
+	//action functions
 	public static void movePlayer(float x, float y, float z, string uname)
 	{
 		players[uname].Position = new Vector3(x,y,z);
 	}
 
-	public static void rotatePlayer(float rx,float ry,float rz,float rw, string uname)
+	public static void rotatePlayer(float x,float y,float z,float w, string uname)
 	{
-		players[uname].Rotation = new Quaternion(rx, ry, rz, rw);
+		players[uname].Rotation = new Quaternion(x, y, z, w);
 	}
 
-	public static void setPlayerMovementState(string uname, bool isPlayerMovementKeyPressed){
+	public static void setPlayerMovementState(bool isPlayerMovementKeyPressed, string uname)
+	{
 		players[uname].IsMovementKeyPressed = isPlayerMovementKeyPressed;
 	}
-
-	public static void shootPlayer(float s)
+	
+	public static void startShooting(bool doStartShooting, string uname)
 	{
-		if (s == 1) 
-		{
-			//obj.GetComponent<GrenadeThrow>().Throw();
-		}
-		else
-		{
-			//obj.GetComponent<GrenadeThrow>().Throw();
-		}
+		players[uname].Shooting = doStartShooting;
 	}
 
-	public static void sendChatMessage(string s)
+	public static void showMessage(string message, string uname)
 	{
-		if (isMessage == false) {
-						chatMessage = s;
-						isMessage = true;
-				}
+		string m = uname + ": " + message;
+
+		messagesToDisplay.Add (timeCounter, m);
 	}
 
-	private void manageInput(){
-		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Application.Quit();
+	//serializing functions
+	private string serializeParameters(float[] parameters)
+	{
+		string serializedParameters = "";
+
+		for (int i = 0; i < parameters.Length; i++) 
+		{
+			serializedParameters += parameters[i].ToString();
+
+			if( i != parameters.Length - 1 ) serializedParameters += ';';
 		}
-		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
-			isMovementKeyPressed = true;
-		else
-			isMovementKeyPressed = false;
+
+		return serializedParameters;
 	}
 
-	private string toJson(){
+	private static string[] deserializeParameters(string serializedParameters)
+	{
+		string [] splittedSerializedParameters = serializedParameters.Split(';');
+
+		/*object[] parameters = new object[splittedSerializedParameters.Length];
+
+		for (int i = 0; i < splittedSerializedParameters.Length; i++) 
+		{
+			parameters[i] = splittedSerializedParameters[i];
+		}*/
+		
+		return splittedSerializedParameters;
+	}
+
+	private string toJson(float[] parameters)
+	{
 		System.Text.StringBuilder sb = new System.Text.StringBuilder();
-		string shootInfo = shoot ? "1" : "0";
-		string movementKeyInfo = isMovementKeyPressed ? "1" : "0";
-		sb.Append("{\"x\":\""+transform.position.x+"\",");
-		sb.Append("\"y\":\""+transform.position.y+"\",");
-		sb.Append("\"z\":\""+transform.position.z+"\",");
-		sb.Append("\"rx\":\""+transform.rotation.x+"\",");
-		sb.Append("\"ry\":\""+transform.rotation.y+"\",");
-		sb.Append("\"rz\":\""+transform.rotation.z+"\",");
-		sb.Append("\"rw\":\""+transform.rotation.w+"\",");
-		sb.Append("\"s\":\""+shootInfo+"\",");
-		sb.Append("\"mk\":\""+movementKeyInfo+"\",");
-		sb.Append("\"m\":\""+message+"\"}");
+		
+		sb.Append("{\"parameters\":\"" + serializeParameters(parameters) + "\"}");
+
+		//Debug.Log ("?????????????????????????????????????????????????????????????????????????????" + sb.ToString() );
+
 		return sb.ToString();
 	}
-	
-	void Update () {
-		timer -= Time.deltaTime;
-		if(timer < 0)
-		{
-			listen.sendMsg(toJson());
-			message = "";
-			timer = interval;
-		}
+
+	private string toJson(string message)
+	{
+		System.Text.StringBuilder sb = new System.Text.StringBuilder();
 		
-		manageInput();
-		WarpClient.GetInstance().Update();
-
-		foreach(string key in players.Keys){
-			players[key].update();
-		}
-
+		sb.Append("{\"message\":\"" + message + "\"}");
+				
+		return sb.ToString();
 	}
-
-	void OnGUI()
-	{
-		GUI.contentColor = Color.black;
-		GUI.Label(new Rect(10,10,500,200), listen.getDebug());
-
-		GUIStyle gs = new GUIStyle ();
-		gs.fontSize = 10;
-		//gs.font.material.color = new Color (255, 255, 255);
-		if (messageFrame == 200) 
-		{
-			isMessage = false;
-			messageFrame = 0;
-			chatMessage = "";
-		}
-
-		if (isMessage) 
-		{
-			messageFrame++;
-			GUI.Label (new Rect (10, 10, 600, 50), chatMessage, gs);
-		}
-	}
-	
-	/*void OnEditorStateChanged()
-	{
-    	if(EditorApplication.isPlaying == false) 
-		{
-			WarpClient.GetInstance().Disconnect();
-    	}
-	}*/
-	
-	void OnApplicationQuit()
-	{
-		WarpClient.GetInstance().Disconnect();
-	}
-	
 }

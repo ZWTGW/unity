@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-public class NetworkPlayer{
+public class NetworkPlayer : MonoBehaviour{
 
 	private string id;
 	private GameObject avatar;
 	private Vector3 position = new Vector3(0,0,0);
 	private Quaternion rotation = new Quaternion(0,0,0,0);
-	private float shoot;
+	private bool shooting;
 	private bool isMessage = false;
 	private int messageFrame = 0;
 	private string chatMessage = "";
@@ -19,19 +19,31 @@ public class NetworkPlayer{
 
 	public NetworkPlayer (string id){
 		this.id = id;
-		this.avatar = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		this.avatar = (GameObject)Instantiate (Resources.Load ("Horse/Model/Horse", typeof(GameObject)));
+
+		//nieudolne proby dodania broni :(
+		//this.avatar.AddComponent<GrenadeThrow> ();
+		//this.avatar.AddComponent<Shooter> ();
+
+		//Instantiate ( this.avatar.GetComponent<GrenadeThrow>() );
+		//Instantiate ( this.avatar.GetComponent<Shooter>() );
+
 		this.position = new Vector3(732f,1.5f,500f);
 	}
 
-	public NetworkPlayer (string id, GameObject playerAvatar, Vector3 position){
+	public NetworkPlayer (string id, GameObject playerAvatar, Vector3 position)
+	{
 		this.id = id;
 		this.avatar = playerAvatar;
 		this.position = position;
 	}
 
-	public void update(){
+	public void update()
+	{
 		this.Avatar.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
 		this.Avatar.transform.rotation = this.rotation;
+
+		//this.avatar.GetComponent<Shooter>().forceShooting = this.shooting;
 	}
 
 	public string Id {
@@ -67,12 +79,12 @@ public class NetworkPlayer{
 		}
 	}
 
-	public float Shoot {
+	public bool Shooting {
 		get {
-			return this.shoot;
+			return this.shooting;
 		}
 		set {
-			shoot = value;
+			shooting = value;
 		}
 	}
 
