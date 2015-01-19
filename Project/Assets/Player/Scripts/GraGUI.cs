@@ -57,11 +57,7 @@ public class GraGUI : MonoBehaviour{
 	
 	// Use this for initialization
 	void Start () {
-
-
 		Application.runInBackground = true;
-		MasterServer.ipAddress = "127.0.0.1";
-		MasterServer.port = 23466;
 		
 		skullTexture = Resources.Load<Texture2D> ("skull");
 		steampunksLogoTexture = Resources.Load<Texture2D> ("steampunksLogo");
@@ -278,48 +274,10 @@ public class GraGUI : MonoBehaviour{
 		if(menuState != MenuStates.NETWORK) {
 			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
 		}
-		else {
-			if (MasterServer.PollHostList().Length != 0) {
-				hostList = MasterServer.PollHostList();
-				w = 800;
-				h = 450;
-			}
-			GUI.BeginGroup(new Rect((Screen.width - w)/2,(Screen.height - h)/2, w, h));
-		}
 		
 		switch(menuState) {
 		case MenuStates.NETWORK:
 			GUI.Box(new Rect(0,0,w,h), "NEW GAME");
-			
-			if (!Network.isClient && !Network.isServer)
-			{
-				networkTakenCareOf = false;
-				
-				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
-					hostToJoin = null;
-					Application.LoadLevel(2);
-				}
-				
-				
-				if (GUI.Button(new Rect(100, 250, 250, 100), "Refresh Hosts")) {
-					MasterServer.ClearHostList();
-					MasterServer.RequestHostList(typeName);
-				}
-				
-
-				
-				if (hostList != null)
-				{
-					for (int i = 0; i < hostList.Length; i++)
-					{
-						if (GUI.Button(new Rect(400, 100 + (110 * i), 300, 100), hostList[i].gameName)) {
-							hostToJoin = hostList[i];
-							Application.LoadLevel(2);
-						}
-						
-					}
-				}
-			}
 			break;
 			
 		default:
@@ -333,23 +291,8 @@ public class GraGUI : MonoBehaviour{
 			}
 			else {
 				if (GUI.Button (new Rect (15, 50, w * 0.95f, 60), "NEW GAME")) {
-					
-					// ---------- kod pozyczony z networking.cs 
-					if (Network.isServer)
-					{
-						// zdjęcie serwera z listy hostów
-						MasterServer.UnregisterHost();
-						// usunięcie nagromadzonych zbuforowanych wywołań RPC
-						Network.RemoveRPCsInGroup(0);
-					}
-					// rozłączenie
-					Network.Disconnect();
-					
-					menuState = MenuStates.NETWORK;
-					
-					
 					// 0 = menu, 1 = nasz level
-					//Application.LoadLevel(1);
+					Application.LoadLevel(1);
 				}
 			}
 			

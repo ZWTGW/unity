@@ -68,7 +68,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private static Texture2D _staticRectTexture;
 	private static GUIStyle _staticRectStyle;
 
-	private Networking ntScript;
+	private MainScript mScript;
 	public AnimationClip deathAnim;
 	private bool allow = true;
 
@@ -110,7 +110,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 		timerTeleportAnim.Elapsed += TeleportAnimTimerEvent;
 		timerTeleportAnim.Enabled = false;
-		ntScript = GameObject.FindObjectOfType(typeof(Networking)) as Networking;
+		mScript = GameObject.FindObjectOfType(typeof(MainScript)) as MainScript;
 	}
 
 	private void TeleportAnimTimerEvent(object source, ElapsedEventArgs e) {
@@ -407,20 +407,12 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		FPSMouselook ml = gameObject.GetComponent<FPSMouselook> ();
 
 
-		if (!networkView.isMine) {
-			cam.SetActive (false);
 
-			//ml.RotXY=FPSMouselook.RotationAxis.Off;
-			//ml.SensitivityX=0;
-			//ml.SensitivityY=0;
-			ml.enabled=false;
+		keyboardUpdate();
+		hcube.renderer.enabled = false;
+		ml.enabled=true;
 
-		} else {
-			keyboardUpdate();
-			hcube.renderer.enabled = false;
-			ml.enabled=true;
 
-		}
 
 		if(teleportPos != Vector3.zero) {
 			print("no cos robimy - pozdrawiam");
@@ -487,7 +479,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	private void Die(){
 		Destroy(this.gameObject, deathAnim.length);//MD: nie wiem jak zrobic zeby dziala ta animacja :(
 
-		ntScript.SpawnPlayer();
+		mScript.SpawnPlayer();
 	}
 }
 
