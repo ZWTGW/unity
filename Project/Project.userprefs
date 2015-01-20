@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\GraGUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Player\Scripts\Weapon.cs">
     <Files>
-      <File FileName="Assets\Player\Scripts\FPSControlsRigid.cs" Line="413" Column="3" />
-      <File FileName="Assets\Player\Scripts\GraGUI.cs" Line="264" Column="3" />
+      <File FileName="Assets\appwarp.cs" Line="302" Column="1" />
+      <File FileName="Assets\Listener.cs" Line="402" Column="1" />
+      <File FileName="Assets\NetworkPlayer.cs" Line="138" Column="1" />
+      <File FileName="Assets\Player\Scripts\Shooter.cs" Line="39" Column="68" />
+      <File FileName="Assets\Player\Scripts\Weapon.cs" Line="77" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

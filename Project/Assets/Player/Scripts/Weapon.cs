@@ -74,6 +74,9 @@ public class Weapon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		//tu powinno byc cos w stylu if( this.shooting ) Shooter.ForceShooting();
+		
+
 		if(lastShot <= fireRate)
 		{
 			lastShot += Time.deltaTime;

@@ -12,6 +12,8 @@ public class Shooter : MonoBehaviour {
 	public GameObject[] weaponsList;
 	public GameObject[] weapons;
 
+	public bool forceShooting = false;
+
 	private Vector3 weaponPosition = new Vector3(2,0,1);
 
 	// Use this for initialization
@@ -34,6 +36,7 @@ public class Shooter : MonoBehaviour {
 		Ray ray = new Ray(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 1));
 		Debug.DrawRay(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 100000000));
 
+		if (forceShooting) weapon.GetComponent<Weapon>().StartShooting();
 
 		if(Input.GetMouseButtonDown(0))
 		{
