@@ -125,11 +125,6 @@ public class Shooter : MonoBehaviour {
 		Ray ray = new Ray(camera.transform.position, camera.transform.rotation * new Vector3(0, 0, 1));
 		if(Physics.Raycast(ray, out hit, 100000000))
 		{
-			Debug.Log (hit.transform.gameObject.name);
-			if (hit.transform.gameObject == gameObject)
-			{
-				return camera.transform.position + (camera.transform.rotation * new Vector3(0, 0, 1000));
-			}
 			if(hit.transform != null)
 			{
 				return hit.point;
