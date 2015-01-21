@@ -43,10 +43,13 @@ public class Weapon : MonoBehaviour {
 	public Transform endPoint;
 
 	public GameObject shooter;
+	public bool collide;
 
 	// Use this for initialization
 	void Start () {
 		//state = new List<State>();
+		collide = false;
+
 		if(rail)
 		{
 			type = gameObject.AddComponent<Rail>();
@@ -90,13 +93,35 @@ public class Weapon : MonoBehaviour {
 		}
 		if(shooter != null)
 		{
-			Quaternion w = transform.rotation;
-			transform.LookAt(shooter.GetComponent<Shooter>().GetTarget());
-			Quaternion v = transform.rotation;
-			transform.rotation = w;
-			
-			transform.rotation = Quaternion.Lerp(transform.rotation, v, 0.1f);
+			Quaternion v, w;
+
+			if(!collide)
+			{
+				w = transform.rotation;
+				transform.LookAt(shooter.GetComponent<Shooter>().GetTarget());
+				v = transform.rotation;
+				transform.rotation = w;
+				
+				transform.rotation = Quaternion.Lerp(transform.rotation, v, 0.1f);
+			} else
+			{
+				//transform.rotation = transform.rotation;
+				transform.rotation = Quaternion.Lerp(transform.rotation, transform.parent.rotation, 0.1f);
+			}
 		}
+	}
+
+	void OnTriggerEnter(Collider c)
+	{
+
+		Debug.Log("weszlo");
+		collide = true;
+	}
+
+	void OnTriggerExit(Collider c)
+	{
+		Debug.Log("wyszlo");
+		collide = false;
 	}
 
 	public void SetShooter(GameObject s)
