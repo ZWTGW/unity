@@ -1,0 +1,315 @@
+fileFormatVersion: 2
+guid: 587bf584f2bf341ed8b3871921809f1a
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: brakuj__cy element
+    100002: budynek 1
+    100004: budynek 2
+    100006: Circle.006_Circle.006
+    100008: Circle.006_Circle.008
+    100010: Circle.006_Circle.009
+    100012: Circle.006_Circle.010
+    100014: Circle.006_Circle.011
+    100016: Circle.006_Circle.012
+    100018: Circle.006_Circle.013
+    100020: Circle.006_Circle.014
+    100022: Circle.006_Circle.015
+    100024: Circle.006_Circle.016
+    100026: Circle.006_Circle.017
+    100028: Circle.006_Circle.018
+    100030: Circle.006_Circle.019
+    100032: Circle.006_Circle.020
+    100034: Circle.006_Circle.021
+    100036: Circle.006_Circle.022
+    100038: Circle.006_Circle.023
+    100040: Circle.006_Circle.024
+    100042: Circle.006_Circle.025
+    100044: Circle.006_Circle.026
+    100046: Circle.006_Circle.027
+    100048: Circle.006_Circle.029
+    100050: Circle.006_Circle.030
+    100052: Circle.006_Circle.032
+    100054: Circle.165
+    100056: Circle.181
+    100058: Circle.182
+    100060: Circle.183
+    100062: Circle.184
+    100064: Circle.185
+    100066: Cube.004
+    100068: Cube.014
+    100070: Cube.015
+    100072: Cube.016
+    100074: Cube.017
+    100076: Cube.018
+    100078: Cube.019
+    100080: dach 2
+    100082: dach 3
+    100084: nierzezbione glowny dach
+    100086: Object001
+    100088: Plane.009
+    100090: Plane001
+    100092: podloze
+    100094: rzezbienia dach
+    100096: Sky001
+    100098: //RootNode
+    100100: wnetrze 2
+    100102: wnetrze1
+    400000: brakuj__cy element
+    400002: budynek 1
+    400004: budynek 2
+    400006: Circle.006_Circle.006
+    400008: Circle.006_Circle.008
+    400010: Circle.006_Circle.009
+    400012: Circle.006_Circle.010
+    400014: Circle.006_Circle.011
+    400016: Circle.006_Circle.012
+    400018: Circle.006_Circle.013
+    400020: Circle.006_Circle.014
+    400022: Circle.006_Circle.015
+    400024: Circle.006_Circle.016
+    400026: Circle.006_Circle.017
+    400028: Circle.006_Circle.018
+    400030: Circle.006_Circle.019
+    400032: Circle.006_Circle.020
+    400034: Circle.006_Circle.021
+    400036: Circle.006_Circle.022
+    400038: Circle.006_Circle.023
+    400040: Circle.006_Circle.024
+    400042: Circle.006_Circle.025
+    400044: Circle.006_Circle.026
+    400046: Circle.006_Circle.027
+    400048: Circle.006_Circle.029
+    400050: Circle.006_Circle.030
+    400052: Circle.006_Circle.032
+    400054: Circle.165
+    400056: Circle.181
+    400058: Circle.182
+    400060: Circle.183
+    400062: Circle.184
+    400064: Circle.185
+    400066: Cube.004
+    400068: Cube.014
+    400070: Cube.015
+    400072: Cube.016
+    400074: Cube.017
+    400076: Cube.018
+    400078: Cube.019
+    400080: dach 2
+    400082: dach 3
+    400084: nierzezbione glowny dach
+    400086: Object001
+    400088: Plane.009
+    400090: Plane001
+    400092: podloze
+    400094: rzezbienia dach
+    400096: Sky001
+    400098: //RootNode
+    400100: wnetrze 2
+    400102: wnetrze1
+    2300000: brakuj__cy element
+    2300002: budynek 1
+    2300004: budynek 2
+    2300006: Circle.006_Circle.006
+    2300008: Circle.006_Circle.008
+    2300010: Circle.006_Circle.009
+    2300012: Circle.006_Circle.010
+    2300014: Circle.006_Circle.011
+    2300016: Circle.006_Circle.012
+    2300018: Circle.006_Circle.013
+    2300020: Circle.006_Circle.014
+    2300022: Circle.006_Circle.015
+    2300024: Circle.006_Circle.016
+    2300026: Circle.006_Circle.017
+    2300028: Circle.006_Circle.018
+    2300030: Circle.006_Circle.019
+    2300032: Circle.006_Circle.020
+    2300034: Circle.006_Circle.021
+    2300036: Circle.006_Circle.022
+    2300038: Circle.006_Circle.023
+    2300040: Circle.006_Circle.024
+    2300042: Circle.006_Circle.025
+    2300044: Circle.006_Circle.026
+    2300046: Circle.006_Circle.027
+    2300048: Circle.006_Circle.029
+    2300050: Circle.006_Circle.030
+    2300052: Circle.006_Circle.032
+    2300054: Circle.165
+    2300056: Circle.181
+    2300058: Circle.182
+    2300060: Circle.183
+    2300062: Circle.184
+    2300064: Circle.185
+    2300066: Cube.004
+    2300068: Cube.014
+    2300070: Cube.015
+    2300072: Cube.016
+    2300074: Cube.017
+    2300076: Cube.018
+    2300078: Cube.019
+    2300080: dach 2
+    2300082: dach 3
+    2300084: nierzezbione glowny dach
+    2300086: Object001
+    2300088: Plane.009
+    2300090: Plane001
+    2300092: podloze
+    2300094: rzezbienia dach
+    2300096: wnetrze 2
+    2300098: wnetrze1
+    3300000: brakuj__cy element
+    3300002: budynek 1
+    3300004: budynek 2
+    3300006: Circle.006_Circle.006
+    3300008: Circle.006_Circle.008
+    3300010: Circle.006_Circle.009
+    3300012: Circle.006_Circle.010
+    3300014: Circle.006_Circle.011
+    3300016: Circle.006_Circle.012
+    3300018: Circle.006_Circle.013
+    3300020: Circle.006_Circle.014
+    3300022: Circle.006_Circle.015
+    3300024: Circle.006_Circle.016
+    3300026: Circle.006_Circle.017
+    3300028: Circle.006_Circle.018
+    3300030: Circle.006_Circle.019
+    3300032: Circle.006_Circle.020
+    3300034: Circle.006_Circle.021
+    3300036: Circle.006_Circle.022
+    3300038: Circle.006_Circle.023
+    3300040: Circle.006_Circle.024
+    3300042: Circle.006_Circle.025
+    3300044: Circle.006_Circle.026
+    3300046: Circle.006_Circle.027
+    3300048: Circle.006_Circle.029
+    3300050: Circle.006_Circle.030
+    3300052: Circle.006_Circle.032
+    3300054: Circle.165
+    3300056: Circle.181
+    3300058: Circle.182
+    3300060: Circle.183
+    3300062: Circle.184
+    3300064: Circle.185
+    3300066: Cube.004
+    3300068: Cube.014
+    3300070: Cube.015
+    3300072: Cube.016
+    3300074: Cube.017
+    3300076: Cube.018
+    3300078: Cube.019
+    3300080: dach 2
+    3300082: dach 3
+    3300084: nierzezbione glowny dach
+    3300086: Object001
+    3300088: Plane.009
+    3300090: Plane001
+    3300092: podloze
+    3300094: rzezbienia dach
+    3300096: wnetrze 2
+    3300098: wnetrze1
+    4300000: budynek 1
+    4300002: dach 2
+    4300004: podloze
+    4300006: dach 3
+    4300008: budynek 2
+    4300010: Plane.009
+    4300012: Cube.014
+    4300014: Cube.015
+    4300016: Cube.016
+    4300018: Cube.017
+    4300020: Cube.018
+    4300022: Cube.019
+    4300024: Cube.004
+    4300026: Circle.165
+    4300028: Circle.006_Circle.006
+    4300030: Circle.181
+    4300032: Circle.006_Circle.008
+    4300034: Circle.006_Circle.009
+    4300036: Circle.006_Circle.010
+    4300038: Circle.006_Circle.011
+    4300040: Circle.006_Circle.012
+    4300042: Circle.182
+    4300044: Circle.183
+    4300046: Circle.184
+    4300048: Circle.185
+    4300050: Circle.006_Circle.013
+    4300052: Circle.006_Circle.014
+    4300054: Circle.006_Circle.015
+    4300056: Circle.006_Circle.016
+    4300058: Circle.006_Circle.017
+    4300060: Circle.006_Circle.018
+    4300062: Circle.006_Circle.019
+    4300064: Circle.006_Circle.020
+    4300066: Circle.006_Circle.021
+    4300068: Circle.006_Circle.022
+    4300070: Circle.006_Circle.023
+    4300072: Circle.006_Circle.024
+    4300074: Circle.006_Circle.025
+    4300076: Circle.006_Circle.026
+    4300078: Circle.006_Circle.027
+    4300080: Circle.006_Circle.029
+    4300082: Circle.006_Circle.030
+    4300084: Circle.006_Circle.032
+    4300086: wnetrze1
+    4300088: wnetrze 2
+    4300090: brakuj__cy element
+    4300092: Object001
+    4300094: rzezbienia dach
+    4300096: nierzezbione glowny dach
+    4300098: Plane001
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
