@@ -72,6 +72,9 @@ public class GraGUI : MonoBehaviour{
 	
 	// Update is called once per frame
 	void Update () {
+		if(showInGameMenu || isMainMenu) Screen.lockCursor = false;
+		else Screen.lockCursor = true;
+
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			// pokazujemy kursorek do menu, albo nie pokazujemy w edytorze unity to chyba
 			// i tak zawsze jest

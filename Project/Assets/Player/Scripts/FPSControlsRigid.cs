@@ -259,7 +259,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//
 			//SKOK
 
-			if (canJump && us.GetKey("jump")) {
+			if (canJump && (us.GetKey("jump") || Input.GetMouseButtonDown(1))) {
 				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
 				source.PlayOneShot(jump_startSound,1f);
 				canJump = false;
@@ -333,7 +333,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
 
 		// PC: double jump
-		if (us.GetKeyDown("jump") && doubleJumped == false) {
+		if ((us.GetKeyDown("jump") || Input.GetMouseButtonDown(1)) && doubleJumped == false) {
 			doubleJumped = true;
 			Vector3 velocity = rigidbody.velocity;
 			rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
