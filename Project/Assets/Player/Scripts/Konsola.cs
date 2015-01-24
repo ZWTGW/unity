@@ -33,55 +33,64 @@ public class Konsola : MonoBehaviour {
 	void handleCommand(string polecenie) {
 		GameObject playa;
 
-		if (polecenie.StartsWith ("/")) polecenie = polecenie.Substring (1);
-		string[] s = polecenie.Split (' ');
-		if (s.Length < 1) return; // nie mamy nic
-		switch (s [0]) {
-			case "cls":
-			case "clear":	
-				logs.Clear();
-				break;
-			case "help":
-				print("/move X Y Z - move player by X Y Z");
-				print("/pos - get player position \n");
-				print("/help - this \n");
-				print("/cls - clear screen \n");
-				print("Avaliable commands: \n");
-
-				break;
-
-			case "move":
-				if(s.Length != 4) {
-					print("Invalid parameters for move :(");
+		if(polecenie.StartsWith (":") )
+		{
+			appwarp.messageToSend = polecenie.Substring(1);
+			consoleShown = false;
+			polecenie = "";
+		}
+		else
+		{
+			if (polecenie.StartsWith ("/")) polecenie = polecenie.Substring (1);
+			string[] s = polecenie.Split (' ');
+			if (s.Length < 1) return; // nie mamy nic
+			switch (s [0]) {
+				case "cls":
+				case "clear":	
+					logs.Clear();
 					break;
-				}
-				float x = 0;
-				float y = 0;
-				float z = 0;
-				try {
-					x = float.Parse(s[1]);
-					y = float.Parse(s[2]);
-					z = float.Parse(s[3]);
-				}
-				catch(System.FormatException e) {
-					print("Invalid parameters for move :(");
-					return;
-				}	
+				case "help":
+					print("/move X Y Z - move player by X Y Z");
+					print("/pos - get player position \n");
+					print("/help - this \n");
+					print("/cls - clear screen \n");
+					print("Avaliable commands: \n");
 
-				playa = GameObject.Find ("Player(Clone)");	
-				playa.transform.Translate(x, y, z);
+					break;
+
+				case "move":
+					if(s.Length != 4) {
+						print("Invalid parameters for move :(");
+						break;
+					}
+					float x = 0;
+					float y = 0;
+					float z = 0;
+					try {
+						x = float.Parse(s[1]);
+						y = float.Parse(s[2]);
+						z = float.Parse(s[3]);
+					}
+					catch(System.FormatException e) {
+						print("Invalid parameters for move :(");
+						return;
+					}	
+
+					playa = GameObject.Find ("Player(Clone)");	
+					playa.transform.Translate(x, y, z);
+					break;
+
+				case "pos":
+					playa = GameObject.Find ("Player(Clone)");
+					print("Z: " + playa.transform.position.z);
+					print("Y: " + playa.transform.position.y);
+					print("X: " + playa.transform.position.x);
 				break;
 
-			case "pos":
-				playa = GameObject.Find ("Player(Clone)");
-				print("Z: " + playa.transform.position.z);
-				print("Y: " + playa.transform.position.y);
-				print("X: " + playa.transform.position.x);
-			break;
-
-			default:
-				print("Invalid command '" + s[0] + "'. Try 'help'.");
-				break;
+				default:
+					print("Invalid command '" + s[0] + "'. Try 'help'.");
+					break;
+			}
 		}
 	}
 

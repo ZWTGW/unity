@@ -39,6 +39,8 @@ public class appwarp : MonoBehaviour
 	//flags
 	public static bool isMovementKeyPressed = false;
 	public static bool notifyShooting = false;
+	public static bool catchFlag = false;
+	public static bool dropFlag = false;
 
 	//main functions
 	void Start () 
@@ -58,6 +60,13 @@ public class appwarp : MonoBehaviour
 		WarpClient.GetInstance().Connect(username);
 	}
 
+	void resetFlags()
+	{
+		notifyShooting = false;
+		catchFlag = false;
+	    dropFlag = false;
+	}
+
 	void Update () 
 	{
 		//naliczanie czasu
@@ -68,6 +77,7 @@ public class appwarp : MonoBehaviour
 		if(timer < 0)
 		{
 			listen.sendMsg( toJson( getParameters() ) );
+			resetFlags();
 			timer = interval;
 		}
 
@@ -163,7 +173,10 @@ public class appwarp : MonoBehaviour
 
 			isMovementKeyPressed ? 1.0f : 0.0f,
 
-			notifyShooting ? 1.0f : 0.0f
+			notifyShooting ? 1.0f : 0.0f,
+
+			catchFlag ? 1.0f : 0.0f,
+			dropFlag ? 1.0f : 0.0f
 		};
 	}
 	

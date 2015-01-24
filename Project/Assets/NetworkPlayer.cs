@@ -5,6 +5,7 @@ public class NetworkPlayer : MonoBehaviour{
 
 	private string id;
 	private GameObject avatar;
+	//private GameObject weapon;
 	private Vector3 position = new Vector3(0,0,0);
 	private Quaternion rotation = new Quaternion(0,0,0,0);
 	private bool shooting;
@@ -21,12 +22,8 @@ public class NetworkPlayer : MonoBehaviour{
 		this.id = id;
 		this.avatar = (GameObject)Instantiate (Resources.Load ("Horse/Model/Horse", typeof(GameObject)));
 
-		//nieudolne proby dodania broni :(
-		//this.avatar.AddComponent<GrenadeThrow> ();
-		//this.avatar.AddComponent<Shooter> ();
-
-		//Instantiate ( this.avatar.GetComponent<GrenadeThrow>() );
-		//Instantiate ( this.avatar.GetComponent<Shooter>() );
+		//this.weapon = STWORZ_BRON()
+		//tu trzeba dodac bron, a potem => update()
 
 		this.position = new Vector3(732f,1.5f,500f);
 	}
@@ -43,7 +40,11 @@ public class NetworkPlayer : MonoBehaviour{
 		this.Avatar.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
 		this.Avatar.transform.rotation = this.rotation;
 
-		//this.avatar.GetComponent<Shooter>().forceShooting = this.shooting;
+		//this.weapon.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
+		//this.weapon.transform.rotation = this.rotation;
+
+		//if( this.shooting) this.weapon.startShooting();
+		//else this.weapon.stopShooting();
 	}
 
 	public string Id {

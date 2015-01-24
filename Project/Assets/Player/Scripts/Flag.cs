@@ -4,8 +4,8 @@ using System.Collections;
 public class Flag : MonoBehaviour {
 	
 	public string team; 
-	GameObject keeper = null;
-	bool keepFlag = false;
+	public GameObject keeper = null;
+	public bool keepFlag = false;
 	
 	// Use this for initialization
 	void Start () {

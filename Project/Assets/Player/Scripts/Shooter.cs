@@ -41,6 +41,7 @@ public class Shooter : MonoBehaviour {
 		if(Input.GetMouseButtonDown(0))
 		{
 			weapon.GetComponent<Weapon>().StartShooting();
+			appwarp.notifyShooting = true;
 
 			//byle co zeby tylko narastala ilosc kills - absolutnie do wywalenia
 			BaseCharacter baseCharScript = GetComponent<BaseCharacter>();
@@ -49,6 +50,7 @@ public class Shooter : MonoBehaviour {
 		if(Input.GetMouseButtonUp(0))
 		{
 			weapon.GetComponent<Weapon>().StopShooting();
+			appwarp.notifyShooting = false;
 		}
 		
 		if(Input.GetKey("r"))
