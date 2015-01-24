@@ -37,7 +37,7 @@ public class NetworkPlayer : MonoBehaviour{
 
 	public void update()
 	{
-		this.Avatar.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
+		this.Avatar.transform.position = Vector3.Lerp(this.Avatar.transform.position, this.position, 0.01f);
 		this.Avatar.transform.rotation = this.rotation;
 
 		//this.weapon.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
