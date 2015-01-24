@@ -213,6 +213,14 @@ public class appwarp : MonoBehaviour
 		players.Add(uname, new NetworkPlayer(uname));
 	}
 
+	public static void removePlayer(string uname)
+	{
+		Debug.Log ( " USUNIETO " + uname);
+
+		players [uname].remove ();
+		players.Remove (uname);
+	}
+
 	private void manageInput()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape)) 

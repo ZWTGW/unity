@@ -15,6 +15,8 @@ public class NetworkPlayer : MonoBehaviour{
 	private string message = "";
 	private bool isMovementKeyPressed = false;
 
+	private bool isRemoved = false;
+
 	public NetworkPlayer (){
 	}
 
@@ -35,16 +37,25 @@ public class NetworkPlayer : MonoBehaviour{
 		this.position = position;
 	}
 
+	public void remove()
+	{
+		isRemoved = true;
+		this.Avatar.transform.position = new Vector3 (10000000.0f, 10000000.0f, -10000000.0f);
+	}
+
 	public void update()
 	{
-		this.Avatar.transform.position = Vector3.Lerp(this.Avatar.transform.position, this.position, 0.01f);
-		this.Avatar.transform.rotation = this.rotation;
+		if(!isRemoved)
+		{
+			this.Avatar.transform.position = Vector3.Lerp(this.Avatar.transform.position, this.position, 0.01f);
+			this.Avatar.transform.rotation = this.rotation;
 
-		//this.weapon.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
-		//this.weapon.transform.rotation = this.rotation;
+			//this.weapon.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
+			//this.weapon.transform.rotation = this.rotation;
 
-		//if( this.shooting) this.weapon.startShooting();
-		//else this.weapon.stopShooting();
+			//if( this.shooting) this.weapon.startShooting();
+			//else this.weapon.stopShooting();
+		}
 	}
 
 	public string Id {

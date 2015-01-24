@@ -257,7 +257,11 @@ namespace AssemblyCSharp
 		
 		public void onUserLeftRoom (RoomData eventObj, string username)
 		{
-			Log ("onUserLeftRoom : " + username);
+			if(username != appwarp.username )
+			{
+				appwarp.removePlayer(username);
+			}
+			Debug.Log ("onUserLeftRoom : " + username);
 		}
 		
 		public void onUserJoinedRoom (RoomData eventObj, string username)
