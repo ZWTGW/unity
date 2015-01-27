@@ -204,6 +204,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 				cbob.lean=0;
 				
 			}*/
+			if (us.GetKey("crouch"))
+			{ 	vScale = 0.85f;}
 			if (grounded && us.GetKey("up") || grounded && us.GetKey("right") || grounded && us.GetKey("down") || grounded && us.GetKey("left"))
 			{
 				footstepDelay = 0.6f;
@@ -220,7 +222,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 					//				crouch = true;
 					canJump = false;
 					//bodyCollider.height = 10;
-					vScale = 0.85f;
+
 					stepVol = 0.25f;
 					speed = crchSpeed; //szybkosc poruszania sie w przykucnieciu
 				}
