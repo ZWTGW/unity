@@ -39,8 +39,8 @@ public class appwarp : MonoBehaviour
 	//flags
 	public static bool isMovementKeyPressed = false;
 	public static bool notifyShooting = false;
-	public static bool catchFlag = false;
-	public static bool dropFlag = false;
+	public static Vector3 flagPosition;
+	public static Vector3 flag2Position;
 
 	//main functions
 	void Start () 
@@ -63,8 +63,6 @@ public class appwarp : MonoBehaviour
 	void resetFlags()
 	{
 		notifyShooting = false;
-		catchFlag = false;
-	    dropFlag = false;
 	}
 
 	void Update () 
@@ -175,8 +173,13 @@ public class appwarp : MonoBehaviour
 
 			notifyShooting ? 1.0f : 0.0f,
 
-			catchFlag ? 1.0f : 0.0f,
-			dropFlag ? 1.0f : 0.0f
+			flagPosition.x,
+			flagPosition.y,
+			flagPosition.z,
+
+			flag2Position.x,
+			flag2Position.y,
+			flag2Position.z
 		};
 	}
 	
@@ -198,6 +201,9 @@ public class appwarp : MonoBehaviour
 
 			bool doStartShooting = ( f(p[8]) == 1.0f ) ? true : false;
 			startShooting( doStartShooting, username );
+
+			setFlagPosition( new Vector3 ( f(p[9]), f(p[10]), f(p[11]) ), username);
+			setFlag2Position( new Vector3 ( f(p[12]), f(p[13]), f(p[14]) ), username);
 		}
 
 		//nie ignorujemy notyfikacji od siebie
@@ -210,7 +216,8 @@ public class appwarp : MonoBehaviour
 
 	public static void addPlayer(string uname)
 	{
-		players.Add(uname, new NetworkPlayer(uname));
+		NetworkPlayer np = new NetworkPlayer (uname);
+		players.Add(uname, np);
 	}
 
 	public static void removePlayer(string uname)
@@ -237,10 +244,6 @@ public class appwarp : MonoBehaviour
 			isMovementKeyPressed = false;
 		}
 
-		//na potrzeby testow - jak bedzie mozliwosc wpisywania msg z ekranu to od razu do wywalenia!
-		if(Input.GetKey(KeyCode.H)) {messageToSend = "WIADOMOSC SPOD KLAWISZA h";}
-		else if(Input.GetKey(KeyCode.J)){ messageToSend = "WIADOMOSC SPOD KLAWISZA j";}
-		else if(Input.GetKey(KeyCode.K)){ messageToSend = "WIADOMOSC SPOD KLAWISZA k";}
 	}
 
 	//action functions
@@ -257,6 +260,18 @@ public class appwarp : MonoBehaviour
 	public static void setPlayerMovementState(bool isPlayerMovementKeyPressed, string uname)
 	{
 		players[uname].IsMovementKeyPressed = isPlayerMovementKeyPressed;
+	}
+
+	public static void setFlagPosition(Vector3 flagPos, string uname)
+	{
+		Flag f = GameObject.Find ("Flag").GetComponent<Flag> ();
+		f.transform.position = Vector3.Lerp(f.transform.position, flagPos, 0.1f);
+	}
+
+	public static void setFlag2Position(Vector3 flagPos, string uname)
+	{
+		Flag f = GameObject.Find ("Flag2").GetComponent<Flag> ();
+		f.transform.position = Vector3.Lerp(f.transform.position, flagPos, 0.1f);
 	}
 	
 	public static void startShooting(bool doStartShooting, string uname)

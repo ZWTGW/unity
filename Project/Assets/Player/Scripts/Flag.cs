@@ -14,13 +14,15 @@ public class Flag : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		if( this.tag == "Flag" ) appwarp.flagPosition = transform.position;
+		else if( this.tag == "Flag2" ) appwarp.flag2Position = transform.position;
+
 		if (keepFlag) {
 			
 			Vector3 p = keeper.transform.position;
 			
 			transform.position = new Vector3(p.x, p.y, p.z);
-			
 		}
 		
 		if (Input.GetMouseButton(1)) 

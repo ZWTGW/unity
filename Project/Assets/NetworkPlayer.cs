@@ -4,16 +4,17 @@ using UnityEngine;
 public class NetworkPlayer : MonoBehaviour{
 
 	private string id;
-	private GameObject avatar;
+	public GameObject avatar;
 	//private GameObject weapon;
 	private Vector3 position = new Vector3(0,0,0);
 	private Quaternion rotation = new Quaternion(0,0,0,0);
-	private bool shooting;
+	private bool shooting = false;
 	private bool isMessage = false;
 	private int messageFrame = 0;
 	private string chatMessage = "";
 	private string message = "";
 	private bool isMovementKeyPressed = false;
+	private int frame = 0;
 
 	private bool isRemoved = false;
 
@@ -47,13 +48,18 @@ public class NetworkPlayer : MonoBehaviour{
 	{
 		if(!isRemoved)
 		{
-			this.Avatar.transform.position = Vector3.Lerp(this.Avatar.transform.position, this.position, 0.01f);
+			//jednak koniecznie bo jezdzi :(
+			if( this.isMovementKeyPressed )
+				this.Avatar.transform.position = Vector3.Lerp(this.Avatar.transform.position, this.position, 0.1f);
+			else
+				this.Avatar.transform.position = this.position;
+
 			this.Avatar.transform.rotation = this.rotation;
 
 			//this.weapon.transform.position = this.isMovementKeyPressed ? Vector3.Lerp(this.Avatar.transform.position, this.position, Time.deltaTime) : this.position;
 			//this.weapon.transform.rotation = this.rotation;
 
-			//if( this.shooting) this.weapon.startShooting();
+			if( this.shooting ) Debug.Log(this.id + " | STRZELAM | " + frame);
 			//else this.weapon.stopShooting();
 		}
 	}
