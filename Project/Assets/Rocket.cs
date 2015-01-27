@@ -26,8 +26,8 @@ public class Rocket : MonoBehaviour {
 
 		Debug.DrawRay(transform.position, transform.rotation * new Vector3(0,0, 1000000));
 
-		gameObject.transform.Rotate(Vector3.forward, turnAngle);
-		gameObject.rigidbody.AddForce(gameObject.transform.rotation * new Vector3(0, 1, 0) * force * Random.Range(-100f, 100f) * 0.01f);
+		//gameObject.transform.Rotate(Vector3.forward, turnAngle);
+		//gameObject.rigidbody.AddForce(gameObject.transform.rotation * new Vector3(0, 1, 0) * force * Random.Range(-100f, 100f) * 0.01f);
 
 		gameObject.GetComponent<Rigidbody>().velocity *= acceleration;
 		//kolizje z obiektami////////////////////////////////

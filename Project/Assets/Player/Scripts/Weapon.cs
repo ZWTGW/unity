@@ -88,15 +88,16 @@ public class Weapon : MonoBehaviour {
 		{
 			state.Update();
 		}
-		if(shooter != null)
-		{
-			Quaternion w = transform.rotation;
+		//if(shooter != null)
+		//{
+			/*Quaternion w = transform.rotation;
 			transform.LookAt(shooter.GetComponent<Shooter>().GetTarget());
 			Quaternion v = transform.rotation;
 			transform.rotation = w;
 			
 			transform.rotation = Quaternion.Lerp(transform.rotation, v, 0.1f);
-		}
+			*/
+		//}
 	}
 
 	public void SetShooter(GameObject s)
@@ -265,7 +266,12 @@ class Shooting:State
 			Weapon.ammoInMag -= Weapon.ammoInShot;
 
 			Weapon.LastShot = 0;
+
+			//Quaternion t = new Quaternion(Weapon.transform.localRotation.x,Weapon.transform.localRotation.y,
+			//                              Weapon.transform.localRotation.z,Weapon.transform.localRotation.z);
+			//Weapon.transform.LookAt(Weapon.shooter.GetComponent<Shooter>().GetTarget());
 			Weapon.type.Fire();
+			//Weapon.transform.localRotation = t;
 
 			
 			if(Weapon.ammoInMag == 0)
@@ -312,8 +318,9 @@ public class Gun: Type
 	{
 		Rigidbody bulletInstance;
 		bulletInstance = Instantiate(Weapon.Bullet, Weapon.endPoint.position, new Quaternion()) as Rigidbody;
-		bulletInstance.transform.rotation = Weapon.transform.rotation;
-		bulletInstance.AddForce((Weapon.transform.rotation * new Vector3(0, 0, 1)) * Weapon.bulletSpeed);
+		//bulletInstance.transform.rotation = Weapon.transform.rotation;
+		bulletInstance.transform.LookAt(Weapon.shooter.GetComponent<Shooter>().GetTarget());
+		bulletInstance.AddForce((bulletInstance.transform.rotation * new Vector3(0, 0, 1)) * Weapon.bulletSpeed);
 		//bulletInstance.transform.Rotate(Vector3.right, 90);
 
 		//bulletInstance.AddForce(new Vector3(0, 0, 1) * Weapon.bulletSpeed);
