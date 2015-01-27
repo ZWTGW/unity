@@ -43,10 +43,13 @@ public class Weapon : MonoBehaviour {
 	public Transform endPoint;
 
 	public GameObject shooter;
+	public bool collide;
 
 	// Use this for initialization
 	void Start () {
 		//state = new List<State>();
+		collide = false;
+
 		if(rail)
 		{
 			type = gameObject.AddComponent<Rail>();
@@ -75,7 +78,7 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 
 		//tu powinno byc cos w stylu if( this.shooting ) Shooter.ForceShooting();
-		
+		Debug.Log(collide);
 
 		if(lastShot <= fireRate)
 		{
@@ -98,6 +101,19 @@ public class Weapon : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, v, 0.1f);
 			*/
 		//}
+	}
+
+	public void OnTriggerEnter(Collider c )
+	{
+		Debug.Log(c);
+		if (c.tag != "Player")
+		{
+			collide = true;
+		}
+	}
+	public void OnTriggerExit(Collider c )
+	{
+		collide = false;
 	}
 
 	public void SetShooter(GameObject s)
@@ -257,7 +273,7 @@ class Shooting:State
 
 	public override void Update()
 	{
-		if (Weapon.LastShot - Weapon.fireRate >= 0)
+		if (Weapon.LastShot - Weapon.fireRate >= 0 && !Weapon.collide)
 		{
 			if (Weapon.ammoInMag == 0)
 			{
