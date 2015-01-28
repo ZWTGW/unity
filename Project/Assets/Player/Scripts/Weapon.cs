@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour {
 
 	public Rigidbody Bullet;
 	public Transform endPoint;
+	public ParticleSystem particleSystemEffect;
 
 	public GameObject shooter;
 	public bool collide;
@@ -352,20 +353,17 @@ public class Rail: Type
 
 	public override void Fire()
 	{
-		RaycastHit hit;
-		Vector3 v = new Vector3(0, 0, 1);
-		
-		Ray ray = new Ray(Weapon.endPoint.position, v);
+		ParticleSystem particleSystemInstance;
+		particleSystemInstance = Instantiate(Weapon.particleSystemEffect, Weapon.endPoint.position, new Quaternion()) as ParticleSystem;
+		particleSystemInstance.transform.LookAt(Weapon.shooter.GetComponent<Shooter>().GetTarget());
 
-		if(Physics.Raycast(ray, out hit, Weapon.range));//.rigidbody.velocity)))
-		{
-			//hit.transform.localScale = new Vector3(2, 2, 2);
-			if(hit.transform != null)
+		Ray ray = new Ray(Weapon.endPoint.position, Weapon.endPoint.rotation * Vector3.forward);
+		RaycastHit hit;
+		if (Physics.Raycast(ray, out hit, Weapon.range)) {
+			Debug.LogError(hit.collider.name);
+			if (hit.transform != null)
 			{
-				if (hit.transform.tag == "BulletObstacle")
-				{
-					Destroy(hit.transform.gameObject);
-				}
+				Destroy(hit.transform.gameObject);
 			}
 		}
 	}

@@ -21365,6 +21365,7 @@ MonoBehaviour:
   type: {fileID: 0}
   Bullet: {fileID: 5400000, guid: 3119ff97a94ce8e4b8a5d22d0eb7eeee, type: 2}
   endPoint: {fileID: 1510624638}
+  particleSystemEffect: {fileID: 0}
   shooter: {fileID: 0}
   collide: 0
 --- !u!95 &1845305297
