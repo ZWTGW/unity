@@ -21,7 +21,7 @@ public class GrenadeThrow : MonoBehaviour {
 			{
 				GameObject granade = Instantiate( granadePref ) as GameObject;
 				granade.transform.position = camera.transform.position + camera.transform.forward;
-				granade.GetComponent("Rigidbody").rigidbody.AddForce( camera.transform.forward*8000 );
+				granade.GetComponent("Rigidbody").GetComponent<Rigidbody>().AddForce( camera.transform.forward*8000 );
 				--grenadesNumber;
 			}
 			else{

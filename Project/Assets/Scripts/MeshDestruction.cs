@@ -19,7 +19,7 @@ public class MeshDestruction : MonoBehaviour {
 				
 				for (int j = 0; j < amountOfShards; j++) {
 					GameObject shard = Instantiate(shardToSpawn, contact.point, Quaternion.identity) as GameObject;
-					shard.rigidbody.AddForce(Random.value, Random.value, Random.value);
+					shard.GetComponent<Rigidbody>().AddForce(Random.value, Random.value, Random.value);
 				}
 			}
 		}

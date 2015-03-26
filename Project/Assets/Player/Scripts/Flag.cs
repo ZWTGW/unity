@@ -28,7 +28,7 @@ public class Flag : MonoBehaviour {
 		if (Input.GetMouseButton(1)) 
 		{
 			keepFlag = false;
-			collider.enabled = true;
+			GetComponent<Collider>().enabled = true;
 			keeper = null;
 		}
 		
@@ -39,7 +39,7 @@ public class Flag : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			keepFlag = true;
 			keeper = col.gameObject;
-			collider.enabled = false;
+			GetComponent<Collider>().enabled = false;
 		}
 	}
 }

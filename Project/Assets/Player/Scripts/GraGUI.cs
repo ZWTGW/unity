@@ -79,7 +79,7 @@ public class GraGUI : MonoBehaviour{
 			// pokazujemy kursorek do menu, albo nie pokazujemy w edytorze unity to chyba
 			// i tak zawsze jest
 			showInGameMenu = !showInGameMenu;
-			Screen.showCursor = showInGameMenu;
+			Cursor.visible = showInGameMenu;
 			menuState = MenuStates.MAIN;
 		}
 		if(!isMainMenu) { // pc - drobna poprawka, bo pokazywanie statsow w main menu nie ma sensu ;)

@@ -124,8 +124,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	}
 
 	void Awake () {
-		rigidbody.freezeRotation = true;
-		rigidbody.useGravity = true;
+		GetComponent<Rigidbody>().freezeRotation = true;
+		GetComponent<Rigidbody>().useGravity = true;
 		
 	}
 	void OnGUI(){
@@ -149,8 +149,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		canJump = true;
 		float vScale = 1.5f;
 		speed = normalSpeed;
-		xVel = rigidbody.velocity.magnitude;
-		yVel = rigidbody.velocity.y;
+		xVel = GetComponent<Rigidbody>().velocity.magnitude;
+		yVel = GetComponent<Rigidbody>().velocity.y;
 
 		if (grounded) {
 			if (padjump == true){
@@ -174,7 +174,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 			
 			
-			if (rigidbody.velocity.magnitude<3 && stamina<=100){
+			if (GetComponent<Rigidbody>().velocity.magnitude<3 && stamina<=100){
 				stamina+=0.5f;
 				if (restTime<100) restTime+=1;
 			}
@@ -229,7 +229,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 
 			if (nextFootstep <= 0) {
-				audio.PlayOneShot(stepSound, stepVol);
+				GetComponent<AudioSource>().PlayOneShot(stepSound, stepVol);
 				nextFootstep += footstepDelay;
 			}
 			//BIEG
@@ -239,12 +239,12 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//Debug.Log (rigidbody.velocity.magnitude);
 			
 			// Apply a force that attempts to reach our target velocity
-			Vector3 velocity = rigidbody.velocity;
+			Vector3 velocity = GetComponent<Rigidbody>().velocity;
 			Vector3 velocityChange = (targetVelocity - velocity);
 			velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange)*sidesSpeedModifier;
 			velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange)*forwardSpeedModifier; //
 			velocityChange.y = 0;
-			rigidbody.AddForce(velocityChange, ForceMode.VelocityChange);
+			GetComponent<Rigidbody>().AddForce(velocityChange, ForceMode.VelocityChange);
 			//
 			//kucanie - do poprawki, glowa nie moze "kucac", a obecnie kuca. W ogole glowa moze byc do usuniecia, tylko wtedy nalezaloby zrobic osobne hitboxy glowy
 			float ultScale = tr.localScale.y; // crouch/stand up smoothly
@@ -262,7 +262,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			//SKOK
 
 			if (canJump && (us.GetKey("jump") || Input.GetMouseButtonDown(1))) {
-				rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
+				GetComponent<Rigidbody>().velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
 				source.PlayOneShot(jump_startSound,1f);
 				canJump = false;
 			}
@@ -313,8 +313,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		else // not grounded
 			
 		{	//upadek
-			if(rigidbody.velocity.y < -50.0 && padjump == false)
-			{	falldmg=rigidbody.velocity.y;
+			if(GetComponent<Rigidbody>().velocity.y < -50.0 && padjump == false)
+			{	falldmg=GetComponent<Rigidbody>().velocity.y;
 			}
 
 			
@@ -327,18 +327,18 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 			else {inAirControl = 0.4f;}
 			targetVelocity = transform.TransformDirection(targetVelocity) * inAirControl;
-			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange);
+			GetComponent<Rigidbody>().AddForce(targetVelocity, ForceMode.VelocityChange);
 
 
 		}		
 		// We apply gravity manually for more tuning control
-			rigidbody.AddForce(new Vector3 (0, -gravity * rigidbody.mass, 0));
+			GetComponent<Rigidbody>().AddForce(new Vector3 (0, -gravity * GetComponent<Rigidbody>().mass, 0));
 
 		// PC: double jump
 		if ((us.GetKeyDown("jump") || Input.GetMouseButtonDown(1)) && doubleJumped == false) {
 			doubleJumped = true;
-			Vector3 velocity = rigidbody.velocity;
-			rigidbody.velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
+			Vector3 velocity = GetComponent<Rigidbody>().velocity;
+			GetComponent<Rigidbody>().velocity = new Vector3(velocity.x*jumpSpeedModifier, CalculateJumpVerticalSpeed(), velocity.z*jumpSpeedModifier);
 			source.PlayOneShot(jump_startSound,1f);
 		}
 
@@ -346,7 +346,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		if (us.GetKeyDown("teleport") && canUseTeleport) {
 			//rigidbody.velocity = Vector3.zero;
 			// to naprawia kolizje jak player jest bardzo szybki
-			rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+			GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 			/*Vector3 targetVelocity = transform.TransformDirection(0, 0, 190);
 			rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
 */
@@ -355,7 +355,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			GameObject cam = transform.FindChild ("PlayerCam").gameObject;
 
 			//Ray ray = cam.camera.ScreenPointToRay(Input.mousePosition);
-			Ray ray = cam.camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
+			Ray ray = cam.GetComponent<Camera>().ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2));
 			//Vector3 targetVelocity = transform.TransformDirection(ray.direction.x * 190, ray.direction.y * 190, ray.direction.z * 190);
 			//rigidbody.AddForce(targetVelocity, ForceMode.VelocityChange); 
 			//transform.position = ray.origin + ray.direction * 75;
@@ -411,15 +411,15 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 
 		keyboardUpdate();
-		hcube.renderer.enabled = false;
+		hcube.GetComponent<Renderer>().enabled = false;
 		ml.enabled=true;
 
 
 
 		if(teleportPos != Vector3.zero) {
 			print("no cos robimy - pozdrawiam");
-			rigidbody.transform.position = Vector3.MoveTowards(rigidbody.transform.position, teleportPos, 5);
-			if ((rigidbody.transform.position - teleportPos).magnitude < 0.0001f)  {
+			GetComponent<Rigidbody>().transform.position = Vector3.MoveTowards(GetComponent<Rigidbody>().transform.position, teleportPos, 5);
+			if ((GetComponent<Rigidbody>().transform.position - teleportPos).magnitude < 0.0001f)  {
 				teleportPos = Vector3.zero;
 			}
 		}
@@ -458,8 +458,8 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 		TrackGrounded(col);
 		if (col.gameObject.tag == "JumpPad") {
 			padjump = true;
-			Vector3 velocity = rigidbody.velocity;
-			rigidbody.velocity = new Vector3(velocity.x*jumpPadSpeedModifier, 100, velocity.z*jumpPadSpeedModifier);
+			Vector3 velocity = GetComponent<Rigidbody>().velocity;
+			GetComponent<Rigidbody>().velocity = new Vector3(velocity.x*jumpPadSpeedModifier, 100, velocity.z*jumpPadSpeedModifier);
 			//Debug.Log(padjump);
 		}
 		

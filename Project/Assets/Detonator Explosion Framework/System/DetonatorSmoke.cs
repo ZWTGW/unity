@@ -45,7 +45,7 @@ public class DetonatorSmoke : DetonatorComponent
     public void BuildSmokeA()
     {
 		_smokeA = new GameObject("SmokeA");
-		_smokeAEmitter = (DetonatorBurstEmitter)_smokeA.AddComponent("DetonatorBurstEmitter");
+		_smokeAEmitter = (DetonatorBurstEmitter)_smokeA.AddComponent<DetonatorBurstEmitter>();
 		_smokeA.transform.parent = this.transform;
 		_smokeA.transform.localPosition = localPosition;
 		_smokeA.transform.localRotation = Quaternion.identity;
@@ -93,7 +93,7 @@ public class DetonatorSmoke : DetonatorComponent
 	public void BuildSmokeB()
     {
 		_smokeB = new GameObject("SmokeB");
-		_smokeBEmitter = (DetonatorBurstEmitter)_smokeB.AddComponent("DetonatorBurstEmitter");
+		_smokeBEmitter = (DetonatorBurstEmitter)_smokeB.AddComponent<DetonatorBurstEmitter>();
 		_smokeB.transform.parent = this.transform;
 		_smokeB.transform.localPosition = localPosition;
 		_smokeB.transform.localRotation = Quaternion.identity;

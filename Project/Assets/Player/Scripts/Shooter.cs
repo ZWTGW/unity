@@ -85,7 +85,7 @@ public class Shooter : MonoBehaviour {
 			weapons[i].transform.localRotation = camera.transform.rotation;
 			weapons[i].transform.parent = camera.transform;
 			weapons[i].transform.localPosition = weaponPosition;
-			weapons[i].renderer.enabled = false;
+			weapons[i].GetComponent<Renderer>().enabled = false;
 
 		}
 		actualWeapon = -1;
@@ -100,7 +100,7 @@ public class Shooter : MonoBehaviour {
 		}
 		if (weapon != null)
 		{
-			weapon.renderer.enabled = false;
+			weapon.GetComponent<Renderer>().enabled = false;
 		}
 		if (n >= weapons.Length || weapons[n] == null)
 		{
@@ -116,7 +116,7 @@ public class Shooter : MonoBehaviour {
 		}
 		actualWeapon = n;
 		weapon = weapons[n];
-		weapon.renderer.enabled = true;
+		weapon.GetComponent<Renderer>().enabled = true;
 		//Destroy(weapon);
 
 	}

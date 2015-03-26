@@ -40,14 +40,14 @@ public class MakeGray : MonoBehaviour {
 				// odpowiadal
 				if(pleaseSave) {
 					tmp.Add (g);
-					tmp2.Add (g.renderer.material);
+					tmp2.Add (g.GetComponent<Renderer>().material);
 				}
 
 				Shader.SetGlobalFloat ("PowerOfGray", power);
-				g.renderer.material = new Material(myShader);
+				g.GetComponent<Renderer>().material = new Material(myShader);
 			}
 
-			camera.Render ();
+			GetComponent<Camera>().Render ();
 		}
 
 		else {
@@ -56,7 +56,7 @@ public class MakeGray : MonoBehaviour {
 					// odzyskujemy materialy
 					GameObject g = (GameObject) tmp[i];
 					Material m = (Material) tmp2[i];
-					g.renderer.material = m;
+					g.GetComponent<Renderer>().material = m;
 				} 
 				
 				tmp = null;

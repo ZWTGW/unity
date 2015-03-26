@@ -1,4 +1,10 @@
-﻿Shader "Transparent/Cutout/Soft Edge Lit Double Sided" {
+﻿// Upgrade NOTE: commented out 'float4 unity_LightmapST', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_Lightmap', a built-in variable
+// Upgrade NOTE: commented out 'sampler2D unity_LightmapInd', a built-in variable
+// Upgrade NOTE: replaced tex2D unity_Lightmap with UNITY_SAMPLE_TEX2D
+// Upgrade NOTE: replaced tex2D unity_LightmapInd with UNITY_SAMPLE_TEX2D_SAMPLER
+
+Shader "Transparent/Cutout/Soft Edge Lit Double Sided" {
 Properties {
 	_Color ("Main Color", Color) = (1,1,1,1)
 	_MainTex ("Base (RGB) Trans (A)", 2D) = "white" {}
@@ -69,7 +75,7 @@ struct v2f_surf {
 };
 #endif
 #ifndef LIGHTMAP_OFF
-float4 unity_LightmapST;
+// float4 unity_LightmapST;
 #endif
 float4 _MainTex_ST;
 v2f_surf vert_surf (appdata_full v) {
@@ -98,9 +104,9 @@ v2f_surf vert_surf (appdata_full v) {
   return o;
 }
 #ifndef LIGHTMAP_OFF
-sampler2D unity_Lightmap;
+// sampler2D unity_Lightmap;
 #ifndef DIRLIGHTMAP_OFF
-sampler2D unity_LightmapInd;
+// sampler2D unity_LightmapInd;
 #endif
 #endif
 fixed4 frag_surf (v2f_surf IN) : COLOR {
@@ -130,11 +136,11 @@ fixed4 frag_surf (v2f_surf IN) : COLOR {
   #endif // LIGHTMAP_OFF
   #ifndef LIGHTMAP_OFF
   #ifdef DIRLIGHTMAP_OFF
-  fixed4 lmtex = tex2D(unity_Lightmap, IN.lmap.xy);
+  fixed4 lmtex = UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy);
   fixed3 lm = DecodeLightmap (lmtex);
   #else
-  fixed4 lmtex = tex2D(unity_Lightmap, IN.lmap.xy);
-  fixed4 lmIndTex = tex2D(unity_LightmapInd, IN.lmap.xy);
+  fixed4 lmtex = UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy);
+  fixed4 lmIndTex = UNITY_SAMPLE_TEX2D_SAMPLER(unity_LightmapInd,unity_Lightmap, IN.lmap.xy);
   half3 lm = LightingLambert_DirLightmap(o, lmtex, lmIndTex, 0).rgb;
   #endif
   #ifdef SHADOWS_SCREEN
@@ -206,7 +212,7 @@ struct v2f_surf {
 };
 #endif
 #ifndef LIGHTMAP_OFF
-float4 unity_LightmapST;
+// float4 unity_LightmapST;
 #endif
 float4 _MainTex_ST;
 v2f_surf vert_surf (appdata_full v) {
@@ -235,9 +241,9 @@ v2f_surf vert_surf (appdata_full v) {
   return o;
 }
 #ifndef LIGHTMAP_OFF
-sampler2D unity_Lightmap;
+// sampler2D unity_Lightmap;
 #ifndef DIRLIGHTMAP_OFF
-sampler2D unity_LightmapInd;
+// sampler2D unity_LightmapInd;
 #endif
 #endif
 fixed _Cutoff;
@@ -269,11 +275,11 @@ fixed4 frag_surf (v2f_surf IN) : COLOR {
   #endif // LIGHTMAP_OFF
   #ifndef LIGHTMAP_OFF
   #ifdef DIRLIGHTMAP_OFF
-  fixed4 lmtex = tex2D(unity_Lightmap, IN.lmap.xy);
+  fixed4 lmtex = UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy);
   fixed3 lm = DecodeLightmap (lmtex);
   #else
-  fixed4 lmtex = tex2D(unity_Lightmap, IN.lmap.xy);
-  fixed4 lmIndTex = tex2D(unity_LightmapInd, IN.lmap.xy);
+  fixed4 lmtex = UNITY_SAMPLE_TEX2D(unity_Lightmap, IN.lmap.xy);
+  fixed4 lmIndTex = UNITY_SAMPLE_TEX2D_SAMPLER(unity_LightmapInd,unity_Lightmap, IN.lmap.xy);
   half3 lm = LightingLambert_DirLightmap(o, lmtex, lmIndTex, 0).rgb;
   #endif
   #ifdef SHADOWS_SCREEN
