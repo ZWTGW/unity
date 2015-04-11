@@ -5,6 +5,7 @@ using System.Collections;
 public class GraGUI : MonoBehaviour{
 	
 	private BaseCharacter baseCharScript;
+
 	public bool isMainMenu; // scena glownego menu, czy nie? jesli nie to ingame menu i hudy etc.
 	
 	
@@ -142,10 +143,13 @@ public class GraGUI : MonoBehaviour{
 			baseCharScript.startTimeIsSet = true;
 		}
 
+		GameObject weaponGO = GameObject.FindGameObjectWithTag("WeaponTag");
+		Weapon weapon = weaponGO.GetComponent<Weapon>();
+
 		int hp = baseCharScript.currHP;
 		int maxHp = baseCharScript.maxHP;
-		int ammo = 15;
-		int maxAmmo = 20;
+		int ammo = weapon.ammo + weapon.ammoInMag;
+		int maxAmmo = weapon.maxAmmo;
 		int stamina = (int)baseCharScript.stamina;
 		int maxStamina = (int)baseCharScript.maxStamina;
 		
@@ -215,7 +219,8 @@ public class GraGUI : MonoBehaviour{
 		drawFragment (orb1, (float)ammo / (float)maxAmmo, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
 
 
-		orb2 = (Texture2D)Resources.Load ("gran-empty");
+		// tych granatow chyba nie mialo byc w koncu? xD
+		/*orb2 = (Texture2D)Resources.Load ("gran-empty");
 		orb1 = (Texture2D)Resources.Load ("gran");
 		
 		pozycjaOrba = new Rect (Screen.width - resizedW - 10f, Screen.height - 200, resizedW, resizedH);
@@ -223,8 +228,10 @@ public class GraGUI : MonoBehaviour{
 		GUI.DrawTexture (pozycjaOrba, orb2);
 		// rysujemy zajety fragment
 		drawFragment (orb1, (float)ammo / (float)maxAmmo, 1.0f, resizedW, resizedH, pozycjaOrba.x, pozycjaOrba.y);
+		*/
 
-		
+
+
 		
 		// sprawdzamy czy szarosc
 		MakeGray mg = GameObject.Find ("PlayerCam").GetComponent<MakeGray> ();

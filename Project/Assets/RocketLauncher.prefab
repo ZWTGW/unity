@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2300002}
   m_Layer: 10
   m_Name: RocketLauncher
-  m_TagString: Untagged
+  m_TagString: WeaponTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   ammoInMag: 3
   maxAmmoInMag: 3
   ammoInShot: 1
-  maxAmmo: 200
+  maxAmmo: 25
   ammo: 0
   reloadingTime: 2
   reloadingAdvance: 0
