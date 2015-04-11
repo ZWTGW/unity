@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour {
 	public int ammoInMag;
 	public int maxAmmoInMag;
 	public int ammoInShot;
+	public int maxAmmo;
+	public int ammo;
 
 	public float reloadingTime;
 	public float reloadingAdvance;
@@ -70,6 +72,7 @@ public class Weapon : MonoBehaviour {
 		shooting = false;
 		lastShot = fireRate;
 
+		ammo = maxAmmo;
 		ammoInMag = maxAmmoInMag;
 
 
@@ -143,6 +146,10 @@ public class Weapon : MonoBehaviour {
 
 	public void StartReloading()
 	{
+		if (ammo == 0) {
+			return;
+		}
+
 		bool b = true;
 		if (state != null)
 		{
@@ -204,9 +211,14 @@ public class Weapon : MonoBehaviour {
 	}
 	*/
 
-	public void Reloaded(int ammo)
+	public void Reloaded()
 	{
-		ammoInMag = ammo;
+		ammo -= (maxAmmoInMag - ammoInMag);
+		ammoInMag = maxAmmoInMag;
+		if (ammo < 0) {
+			ammoInMag += ammo;
+			ammo = 0;
+		}
 		reloading = false;
 	}
 
@@ -257,7 +269,7 @@ class Reloading:State
 		Weapon.reloadingAdvance += Time.deltaTime;
 		if(Weapon.reloadingAdvance >= Weapon.reloadingTime)
 		{
-			Weapon.Reloaded(Weapon.maxAmmoInMag);//do pomyślenia. Ilośc amunicji podawana od playera??
+			Weapon.Reloaded();//do pomyślenia. Ilośc amunicji podawana od playera??
 			Debug.Log("reloading end");
 			Destroy();
 		}
