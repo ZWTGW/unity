@@ -149,7 +149,7 @@ public class GraGUI : MonoBehaviour{
 		int hp = baseCharScript.currHP;
 		int maxHp = baseCharScript.maxHP;
 		int ammo = weapon.ammo + weapon.ammoInMag;
-		int maxAmmo = weapon.maxAmmo;
+		int maxAmmo = weapon.maxAmmo + weapon.maxAmmoInMag;
 		int stamina = (int)baseCharScript.stamina;
 		int maxStamina = (int)baseCharScript.maxStamina;
 		
@@ -727,6 +727,6 @@ public class GraGUI : MonoBehaviour{
 	//endof mantkowicz
 	
 	public void Test() {
-		Debug.Log ("Jestem testem!!!!!!!!");
+		//Debug.Log ("Jestem testem!!!!!!!!");
 	}
 }

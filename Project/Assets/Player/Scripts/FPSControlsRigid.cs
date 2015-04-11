@@ -119,7 +119,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 	}
 
 	private void OnTimedEvent(object source, ElapsedEventArgs e) {
-		Debug.Log ("mozna juz teleportowac");
+		//Debug.Log ("mozna juz teleportowac");
 		canUseTeleport = true;
 	}
 
@@ -417,7 +417,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 
 
 		if(teleportPos != Vector3.zero) {
-			print("no cos robimy - pozdrawiam");
+			//print("no cos robimy - pozdrawiam");
 			GetComponent<Rigidbody>().transform.position = Vector3.MoveTowards(GetComponent<Rigidbody>().transform.position, teleportPos, 5);
 			if ((GetComponent<Rigidbody>().transform.position - teleportPos).magnitude < 0.0001f)  {
 				teleportPos = Vector3.zero;
