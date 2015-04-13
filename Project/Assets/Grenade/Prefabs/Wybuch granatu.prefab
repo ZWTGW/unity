@@ -107,8 +107,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f03951fee9bec9478d1ec979ba44677, type: 3}
   - {fileID: 8300000, guid: 33cd429e81395944088573e40e271f18, type: 3}
   distanceThreshold: 50
-  minVolume: .400000006
-  maxVolume: 1
+  minVolume: .200000003
+  maxVolume: .699999988
   rolloffFactor: .5
 --- !u!114 &11400004
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7134859da924a14b9de2f13721402b1, type: 3}
   m_Name: 
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154a16e40ae84e42b591529ea211201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 0
+  on: 1
   detonatorControlled: 1
   startSize: 1
   size: 1.0519073
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a30e21f576d054695cb3804fce8a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   detonatorControlled: 1
   startSize: 1
   size: 5
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 6
-  color: {r: .843283594, g: .30207172, b: .514824092, a: .4627451}
+  color: {r: .835818589, g: .843283594, b: .30207172, a: .4627451}
   explodeOnStart: 1
   duration: 3.2971828
   detail: 1
@@ -375,14 +375,14 @@ MonoBehaviour:
   destroyTime: 7
   useWorldSpace: 1
   direction: {x: 0, y: 75.1568909, z: .187326342}
-  fireballAMaterial: {fileID: 0}
-  fireballBMaterial: {fileID: 0}
-  smokeAMaterial: {fileID: 0}
-  smokeBMaterial: {fileID: 0}
-  shockwaveMaterial: {fileID: 0}
-  sparksMaterial: {fileID: 0}
-  glowMaterial: {fileID: 0}
-  heatwaveMaterial: {fileID: 0}
+  fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  fireballBMaterial: {fileID: 2100000, guid: 02a46fb295082ed488cab61782ddc01f, type: 2}
+  smokeAMaterial: {fileID: 2100000, guid: f892253ab15f74115b6d10bd736b2e29, type: 2}
+  smokeBMaterial: {fileID: 2100000, guid: 36aa334bd0865ca459c9b3dfbbaf7198, type: 2}
+  shockwaveMaterial: {fileID: 2100000, guid: 21588279b895eef48a0448f7f2519813, type: 2}
+  sparksMaterial: {fileID: 2100000, guid: 2d14b182f857db942a348bf8edb40190, type: 2}
+  glowMaterial: {fileID: 2100000, guid: b4d8055067ce04d4c98367d69c10b358, type: 2}
+  heatwaveMaterial: {fileID: 2100000, guid: 968b7478605cb4600a8248b06fe935d3, type: 2}
   autoCreateFireball: 1
   autoCreateSparks: 1
   autoCreateShockwave: 1
@@ -402,4 +402,3 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100000}
   m_IsPrefabParent: 1
-  m_IsExploded: 1

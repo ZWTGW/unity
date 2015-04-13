@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: 31a304ef63fe9024d9a09477e1262f65
+timeCreated: 1428937280
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cloudRingMaterial: {fileID: 2100000, guid: 02a46fb295082ed488cab61782ddc01f, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

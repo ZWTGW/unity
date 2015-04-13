@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: a99a52afbdc68cd4fbc1c477cf05bbba
+timeCreated: 1428937233
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fireObject: {fileID: 100000, guid: b5aa57d4bf54d5d4cb8a2bcc8eec4389, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

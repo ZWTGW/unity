@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: e0a30e21f576d054695cb3804fce8a9d
+timeCreated: 1428937192
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - heatwaveMaterial: {fileID: 2100000, guid: a9cdb98423c19412bbac43b1fb623c48, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

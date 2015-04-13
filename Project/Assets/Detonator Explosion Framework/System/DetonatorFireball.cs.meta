@@ -1,8 +1,16 @@
 fileFormatVersion: 2
 guid: edba693a4a231da4e9434948a5dec7ee
+timeCreated: 1428937259
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  - fireballBMaterial: {fileID: 2100000, guid: 02a46fb295082ed488cab61782ddc01f, type: 2}
+  - fireShadowMaterial: {fileID: 2100000, guid: b74c77ac638a7df4888a2868fe0c8da3,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

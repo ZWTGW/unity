@@ -1,8 +1,13 @@
 fileFormatVersion: 2
 guid: f7134859da924a14b9de2f13721402b1
+timeCreated: 1428937101
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - sprayObject: {fileID: 100000, guid: b9dd5ecd168e0b54295932b5b107b983, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
