@@ -1,0 +1,133 @@
+fileFormatVersion: 2
+guid: 31d941450608b6a4f94aaa9f69218701
+timeCreated: 1427977441
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cube.183
+    100004: Cube.184
+    100006: Cube.185
+    100008: Cube.186
+    100010: Cube.187
+    100012: Cube.188
+    100014: Cube.189
+    100016: Cube.190
+    100018: Cube.191
+    100020: Cube.192
+    100022: Plane.008
+    400000: //RootNode
+    400002: Cube.183
+    400004: Cube.184
+    400006: Cube.185
+    400008: Cube.186
+    400010: Cube.187
+    400012: Cube.188
+    400014: Cube.189
+    400016: Cube.190
+    400018: Cube.191
+    400020: Cube.192
+    400022: Plane.008
+    2300000: Cube.183
+    2300002: Cube.184
+    2300004: Cube.185
+    2300006: Cube.186
+    2300008: Cube.187
+    2300010: Cube.188
+    2300012: Cube.189
+    2300014: Cube.190
+    2300016: Cube.191
+    2300018: Cube.192
+    2300020: Plane.008
+    3300000: Cube.183
+    3300002: Cube.184
+    3300004: Cube.185
+    3300006: Cube.186
+    3300008: Cube.187
+    3300010: Cube.188
+    3300012: Cube.189
+    3300014: Cube.190
+    3300016: Cube.191
+    3300018: Cube.192
+    3300020: Plane.008
+    4300000: Cube.192
+    4300002: Cube.191
+    4300004: Cube.190
+    4300006: Cube.189
+    4300008: Plane.008
+    4300010: Cube.188
+    4300012: Cube.187
+    4300014: Cube.186
+    4300016: Cube.185
+    4300018: Cube.184
+    4300020: Cube.183
+    6400000: Cube.183
+    6400002: Cube.184
+    6400004: Cube.185
+    6400006: Cube.186
+    6400008: Cube.187
+    6400010: Cube.188
+    6400012: Cube.189
+    6400014: Cube.190
+    6400016: Cube.191
+    6400018: Cube.192
+    6400020: Plane.008
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
