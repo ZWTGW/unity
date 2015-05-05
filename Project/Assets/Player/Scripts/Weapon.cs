@@ -375,7 +375,7 @@ public class Rail: Type
 			Debug.LogError(hit.collider.name);
 			if (hit.transform != null)
 			{
-				Destroy(hit.transform.gameObject);
+				//Destroy(hit.transform.gameObject);
 			}
 		}
 	}
