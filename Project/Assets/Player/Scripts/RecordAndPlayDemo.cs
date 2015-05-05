@@ -20,6 +20,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 	struct demoFrame { // klatka dema czy coś
 		public float x, y, z; // pozycja
 		public float rw, rx, ry, rz; // rotacja
+		public int shoot;
 	};
 
 	List<demoFrame> demo = new List<demoFrame>();
@@ -41,6 +42,14 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		tmp.rx = player.transform.rotation.x;
 		tmp.ry = player.transform.rotation.y;
 		tmp.rz = player.transform.rotation.z;
+
+		tmp.shoot = 0;
+		if(Input.GetMouseButtonDown(0)) {
+			tmp.shoot = 1;
+		}
+		if (Input.GetMouseButtonUp (0)) {
+			tmp.shoot = -1;
+		}
 		demo.Add(tmp);
 	}
 
@@ -51,7 +60,12 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		player.transform.position = new Vector3(tmp.x, tmp.y, tmp.z);
 		player.transform.rotation = new Quaternion(tmp.rx, tmp.ry, tmp.rz, tmp.rw);
 
-
+		if (tmp.shoot > 0) {
+			player.GetComponent<Shooter>().StartShooting();
+		}
+		if (tmp.shoot < 0) {
+			player.GetComponent<Shooter>().StopShooting();
+		}
 		// zaczynamy od poczatku jak dojdziemy do konca
 		currentFrame++;
 		if(currentFrame >= demo.Count) currentFrame = 0;
