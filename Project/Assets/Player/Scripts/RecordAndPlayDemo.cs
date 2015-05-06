@@ -11,6 +11,22 @@ using System.IO;
 
 public class RecordAndPlayDemo : MonoBehaviour {
 
+	/////////////// TE PIERDOŁY WYKLIKAĆ PO DODANIU SKRYPTU W GUI UNITY //////
+
+	// obsluga klawiszy, tylko na jednym obiekcie powinno zostać tylko, na obiekcie gracza aktualnego
+	// na pozostałych false
+	public bool enableKeys = false;
+
+	// jak null to odtwarzamy na pierwszym graczu pierdoły (ktory jest spawnowany automatycznie przez sieć)
+	public GameObject playerObject = null;
+
+	// jak enable keys jest na false, to to trzeba, automatycznie zacznie odtwarzac takie demko
+	public string plikDemaBezRozszerzenia = ""; 
+	// ten plik musi być w c:\Users\<NAZWA USERA>\AppData\LocalLow\DefaultCompany\Project 
+	// sama nazwa tutaj
+
+	/// /////////////////////////////////////////////////////////////////
+
 	bool recording = false;
 	bool playing = false;
 	int currentFrame = 0;
@@ -20,6 +36,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 	struct demoFrame { // klatka dema czy coś
 		public float x, y, z; // pozycja
 		public float rw, rx, ry, rz; // rotacja
+		public int shoot;
 	};
 
 	List<demoFrame> demo = new List<demoFrame>();
@@ -27,7 +44,9 @@ public class RecordAndPlayDemo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		if(!enableKeys) {
+			LoadFromFile(plikDemaBezRozszerzenia);
+		}
 
 	}
 
@@ -41,17 +60,34 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		tmp.rx = player.transform.rotation.x;
 		tmp.ry = player.transform.rotation.y;
 		tmp.rz = player.transform.rotation.z;
-		demo.Add(tmp);
+
+		tmp.shoot = 0;
+		if(Input.GetMouseButtonDown(0)) {
+			tmp.shoot = 1;
+		}
+		if (Input.GetMouseButtonUp (0)) {
+			tmp.shoot = -1;
+		}
+		demo.Add(tmp); 
 	}
 
 	void playFrame() {
 		// tutaj możnaby zmienić indeks i przesuwać innego typa
-		GameObject player = GameObject.FindGameObjectsWithTag ("Player")[0];
+		GameObject player;
+
+		if(enableKeys) player = GameObject.FindGameObjectsWithTag ("Player")[0];
+		else player = playerObject;
+
 		demoFrame tmp = demo[currentFrame];
 		player.transform.position = new Vector3(tmp.x, tmp.y, tmp.z);
 		player.transform.rotation = new Quaternion(tmp.rx, tmp.ry, tmp.rz, tmp.rw);
 
-
+		if (tmp.shoot > 0) {
+			player.GetComponent<Shooter>().StartShooting();
+		}
+		if (tmp.shoot < 0) {
+			player.GetComponent<Shooter>().StopShooting();
+		}
 		// zaczynamy od poczatku jak dojdziemy do konca
 		currentFrame++;
 		if(currentFrame >= demo.Count) currentFrame = 0;
@@ -59,26 +95,33 @@ public class RecordAndPlayDemo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if( Input.GetKeyDown (KeyCode.O)) {
-			recording = !recording;
-			playing = false;
-		}
-		
-		if( Input.GetKeyDown (KeyCode.P)) {
-			recording = false;
-			playing = !playing;
+		if(enableKeys) {
+			if( Input.GetKeyDown (KeyCode.O)) {
+				recording = !recording;
+				playing = false;
+			}
+			
+			if( Input.GetKeyDown (KeyCode.P)) {
+				recording = false;
+				playing = !playing;
+			}
+
+			if( Input.GetKeyDown (KeyCode.K)) {
+				recording = false;
+				playing = false;
+				SaveToFile();
+			}
+
+			if( Input.GetKeyDown (KeyCode.L)) {
+				recording = false;
+				playing = false;
+				LoadFromFile();
+			}
 		}
 
-		if( Input.GetKeyDown (KeyCode.K)) {
-			recording = false;
-			playing = false;
-			SaveToFile();
-		}
-
-		if( Input.GetKeyDown (KeyCode.L)) {
-			recording = false;
-			playing = false;
-			LoadFromFile();
+		if(!enableKeys) {
+			playFrame();
+			return;
 		}
 
 		if(recording) {

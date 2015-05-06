@@ -55,10 +55,10 @@ MonoBehaviour:
   explodeDelayMin: 0
   explodeDelayMax: 0
   startDuration: 2
-  duration: 2
+  duration: 1.75
   timeScale: 1
   startDetail: 1
-  detail: 1.01585507
+  detail: 1
   startColor: {r: 1, g: 1, b: 1, a: 1}
   color: {r: .897058845, g: .897058845, b: .897058845, a: .58431375}
   startLocalPosition: {x: 0, y: 0, z: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   startVelocity: {x: 0, y: 0, z: 0}
   velocity: {x: 200, y: 0, z: 200}
   detailThreshold: 1
-  cloudRingMaterial: {fileID: 0}
+  cloudRingMaterial: {fileID: 2100000, guid: 36aa334bd0865ca459c9b3dfbbaf7198, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,11 +124,11 @@ MonoBehaviour:
   on: 1
   detonatorControlled: 1
   startSize: 1
-  size: 1.01489055
-  explodeDelayMin: .0599999949
-  explodeDelayMax: .114655629
+  size: 2
+  explodeDelayMin: .0500000007
+  explodeDelayMax: .150000006
   startDuration: 2
-  duration: 2.8129859
+  duration: 2.8499999
   timeScale: 1
   startDetail: 1
   detail: 1
@@ -143,7 +143,7 @@ MonoBehaviour:
   detailThreshold: 0
   sprayObject: {fileID: 100000, guid: abdc837d9a07acd409959e581ef68e61, type: 2}
   count: 8
-  startingRadius: 4.24103928
+  startingRadius: 4.25
   minScale: 1
   maxScale: 1
 --- !u!114 &11400006
@@ -161,8 +161,8 @@ MonoBehaviour:
   detonatorControlled: 1
   startSize: 1
   size: 1
-  explodeDelayMin: 0
-  explodeDelayMax: 0
+  explodeDelayMin: .100000001
+  explodeDelayMax: .200000003
   startDuration: 2
   duration: 3
   timeScale: 1
@@ -177,9 +177,9 @@ MonoBehaviour:
   startVelocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   detailThreshold: 0
-  fireballAMaterial: {fileID: 0}
-  fireballBMaterial: {fileID: 0}
-  fireShadowMaterial: {fileID: 0}
+  fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  fireballBMaterial: {fileID: 2100000, guid: 02a46fb295082ed488cab61782ddc01f, type: 2}
+  fireShadowMaterial: {fileID: 2100000, guid: b74c77ac638a7df4888a2868fe0c8da3, type: 2}
   drawFireballA: 1
   drawFireballB: 1
   drawFireShadow: 1
@@ -197,14 +197,14 @@ MonoBehaviour:
   on: 1
   detonatorControlled: 1
   startSize: 1
-  size: 1.87737787
-  explodeDelayMin: .0299999882
+  size: 2.25
+  explodeDelayMin: .0299999993
   explodeDelayMax: .119999975
   startDuration: 2
-  duration: 2.27267694
+  duration: 2.25
   timeScale: 1
   startDetail: 1
-  detail: 1.2099998
+  detail: 1.20000005
   startColor: {r: 1, g: 1, b: 1, a: 1}
   color: {r: 1, g: .889996409, b: .809352517, a: .219607845}
   startLocalPosition: {x: 0, y: 0, z: 0}
@@ -214,9 +214,9 @@ MonoBehaviour:
   startVelocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   detailThreshold: 0
-  fireballAMaterial: {fileID: 0}
-  fireballBMaterial: {fileID: 0}
-  fireShadowMaterial: {fileID: 0}
+  fireballAMaterial: {fileID: 2100000, guid: 3049dffabc5225d40b27675901977fdd, type: 2}
+  fireballBMaterial: {fileID: 2100000, guid: 02a46fb295082ed488cab61782ddc01f, type: 2}
+  fireShadowMaterial: {fileID: 2100000, guid: b74c77ac638a7df4888a2868fe0c8da3, type: 2}
   drawFireballA: 1
   drawFireballB: 1
   drawFireShadow: 1
@@ -234,11 +234,11 @@ MonoBehaviour:
   on: 1
   detonatorControlled: 1
   startSize: 1
-  size: 4.98109627
+  size: 1
   explodeDelayMin: 0
   explodeDelayMax: 0
   startDuration: 2
-  duration: .25
+  duration: .300000012
   timeScale: 1
   startDetail: 1
   detail: 1
@@ -251,8 +251,8 @@ MonoBehaviour:
   startVelocity: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
   detailThreshold: 0
-  shockwaveMaterial: {fileID: 0}
-  renderMode: 4
+  shockwaveMaterial: {fileID: 2100000, guid: 21588279b895eef48a0448f7f2519813, type: 2}
+  renderMode: 2
 --- !u!114 &11400012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,27 +264,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1154a16e40ae84e42b591529ea211201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  on: 1
+  on: 0
   detonatorControlled: 1
   startSize: 1
-  size: 1.0519073
+  size: .400000006
   explodeDelayMin: 0
   explodeDelayMax: 0
   startDuration: 2
-  duration: 4
+  duration: 2.5
   timeScale: 1
   startDetail: 1
-  detail: 5
+  detail: 20
   startColor: {r: 1, g: 1, b: 1, a: 1}
-  color: {r: .930769205, g: .713143289, b: .713143289, a: 1}
+  color: {r: .948529422, g: .132515147, b: .132515147, a: 1}
   startLocalPosition: {x: 0, y: 0, z: 0}
   localPosition: {x: 0, y: 0, z: 0}
   startForce: {x: 0, y: 0, z: 0}
-  force: {x: 0, y: -9.81000042, z: 0}
+  force: {x: 2, y: -9.81000042, z: 2}
   startVelocity: {x: 0, y: 0, z: 0}
-  velocity: {x: 300, y: 300, z: 300}
-  detailThreshold: 0
-  sparksMaterial: {fileID: 0}
+  velocity: {x: 300, y: 200, z: 300}
+  detailThreshold: 5
+  sparksMaterial: {fileID: 2100000, guid: 197f587cc9b5151488eaa99e21a8dc56, type: 2}
 --- !u!114 &11400014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,26 +299,26 @@ MonoBehaviour:
   on: 0
   detonatorControlled: 1
   startSize: 1
-  size: 5
+  size: 4
   explodeDelayMin: 0
   explodeDelayMax: 0
   startDuration: 2
-  duration: .864852667
+  duration: .850000024
   timeScale: 1
   startDetail: 1
-  detail: 1
+  detail: 0
   startColor: {r: 1, g: 1, b: 1, a: 1}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: .816176474, g: .2640571, b: .2640571, a: 1}
   startLocalPosition: {x: 0, y: 0, z: 0}
   localPosition: {x: 0, y: 0, z: 0}
   startForce: {x: 0, y: 0, z: 0}
-  force: {x: 0, y: 0, z: 0}
+  force: {x: 0, y: 1, z: 0}
   startVelocity: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  detailThreshold: .889508247
-  zOffset: .97655946
-  distortion: 38.1501846
-  heatwaveMaterial: {fileID: 0}
+  velocity: {x: 1, y: 1, z: 1}
+  detailThreshold: 0
+  zOffset: -1
+  distortion: 1
+  heatwaveMaterial: {fileID: 2100000, guid: 21588279b895eef48a0448f7f2519813, type: 2}
 --- !u!114 &11400016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,7 +333,7 @@ MonoBehaviour:
   on: 1
   detonatorControlled: 1
   startSize: 1
-  size: .94599247
+  size: 1
   explodeDelayMin: 0
   explodeDelayMax: 0
   startDuration: 2
@@ -353,8 +353,8 @@ MonoBehaviour:
   sprayObject: {fileID: 100004, guid: 5cae1a02f5362443284e452c3020967f, type: 2}
   count: 33
   startingRadius: 5
-  minScale: .200491905
-  maxScale: .538931429
+  minScale: .200000003
+  maxScale: .75
 --- !u!114 &11400018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,7 +369,7 @@ MonoBehaviour:
   size: 6
   color: {r: .835818589, g: .843283594, b: .30207172, a: .4627451}
   explodeOnStart: 1
-  duration: 3.2971828
+  duration: 3.29999995
   detail: 1
   upwardsBias: 3
   destroyTime: 7

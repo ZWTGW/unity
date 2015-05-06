@@ -1,0 +1,4 @@
+wrzuciæ to do c:\Users\<NAZWA USERA>\AppData\LocalLow\DefaultCompany\Project 
+lub odpowiednika jak na maku (unity persistent storage)
+bo inaczej nie œmignie,
+pozdrawiam pc
