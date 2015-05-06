@@ -188,7 +188,7 @@ MonoBehaviour:
   lastShot: 0
   rail: 0
   type: {fileID: 0}
-  Bullet: {fileID: 5400000, guid: 3119ff97a94ce8e4b8a5d22d0eb7eeee, type: 2}
+  Bullet: {fileID: 5450982, guid: e0a69653db745784cabece3dee709250, type: 2}
   endPoint: {fileID: 400004}
   particleSystemEffect: {fileID: 0}
   shooter: {fileID: 0}
