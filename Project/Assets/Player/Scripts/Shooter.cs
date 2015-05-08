@@ -13,6 +13,7 @@ public class Shooter : MonoBehaviour {
 	public GameObject[] weapons;
 
 	public bool forceShooting = false;
+	public GameObject arms;
 
 	private Vector3 weaponPosition = new Vector3(2,0,1);
 
@@ -129,6 +130,14 @@ public class Shooter : MonoBehaviour {
 		weapon.GetComponent<Renderer>().enabled = true;
 		//Destroy(weapon);
 
+		switch(n){
+		case 0:
+			arms.GetComponent<Animation> ().Play ("bazooka_up");
+			break;
+		case 1:
+			arms.GetComponent<Animation> ().Play ("railgun_up");
+			break;
+		}
 	}
 
 	public Vector3 GetTarget()
