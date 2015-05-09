@@ -165,7 +165,7 @@ public class Shooter : MonoBehaviour {
 		}
 		actualWeapon = n;
 		weapon = weapons[n];
-		weapon.GetComponent<Renderer>().enabled = true;
+		weapon.GetComponent<Renderer>().enabled = false;
 		//Destroy(weapon);
 
 
