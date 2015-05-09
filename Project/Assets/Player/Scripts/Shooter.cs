@@ -69,6 +69,31 @@ public class Shooter : MonoBehaviour {
 		{
 			ChangeWeapon(3);
 		}
+		if(Input.GetKey("4"))
+		{
+			ChangeWeapon(4);
+		}
+		if(Input.GetKey("5"))
+		{
+			ChangeWeapon(5);
+		}
+		if(Input.GetKey("6"))
+		{
+			ChangeWeapon(6);
+		}
+		if(Input.GetKey("7"))
+		{
+			ChangeWeapon(7);
+		}
+		if(Input.GetKey("8"))
+		{
+			ChangeWeapon(8);
+		}	
+		if(Input.GetKey("9"))
+		{
+			ChangeWeapon(9);
+		}
+
 	}
 
 	public void StartShooting()
@@ -105,6 +130,19 @@ public class Shooter : MonoBehaviour {
 
 	void ChangeWeapon(int n)
 	{
+		if(n == 0)
+			arms.GetComponent<Animation> ().Play ("bazooka_up");
+		if(n == 1)
+			arms.GetComponent<Animation> ().Play ("railgun_up");
+		if(n == 2)
+			arms.GetComponent<Animation> ().Play ("bazooka_up");
+		if(n == 3)
+			arms.GetComponent<Animation> ().Play ("bazooka_down");
+		if(n == 4)
+			arms.GetComponent<Animation> ().Play ("railgun_up");
+		if(n == 5)
+			arms.GetComponent<Animation> ().Play ("railgun_down");
+
 		if (n >= weaponsList.Length || weaponsList[n] == null || actualWeapon == n)
 		{
 			return;
@@ -130,14 +168,7 @@ public class Shooter : MonoBehaviour {
 		weapon.GetComponent<Renderer>().enabled = true;
 		//Destroy(weapon);
 
-		switch(n){
-		case 0:
-			arms.GetComponent<Animation> ().Play ("bazooka_up");
-			break;
-		case 1:
-			arms.GetComponent<Animation> ().Play ("railgun_up");
-			break;
-		}
+
 	}
 
 	public Vector3 GetTarget()
