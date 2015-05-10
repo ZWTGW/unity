@@ -25,6 +25,10 @@ public class RecordAndPlayDemo : MonoBehaviour {
 	// ten plik musi być w c:\Users\<NAZWA USERA>\AppData\LocalLow\DefaultCompany\Project 
 	// sama nazwa tutaj
 
+	public float przesuniecieX = 0f;
+	public float przesuniecieY = 0f;
+	public float przesuniecieZ = 0f;
+
 	/// /////////////////////////////////////////////////////////////////
 
 	bool recording = false;
@@ -79,7 +83,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		else player = playerObject;
 
 		demoFrame tmp = demo[currentFrame];
-		player.transform.position = new Vector3(tmp.x, tmp.y, tmp.z);
+		player.transform.position = new Vector3(tmp.x - przesuniecieX, tmp.y - przesuniecieY, tmp.z - przesuniecieZ);
 		player.transform.rotation = new Quaternion(tmp.rx, tmp.ry, tmp.rz, tmp.rw);
 
 		if (tmp.shoot > 0) {
