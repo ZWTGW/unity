@@ -58,8 +58,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192852}
   m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106709}
-  m_LocalPosition: {x: 109.273003, y: 1.33299994, z: 9.44400024}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 291.809998, y: 83.6699982, z: -470.179993}
+  m_LocalScale: {x: 1.55529094, y: 1.55528963, z: 1.55528963}
   m_Children:
   - {fileID: 479576}
   m_Father: {fileID: 0}
@@ -131,8 +131,8 @@ Light:
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: 1, g: .682758629, b: 0, a: 1}
-  m_Intensity: 5.80000019
-  m_Range: 6.38999987
+  m_Intensity: 6
+  m_Range: 6.5
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -148,8 +148,8 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 3.57999992
+  m_Lightmapping: 1
+  m_BounceIntensity: 4
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -172,7 +172,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148250}
-  lengthInSec: 3.16000009
+  lengthInSec: 3
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -343,7 +343,7 @@ ParticleSystem:
         rgba: 4279084537
       minMaxState: 0
     startSize:
-      scalar: .159999996
+      scalar: .239999995
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -410,7 +410,7 @@ ParticleSystem:
       minMaxState: 0
     gravityModifier: 0
     inheritVelocity: 0
-    maxNumParticles: 1041
+    maxNumParticles: 648
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -506,7 +506,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 1
   RotationModule:
-    enabled: 1
+    enabled: 0
     curve:
       scalar: .785398126
       maxCurve:
