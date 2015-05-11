@@ -8,10 +8,10 @@ using System.Timers;
 
 public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY SPOSOB BY TO ZROBIC :(... ale dziala :)
 	
-	private int crchSpeed = 12; //predkosc kucania
-	private int normalSpeed = 23; //predkosc normalnego biegu
-	private int runSpeed = 34; //predkosc sprintu
-	private int tiredSpeed = 15; //predkosc po zmeczeniu sie
+	private int crchSpeed = 14; //predkosc kucania
+	private int normalSpeed = 25; //predkosc normalnego biegu
+	private int runSpeed = 37; //predkosc sprintu
+	private int tiredSpeed = 17; //predkosc po zmeczeniu sie
 	
 	private float gravity = 93.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci
@@ -268,7 +268,7 @@ public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY S
 			}
 
 			//UPADEK z duzej wysokosci
-			if (falldmg<-50)
+			if (falldmg<-75)
 			{
 				//Debug.Log(falldmg*0.35);
 				falldmg*=-0.35f;
