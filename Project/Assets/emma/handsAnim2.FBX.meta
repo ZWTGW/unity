@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 9c0cef7271e947c41af22a5867b508dc
-timeCreated: 1431254262
-licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
@@ -94,6 +92,15 @@ ModelImporter:
     100172: Plane
     100174: Torus.1
     100176: Zawleczka
+    100178: 1HP001
+    100180: 4HP001
+    100182: 4TopHP001
+    100184: Object040
+    100186: Object041
+    100188: Object042
+    100190: Object043
+    100192: PasekLP002
+    100194: Reka_Prawa001
     400000: Bazooka
     400002: Be_L_Hand_End001
     400004: Be_L_Wrist_End001
@@ -183,6 +190,15 @@ ModelImporter:
     400172: Plane
     400174: Torus.1
     400176: Zawleczka
+    400178: 1HP001
+    400180: 4HP001
+    400182: 4TopHP001
+    400184: Object040
+    400186: Object041
+    400188: Object042
+    400190: Object043
+    400192: PasekLP002
+    400194: Reka_Prawa001
     2300000: Bazooka
     2300002: Cube
     2300004: Cylinder
@@ -191,6 +207,14 @@ ModelImporter:
     2300010: Plane
     2300012: Torus.1
     2300014: Zawleczka
+    2300016: 1HP001
+    2300018: 4HP001
+    2300020: 4TopHP001
+    2300022: Object040
+    2300024: Object041
+    2300026: Object042
+    2300028: Object043
+    2300030: PasekLP002
     3300000: Bazooka
     3300002: Cube
     3300004: Cylinder
@@ -199,6 +223,14 @@ ModelImporter:
     3300010: Plane
     3300012: Torus.1
     3300014: Zawleczka
+    3300016: 1HP001
+    3300018: 4HP001
+    3300020: 4TopHP001
+    3300022: Object040
+    3300024: Object041
+    3300026: Object042
+    3300028: Object043
+    3300030: PasekLP002
     4300000: Glove001
     4300002: L_Arm001
     4300004: Zawleczka
@@ -209,10 +241,25 @@ ModelImporter:
     4300014: Plane
     4300016: Bazooka
     4300018: Cylinder
-    7400000: Take 001
+    4300020: 1HP001
+    4300022: Object043
+    4300024: Object040
+    4300026: PasekLP002
+    4300028: 4HP001
+    4300030: 4TopHP001
+    4300032: Object041
+    4300034: Object042
+    4300036: Reka_Prawa001
+    7400000: granade
+    7400002: bazooka_up
+    7400004: bazooka_down
+    7400006: railgun_up
+    7400008: railgun_down
     9500000: //RootNode
+    11100000: //RootNode
     13700000: Glove001
     13700002: L_Arm001
+    13700004: Reka_Prawa001
   materials:
     importMaterials: 1
     materialName: 0
@@ -228,11 +275,1031 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: granade
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 78
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bazooka
+        weight: 1
+      - path: Bn_L_Arm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Be_L_Hand_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001/Bn_L_Index_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001/Bn_L_Middle_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001/Bn_L_Pinky_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001/Bn_L_Ring_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001/Bn_L_Thumb_C_B001
+        weight: 1
+      - path: Bn_R_Arm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Be_R_Hand_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001/Bn_R_Index_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001/Bn_R_Middle_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001/Bn_R_Pinky_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001/Bn_R_Ring_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001/Bn_R_Thumb_C_B001
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Glove001
+        weight: 1
+      - path: Granat
+        weight: 1
+      - path: Granat/Cube
+        weight: 1
+      - path: Granat/Plane
+        weight: 1
+      - path: L_Arm001
+        weight: 1
+      - path: Zawleczka
+        weight: 1
+      - path: Zawleczka/Cylinder.1
+        weight: 1
+      - path: Zawleczka/Torus.1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: bazooka_up
+      takeName: Take 001
+      firstFrame: 79
+      lastFrame: 113
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bazooka
+        weight: 1
+      - path: Bn_L_Arm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Be_L_Hand_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001/Bn_L_Index_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001/Bn_L_Middle_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001/Bn_L_Pinky_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001/Bn_L_Ring_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001/Bn_L_Thumb_C_B001
+        weight: 1
+      - path: Bn_R_Arm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Be_R_Hand_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001/Bn_R_Index_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001/Bn_R_Middle_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001/Bn_R_Pinky_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001/Bn_R_Ring_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001/Bn_R_Thumb_C_B001
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Glove001
+        weight: 1
+      - path: Granat
+        weight: 1
+      - path: Granat/Cube
+        weight: 1
+      - path: Granat/Plane
+        weight: 1
+      - path: L_Arm001
+        weight: 1
+      - path: Zawleczka
+        weight: 1
+      - path: Zawleczka/Cylinder.1
+        weight: 1
+      - path: Zawleczka/Torus.1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: bazooka_down
+      takeName: Take 001
+      firstFrame: 113
+      lastFrame: 148
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bazooka
+        weight: 1
+      - path: Bn_L_Arm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Be_L_Hand_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001/Bn_L_Index_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001/Bn_L_Middle_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001/Bn_L_Pinky_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001/Bn_L_Ring_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001/Bn_L_Thumb_C_B001
+        weight: 1
+      - path: Bn_R_Arm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Be_R_Hand_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001/Bn_R_Index_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001/Bn_R_Middle_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001/Bn_R_Pinky_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001/Bn_R_Ring_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001/Bn_R_Thumb_C_B001
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Glove001
+        weight: 1
+      - path: Granat
+        weight: 1
+      - path: Granat/Cube
+        weight: 1
+      - path: Granat/Plane
+        weight: 1
+      - path: L_Arm001
+        weight: 1
+      - path: Zawleczka
+        weight: 1
+      - path: Zawleczka/Cylinder.1
+        weight: 1
+      - path: Zawleczka/Torus.1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: railgun_up
+      takeName: Take 001
+      firstFrame: 149
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bazooka
+        weight: 1
+      - path: Bn_L_Arm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Be_L_Hand_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001/Bn_L_Index_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001/Bn_L_Middle_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001/Bn_L_Pinky_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001/Bn_L_Ring_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001/Bn_L_Thumb_C_B001
+        weight: 1
+      - path: Bn_R_Arm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Be_R_Hand_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001/Bn_R_Index_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001/Bn_R_Middle_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001/Bn_R_Pinky_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001/Bn_R_Ring_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001/Bn_R_Thumb_C_B001
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Glove001
+        weight: 1
+      - path: Granat
+        weight: 1
+      - path: Granat/Cube
+        weight: 1
+      - path: Granat/Plane
+        weight: 1
+      - path: L_Arm001
+        weight: 1
+      - path: Zawleczka
+        weight: 1
+      - path: Zawleczka/Cylinder.1
+        weight: 1
+      - path: Zawleczka/Torus.1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: railgun_down
+      takeName: Take 001
+      firstFrame: 175
+      lastFrame: 201
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bazooka
+        weight: 1
+      - path: Bn_L_Arm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Be_L_Hand_End001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Index_A_A001/Bn_L_Index_A_B001/Bn_L_Index_A_C001/Bn_L_Index_B_A001/Bn_L_Index_B_B001/Bn_L_Index_C_A001/Bn_L_Index_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Middle_A_A001/Bn_L_Middle_A_B001/Bn_L_Middle_A_C001/Bn_L_Middle_B_A001/Bn_L_Middle_B_B001/Bn_L_Middle_C_A001/Bn_L_Middle_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Pinky_A_A001/Bn_L_Pinky_A_B001/Bn_L_Pinky_A_C001/Bn_L_Pinky_B_A001/Bn_L_Pinky_B_B001/Bn_L_Pinky_C_A001/Bn_L_Pinky_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Ring_A_A001/Bn_L_Ring_A_B001/Bn_L_Ring_A_C001/Bn_L_Ring_B_A001/Bn_L_Ring_B_B001/Bn_L_Ring_C_A001/Bn_L_Ring_C_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001
+        weight: 1
+      - path: Bn_L_Arm001/Bn_L_Elbow001/Bn_L_Forearm001/Be_L_Wrist_End001/Bn_L_Hand001/Bn_L_Thumb_A001/Bn_L_Thumb_B_A001/Bn_L_Thumb_B_B001/Bn_L_Thumb_C_A001/Bn_L_Thumb_C_B001
+        weight: 1
+      - path: Bn_R_Arm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Be_R_Hand_End001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Index_A_A001/Bn_R_Index_A_B001/Bn_R_Index_A_C001/Bn_R_Index_B_A001/Bn_R_Index_B_B001/Bn_R_Index_C_A001/Bn_R_Index_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Middle_A_A001/Bn_R_Middle_A_B001/Bn_R_Middle_A_C001/Bn_R_Middle_B_A001/Bn_R_Middle_B_B001/Bn_R_Middle_C_A001/Bn_R_Middle_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Pinky_A_A001/Bn_R_Pinky_A_B001/Bn_R_Pinky_A_C001/Bn_R_Pinky_B_A001/Bn_R_Pinky_B_B001/Bn_R_Pinky_C_A001/Bn_R_Pinky_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Ring_A_A001/Bn_R_Ring_A_B001/Bn_R_Ring_A_C001/Bn_R_Ring_B_A001/Bn_R_Ring_B_B001/Bn_R_Ring_C_A001/Bn_R_Ring_C_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001
+        weight: 1
+      - path: Bn_R_Arm001/Bn_R_Elbow001/Bn_R_Forearm001/Be_R_Wrist_End001/Bn_R_Hand001/Bn_R_Thumb_A001/Bn_R_Thumb_B_A001/Bn_R_Thumb_B_B001/Bn_R_Thumb_C_A001/Bn_R_Thumb_C_B001
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      - path: Glove001
+        weight: 1
+      - path: Granat
+        weight: 1
+      - path: Granat/Cube
+        weight: 1
+      - path: Granat/Plane
+        weight: 1
+      - path: L_Arm001
+        weight: 1
+      - path: Zawleczka
+        weight: 1
+      - path: Zawleczka/Cylinder.1
+        weight: 1
+      - path: Zawleczka/Torus.1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -246,7 +1313,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -266,7 +1333,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

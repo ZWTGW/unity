@@ -127,25 +127,20 @@ public class Shooter : MonoBehaviour {
 		actualWeapon = -1;
 		ChangeWeapon(n);
 	}
-
-	void ChangeWeapon(int n)
-	{
-		if(n == 0)
+	
+	private float time = 0;
+	IEnumerator Change(int n){
+		
+		yield return new WaitForSeconds(time);
+		if (n == 0) {
 			arms.GetComponent<Animation> ().Play ("bazooka_up");
+		}
 		if(n == 1)
 			arms.GetComponent<Animation> ().Play ("railgun_up");
-		if(n == 2)
-			arms.GetComponent<Animation> ().Play ("bazooka_up");
-		if(n == 3)
-			arms.GetComponent<Animation> ().Play ("bazooka_down");
-		if(n == 4)
-			arms.GetComponent<Animation> ().Play ("railgun_up");
-		if(n == 5)
-			arms.GetComponent<Animation> ().Play ("railgun_down");
 
 		if (n >= weaponsList.Length || weaponsList[n] == null || actualWeapon == n)
 		{
-			return;
+			return true;
 		}
 		if (weapon != null)
 		{
@@ -161,12 +156,37 @@ public class Shooter : MonoBehaviour {
 			weapon.transform.parent = sCamera.transform;
 			weapon.transform.localPosition = weaponPosition;
 			weapons[n] = weapon;
-
+			
 		}
 		actualWeapon = n;
 		weapon = weapons[n];
 		weapon.GetComponent<Renderer>().enabled = false;
 		//Destroy(weapon);
+	}
+	void ChangeWeapon(int n)
+	{
+		if (n == 0) {
+			arms.GetComponent<Animation> ().Play ("railgun_down");
+			time = arms.GetComponent<Animation> ().GetClip ("railgun_down").length;
+			StartCoroutine (Change (n));
+		}
+		if (n == 1) {
+			arms.GetComponent<Animation> ().Play ("bazooka_down");
+			time = arms.GetComponent<Animation> ().GetClip ("bazooka_down").length;
+			StartCoroutine (Change (n));
+		}
+
+
+		if(n == 2)
+			arms.GetComponent<Animation> ().Play ("bazooka_up");
+		if(n == 3)
+			arms.GetComponent<Animation> ().Play ("bazooka_down");
+		if(n == 4)
+			arms.GetComponent<Animation> ().Play ("railgun_up");
+		if(n == 5)
+			arms.GetComponent<Animation> ().Play ("railgun_down");
+
+
 
 
 	}
