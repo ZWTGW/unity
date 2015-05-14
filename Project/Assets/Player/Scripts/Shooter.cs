@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Shooter : MonoBehaviour {
 	private GameObject weapon;
-	private int actualWeapon;
+	public int actualWeapon;
 
 	private int weaponCount;
 	public int weaponMax;

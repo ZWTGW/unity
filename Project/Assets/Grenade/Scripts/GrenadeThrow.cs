@@ -41,5 +41,10 @@ public class GrenadeThrow : MonoBehaviour {
 		granade.transform.position = camera.transform.position + camera.transform.forward + new Vector3(-1, 1, 0);
 		granade.GetComponent("Rigidbody").GetComponent<Rigidbody>().AddForce( camera.transform.forward*8000 );
 		--grenadesNumber;
+
+		if(gameObject.GetComponent<Shooter>().actualWeapon == 0)
+			arms.GetComponent<Animation> ().Play ("bazooka_up");
+		if (gameObject.GetComponent<Shooter> ().actualWeapon == 1)
+			arms.GetComponent<Animation> ().Play ("railgun_up");
 	}
 }
