@@ -3732,6 +3732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4fb7b0dc5044f4e8ddf3ef1cdb9fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actualWeapon: 0
   weaponMax: 0
   sCamera: {fileID: 100006}
   weaponsList:
@@ -3758,7 +3759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 2000004}
-  granadePref: {fileID: 100000, guid: d1c1cd89002286649be3b0764a28d0f9, type: 2}
+  granadePref: {fileID: 146678, guid: 68c3e109b6258e54591bc99e4264d09b, type: 2}
   arms: {fileID: 189994}
 --- !u!114 &11400004
 MonoBehaviour:
