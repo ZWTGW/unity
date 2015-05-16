@@ -97,12 +97,9 @@ public class RecordAndPlayDemo : MonoBehaviour {
 			// to sie wywali wlasnie jak obiekt nie ma jakiejs animacji ale 
 			// powinien miec jak sie dobrego smiecia podepnie
 			Animation anim = player.GetComponent<Animation>();
-			if(animPrefix + anim == tmp.anim) {
-			}
-			else {
-				//Debug.Log ("Zmieniam animacje na: " + tmp.anim);
+
 				anim.Play(tmp.anim);
-			}
+
 		}
 
 		if (tmp.shoot > 0) {
