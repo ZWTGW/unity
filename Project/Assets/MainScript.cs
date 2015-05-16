@@ -9,7 +9,7 @@ public class MainScript : MonoBehaviour {
 	public void SpawnPlayer()
 	{
 		int rand = Random.Range (0, 5);
-		int spawnpoint = Random.Range (0, 4);
+		int spawnpoint = 2; // Random.Range (0, 4);
 		switch (spawnpoint) {
 		case 3:	Instantiate(playerPrefab, new Vector3(600f + rand, 115f, -375f), Quaternion.identity);
 			break;

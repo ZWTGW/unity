@@ -13,6 +13,7 @@ TagManager:
   - CanBeGray
   - JumpPad
   - WeaponTag
+  - TylkoTestPozdro
   layers:
   - Default
   - TransparentFX

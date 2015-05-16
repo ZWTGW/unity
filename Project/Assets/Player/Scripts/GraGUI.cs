@@ -134,6 +134,7 @@ public class GraGUI : MonoBehaviour{
 	}
 	
 	private void HUD() {
+		return;
 		//camera.RenderWithShader(
 		// te rzeczy trzeba by pozniej pobrac z jakiegos obiektu player czy cos takiego
 		// na razie dla testu stale

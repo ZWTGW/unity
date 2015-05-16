@@ -25,11 +25,17 @@ public class RecordAndPlayDemo : MonoBehaviour {
 	// ten plik musi być w c:\Users\<NAZWA USERA>\AppData\LocalLow\DefaultCompany\Project 
 	// sama nazwa tutaj
 
+	// przesuniecie 
 	public float przesuniecieX = 0f;
 	public float przesuniecieY = 0f;
 	public float przesuniecieZ = 0f;
 
+	// prefiks animacji (bazooka_, railgun_ czy jakos tak)
+	public string animPrefix = "bazooka_";
+
 	/// /////////////////////////////////////////////////////////////////
+	string anim = "standing"; // aktualna animacja tylko do zapisu, bo pozniej zmianiamy sobie to na obiekcie, ktory musi miec tą animacje tak w ogóle
+	// (+ prefix do zapisu jest powyzej)
 
 	bool recording = false;
 	bool playing = false;
@@ -41,6 +47,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		public float x, y, z; // pozycja
 		public float rw, rx, ry, rz; // rotacja
 		public int shoot;
+		public string anim; // nazwa animacji
 	};
 
 	List<demoFrame> demo = new List<demoFrame>();
@@ -64,6 +71,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		tmp.rx = player.transform.rotation.x;
 		tmp.ry = player.transform.rotation.y;
 		tmp.rz = player.transform.rotation.z;
+		tmp.anim = animPrefix + anim;
 
 		tmp.shoot = 0;
 		if(Input.GetMouseButtonDown(0)) {
@@ -85,6 +93,17 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		demoFrame tmp = demo[currentFrame];
 		player.transform.position = new Vector3(tmp.x - przesuniecieX, tmp.y - przesuniecieY, tmp.z - przesuniecieZ);
 		player.transform.rotation = new Quaternion(tmp.rx, tmp.ry, tmp.rz, tmp.rw);
+		if(!enableKeys) { // bo pod FPSowego playera nie mamy podpietych animacji (chyba)
+			// to sie wywali wlasnie jak obiekt nie ma jakiejs animacji ale 
+			// powinien miec jak sie dobrego smiecia podepnie
+			Animation anim = player.GetComponent<Animation>();
+			if(animPrefix + anim == tmp.anim) {
+			}
+			else {
+				//Debug.Log ("Zmieniam animacje na: " + tmp.anim);
+				anim.Play(tmp.anim);
+			}
+		}
 
 		if (tmp.shoot > 0) {
 			player.GetComponent<Shooter>().StartShooting();
@@ -121,6 +140,26 @@ public class RecordAndPlayDemo : MonoBehaviour {
 				playing = false;
 				LoadFromFile();
 			}
+
+			/*if( Input.GetKeyDown (KeyCode.Z)) {
+				GameObject test = GameObject.FindGameObjectsWithTag ("TylkoTestPozdro")[0];
+				Animation anim = test.GetComponent<Animation>();
+				anim.Play("bazooka_walking");
+			}*/
+
+
+		////////////////////////// animacja 
+		/// 	sprawdzamy co robimy np . chodzimy i zmieniamy animacje i tyle 
+		/// 
+
+			anim = "standing";
+
+			if( Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || 
+			   Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) {
+				anim = "walking";
+				if(Input.GetKey(KeyCode.LeftShift)) anim = "running";
+			}
+
 		}
 
 		if(!enableKeys) {
@@ -157,5 +196,9 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		demo = (List<demoFrame>)bf.Deserialize(file);
 		Debug.Log("Załadowno demko z " + demo.Count + " klatkami"); // jak tu jest 0 a coś mamy to źle raczej
 
+	}
+
+	void Awake () {
+		Application.targetFrameRate = 30; // FPSy
 	}
 }
