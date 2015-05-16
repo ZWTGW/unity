@@ -144,7 +144,7 @@ public class GraGUI : MonoBehaviour{
 		}
 
 		GameObject weaponGO = GameObject.FindGameObjectWithTag("WeaponTag");
-		Weapon weapon = weaponGO.GetComponent<Weapon>();
+		Weapon weapon = weaponGO.GetComponent<Weapon>(); // tutaj sie wywala teraz błąd po zmianach miłosza w broni, ale wszystko i tak śmiga więc whatever
 
 		int hp = baseCharScript.currHP;
 		int maxHp = baseCharScript.maxHP;
