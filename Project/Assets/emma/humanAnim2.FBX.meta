@@ -154,6 +154,8 @@ ModelImporter:
     100292: Torus.002
     100294: WlosyLP
     100296: Zawleczka001
+    100298: but_prawy001
+    100300: Point009
     400000: 1HP
     400002: 2HP
     400004: 3HP
@@ -303,6 +305,8 @@ ModelImporter:
     400292: Torus.002
     400294: WlosyLP
     400296: Zawleczka001
+    400298: but_prawy001
+    400300: Point009
     2300000: 1HP
     2300002: 2HP
     2300004: 3HP
@@ -401,6 +405,7 @@ ModelImporter:
     4300074: but_lewy
     4300076: Reka_Lewa
     4300078: PlaszczLP001
+    4300080: but_prawy001
     7400000: railgun_standing
     7400002: railgun_walking
     7400004: railgun_running
@@ -458,6 +463,7 @@ ModelImporter:
     13700016: RekawicaLP
     13700018: spodnie
     13700020: SprzaczkaLP
+    13700022: but_prawy001
   materials:
     importMaterials: 1
     materialName: 0
