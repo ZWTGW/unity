@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: SmokeMIx 1
+  m_Name: ParticleDuststorm
   m_Shader: {fileID: 203, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -18,27 +18,23 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 60e1d0a96221932478bd7120d0e366c9, type: 3}
+          m_Texture: {fileID: 2800000, guid: 2a6221eb1b1c50a4cb69a62e2f264e58, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 1, y: 1}
     m_Floats:
       data:
         first:
-          name: _Cutoff
-        second: .0895522609
-      data:
-        first:
           name: _InvFade
-        second: 1
+        second: .25
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .438461542, g: .438461542, b: .438461542, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _TintColor
-        second: {r: .5, g: .5, b: .5, a: .5}
+        second: {r: .801470578, g: .74457103, b: .68360728, a: .0705882385}
 --- !u!1002 &2100001
 EditorExtensionImpl:
   serializedVersion: 6
