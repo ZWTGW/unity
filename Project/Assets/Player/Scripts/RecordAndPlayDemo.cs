@@ -172,7 +172,7 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		}
 	}
 
-	void SaveToFile(string name = "demko") { // zapisujemy demko
+	void SaveToFile(string name = "demko6") { // zapisujemy demko
 		string filePath = Application.persistentDataPath + "/" + name + ".demko";
 		if(File.Exists(filePath)) File.Delete(filePath); // wywalamy stary plik i sie o nic nie pytamy (!)
 		BinaryFormatter bf = new BinaryFormatter();
@@ -181,8 +181,8 @@ public class RecordAndPlayDemo : MonoBehaviour {
 		bf.Serialize(file, demo);
 	}
 
-	void LoadFromFile(string name = "demko") {
-		string filePath = Application.persistentDataPath + "/" + name + ".demko";
+	void LoadFromFile(string name = "demko2") {
+		string filePath = Application.persistentDataPath + "/" + plikDemaBezRozszerzenia + ".demko";
 		demo.Clear();
 		if(!File.Exists(filePath)) {
 			Debug.Log ("PLIK Z DEMKIEM " + name + " NIE ISTNIEJE!!111111111");

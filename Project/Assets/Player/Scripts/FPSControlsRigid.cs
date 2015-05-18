@@ -9,9 +9,9 @@ using System.Timers;
 public class FPSControlsRigid : BaseCharacter { //NIE WIEM CZY TO JEST SLUSZNY SPOSOB BY TO ZROBIC :(... ale dziala :)
 	
 	private int crchSpeed = 14; //predkosc kucania
-	private int normalSpeed = 25; //predkosc normalnego biegu
-	private int runSpeed = 37; //predkosc sprintu
-	private int tiredSpeed = 17; //predkosc po zmeczeniu sie
+	private int normalSpeed = 15; //predkosc normalnego biegu
+	private int runSpeed = 30; //predkosc sprintu
+	private int tiredSpeed = 10; //predkosc po zmeczeniu sie
 	
 	private float gravity = 93.0f; //grawitacja
 	private int maxVelocityChange = 15; //zmiana predkosci

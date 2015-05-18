@@ -2,21 +2,21 @@
 using System.Collections;
 
 public class Shooter : MonoBehaviour {
-	private GameObject weapon;
+	public GameObject weapon;
 	public int actualWeapon;
-
+	
 	private int weaponCount;
 	public int weaponMax;
-
+	
 	public GameObject sCamera;
 	public GameObject[] weaponsList;
 	public GameObject[] weapons;
-
+	
 	public bool forceShooting = false;
 	public GameObject arms;
-
+	
 	private Vector3 weaponPosition = new Vector3(2,0,1);
-
+	
 	// Use this for initialization
 	void Start () {
 		weaponCount = 0;
@@ -31,20 +31,24 @@ public class Shooter : MonoBehaviour {
 		PrepareWeapons(0);
 		//weapon.transform.parent = GameObject.Find ("PlayerCam").transform;// this.transform;
 	}
-	
+	public bool player = false;
 	// Update is called once per frame
 	void Update () {
-		Ray ray = new Ray(sCamera.transform.position, sCamera.transform.rotation * new Vector3(0, 0, 1));
-		Debug.DrawRay(sCamera.transform.position, sCamera.transform.rotation * new Vector3(0, 0, 100000000));
-
+		if (sCamera != null) {
+			Ray ray = new Ray (sCamera.transform.position, sCamera.transform.rotation * new Vector3 (0, 0, 1));
+			Debug.DrawRay (sCamera.transform.position, sCamera.transform.rotation * new Vector3 (0, 0, 100000000));
+		}
+		
 		if (forceShooting) weapon.GetComponent<Weapon>().StartShooting();
-
+		
 		if(Input.GetMouseButtonDown(0))
 		{
+			if (player)
 			StartShooting();
 		}
 		if(Input.GetMouseButtonUp(0))
 		{
+			if(player)
 			StopShooting ();
 		}
 		
@@ -52,7 +56,7 @@ public class Shooter : MonoBehaviour {
 		{
 			weapon.GetComponent<Weapon>().StartReloading();
 		}
-
+		
 		if(Input.GetKey("0"))
 		{
 			ChangeWeapon(0);
@@ -93,25 +97,30 @@ public class Shooter : MonoBehaviour {
 		{
 			ChangeWeapon(9);
 		}
-
+		
 	}
-
+	
 	public void StartShooting()
 	{
-		weapon.GetComponent<Weapon>().StartShooting();
+		if (weapon != null) {
+			weapon.GetComponent<Weapon> ().StartShooting ();
+		}
 		appwarp.notifyShooting = true;
 		
 		//byle co zeby tylko narastala ilosc kills - absolutnie do wywalenia
+		
 		BaseCharacter baseCharScript = GetComponent<BaseCharacter>();
-		baseCharScript.kills++;
+		if (baseCharScript != null) {
+			baseCharScript.kills++;
+		}
 	}
-
+	
 	public void StopShooting()
 	{
 		weapon.GetComponent<Weapon>().StopShooting();
 		appwarp.notifyShooting = false;
 	}
-
+	
 	void PrepareWeapons(int n)
 	{
 		for (int i = 0; i < weaponMax; i++)
@@ -122,7 +131,7 @@ public class Shooter : MonoBehaviour {
 			weapons[i].transform.parent = sCamera.transform;
 			weapons[i].transform.localPosition = weaponPosition;
 			weapons[i].GetComponent<Renderer>().enabled = false;
-
+			
 		}
 		actualWeapon = -1;
 		ChangeWeapon(n);
@@ -137,7 +146,7 @@ public class Shooter : MonoBehaviour {
 		}
 		if(n == 1)
 			arms.GetComponent<Animation> ().Play ("railgun_up");
-
+		
 		if (n >= weaponsList.Length || weaponsList[n] == null || actualWeapon == n)
 		{
 			return true;
@@ -175,8 +184,8 @@ public class Shooter : MonoBehaviour {
 			time = arms.GetComponent<Animation> ().GetClip ("bazooka_down").length;
 			StartCoroutine (Change (n));
 		}
-
-
+		
+		
 		if(n == 2)
 			arms.GetComponent<Animation> ().Play ("bazooka_up");
 		if(n == 3)
@@ -185,12 +194,12 @@ public class Shooter : MonoBehaviour {
 			arms.GetComponent<Animation> ().Play ("railgun_up");
 		if(n == 5)
 			arms.GetComponent<Animation> ().Play ("railgun_down");
-
-
-
-
+		
+		
+		
+		
 	}
-
+	
 	public Vector3 GetTarget()
 	{
 		RaycastHit hit;
@@ -201,17 +210,17 @@ public class Shooter : MonoBehaviour {
 			{
 				return hit.point;
 			}
-
+			
 		}
 		return sCamera.transform.position + (sCamera.transform.rotation * new Vector3(0, 0, 1000));
 	}
-
+	
 	void DeleteWeapon(int n)
 	{
 		weaponsList[n] = null;
 		weaponCount--;
 	}
-
+	
 	void AddWeapon(GameObject ob)
 	{
 		if (weaponCount < weaponMax)

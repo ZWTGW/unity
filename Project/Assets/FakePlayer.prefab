@@ -5428,6 +5428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4fb7b0dc5044f4e8ddf3ef1cdb9fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 146290}
   actualWeapon: 0
   weaponMax: 0
   sCamera: {fileID: 159216}
@@ -5436,6 +5437,7 @@ MonoBehaviour:
   weapons: []
   forceShooting: 0
   arms: {fileID: 0}
+  player: 0
 --- !u!114 &11465142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5467,7 +5469,7 @@ MonoBehaviour:
   Bullet: {fileID: 5460784, guid: b281eded5e976524cb0f002a163920dd, type: 2}
   endPoint: {fileID: 452048}
   particleSystemEffect: {fileID: 0}
-  shooter: {fileID: 0}
+  shooter: {fileID: 159216}
   collide: 0
 --- !u!137 &13706098
 SkinnedMeshRenderer:
