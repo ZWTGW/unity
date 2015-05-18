@@ -1509,22 +1509,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &194008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 450404}
-  - 108: {fileID: 10886884}
-  m_Layer: 0
-  m_Name: Point light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &195910
 GameObject:
   m_ObjectHideFlags: 1
@@ -1621,13 +1605,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 221.106216, y: 62.6351318, z: -274.513916}
+  m_LocalPosition: {x: 202.860001, y: 54.0099983, z: -398.829987}
   m_LocalScale: {x: 1, y: 1.25, z: 1}
   m_Children:
   - {fileID: 400004}
   - {fileID: 400008}
   - {fileID: 400006}
-  - {fileID: 450404}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &400004
@@ -2344,18 +2327,6 @@ Transform:
   - {fileID: 479140}
   m_Father: {fileID: 428152}
   m_RootOrder: 5
---- !u!4 &450404
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .523788452, y: 1.37989509, z: 1.27392578}
-  m_LocalScale: {x: 1, y: .800000012, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400002}
-  m_RootOrder: 3
 --- !u!4 &450908
 Transform:
   m_ObjectHideFlags: 1
@@ -3731,38 +3702,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Enabled: 1
---- !u!108 &10886884
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194008}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .25
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!111 &11127036
 Animation:
   m_ObjectHideFlags: 1
@@ -3823,7 +3762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 2000004}
   granadePref: {fileID: 146678, guid: 68c3e109b6258e54591bc99e4264d09b, type: 2}
-  arms: {fileID: 0}
+  arms: {fileID: 117428}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
