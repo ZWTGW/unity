@@ -174,6 +174,9 @@ public class Shooter : MonoBehaviour {
 	}
 	void ChangeWeapon(int n)
 	{
+		if (arms == null)
+			return;
+
 		if (n == 0) {
 			arms.GetComponent<Animation> ().Play ("railgun_down");
 			time = arms.GetComponent<Animation> ().GetClip ("railgun_down").length;

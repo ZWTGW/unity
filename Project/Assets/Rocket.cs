@@ -55,7 +55,9 @@ public class Rocket : MonoBehaviour {
 	void Explode(Vector3 position)
 	{
 		//Instantiate(explosionPrefab,gameObject.transform.position, gameObject.transform.rotation );
-		Instantiate(explosionPrefab, position, gameObject.transform.rotation );
+		if (explosionPrefab != null) {
+			Instantiate (explosionPrefab, position, gameObject.transform.rotation);
+		}
 
 		Collider[] hitColliders = Physics.OverlapSphere( transform.position, blowSize );
 		
